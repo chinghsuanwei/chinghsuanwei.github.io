@@ -7,14 +7,17 @@
   
   <title>Set Up Hexo | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="怪了 我設定_config.yml的git配置如下 deploy:  type: git  repo: https://github.com/chinghsuanwei/chinghsuanwei.github.io.git  branch: master 結果是整個hexo原始碼丟到repository上… 解法:好像是我自己耍87…我先將hexo init 產生出來的根目錄整個先用git傳到[">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Set Up Hexo">
 <meta property="og:url" content="http://yoursite.com/2018/09/23/Set-Up-Hexo/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="怪了 我設定_config.yml的git配置如下 deploy:  type: git  repo: https://github.com/chinghsuanwei/chinghsuanwei.github.io.git  branch: master 結果是整個hexo原始碼丟到repository上… 解法:好像是我自己耍87…我先將hexo init 產生出來的根目錄整個先用git傳到[">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-23T11:10:04.402Z">
+<meta property="og:updated_time" content="2018-09-23T11:59:09.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Set Up Hexo">
+<meta name="twitter:description" content="怪了 我設定_config.yml的git配置如下 deploy:  type: git  repo: https://github.com/chinghsuanwei/chinghsuanwei.github.io.git  branch: master 結果是整個hexo原始碼丟到repository上… 解法:好像是我自己耍87…我先將hexo init 產生出來的根目錄整個先用git傳到[">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -83,7 +86,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>怪了 我設定_config.yml的git配置如下</p>
+<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/chinghsuanwei/chinghsuanwei.github.io.git" target="_blank" rel="noopener">https://github.com/chinghsuanwei/chinghsuanwei.github.io.git</a><br>  branch: master</p>
+<p>結果是整個hexo原始碼丟到repository上…</p>
+<p>解法:<br>好像是我自己耍87…<br>我先將hexo init 產生出來的根目錄整個先用git傳到[user].github.io<br>可能是這個原因 導致deploy的時候 他不是將 .deploy_git push上去<br>我自己是將整個[user].github.io的repository砍掉重建</p>
+<p>很常遇到的問題<br>Deployer not found: git</p>
+<p>解法: npm install hexo-deployer-git –save</p>
+<p>若還是沒解掉 就可能像我一樣 之前安裝有錯誤</p>
+<p>解法: 先移除 再裝一次就解了<br>npm remove hexo-deployer-git<br>npm install hexo-deployer-git –save</p>
+<p>Extra:<br>若使用git有問題 可能是</p>
+<ol>
+<li>你沒裝git</li>
+<li>盡量使用git bash 別用cmd or PowerShell</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
