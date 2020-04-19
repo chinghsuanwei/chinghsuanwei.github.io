@@ -114,24 +114,23 @@
 <p><img src="/images/postman_code.png" alt=""></p>
 <p>因為我們要用Node-js 所以這裡選擇 Javascript - Fetch</p>
 <p>所以你會得到類似下面的code</p>
-<p>var myHeaders = new Headers();<br>myHeaders.append(“authority”, “<a href="http://www.evernote.com&quot;)" target="_blank" rel="noopener">www.evernote.com&quot;)</a>;<br>myHeaders.append(“cache-control”, “max-age=0”);<br>myHeaders.append(“origin”, “<a href="https://www.evernote.com&quot;)" target="_blank" rel="noopener">https://www.evernote.com&quot;)</a>;<br>myHeaders.append(“upgrade-insecure-requests”, “1”);<br>myHeaders.append(“content-type”, “application/x-www-form-urlencoded”);<br>myHeaders.append(“user-agent”, “Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36”);<br>myHeaders.append(“sec-fetch-dest”, “document”);<br>myHeaders.append(“accept”, “text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,<em>/</em>;q=0.8,application/signed-exchange;v=b3;q=0.9”);<br>…</p>
-<p>var urlencoded = new URLSearchParams();<br>…</p>
-<p>var requestOptions = {<br>  method: ‘POST’,<br>  headers: myHeaders,<br>  body: urlencoded,<br>  redirect: ‘follow’<br>};</p>
-<p>fetch(“<a href="https://www.evernote.com/Login.action&quot;" target="_blank" rel="noopener">https://www.evernote.com/Login.action&quot;</a>, requestOptions)<br>  .then(response =&gt; response.text())<br>  .then(result =&gt; console.log(result))<br>  .catch(error =&gt; console.log(‘error’, error));</p>
-<p>你可以生成一個純文字文件將上面程式碼貼上去</p>
-<p>var fetch = require(‘node-fetch’);<br>const {Headers} = require(‘node-fetch’);<br>const {URLSearchParams} = require(‘url’);</p>
-<p>之後在前面貼上</p>
+<p>你可以生成一個純文字文件 將Javascript request的程式碼貼上去</p>
+<p>下面為範例:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myHeaders = <span class="keyword">new</span> Headers();</span><br><span class="line">myHeaders.append(<span class="string">"authority"</span>, <span class="string">"www.evernote.com"</span>);</span><br><span class="line">myHeaders.append(<span class="string">"cache-control"</span>, <span class="string">"max-age=0"</span>);</span><br><span class="line">myHeaders.append(<span class="string">"origin"</span>, <span class="string">"https://www.evernote.com"</span>);</span><br><span class="line">myHeaders.append(<span class="string">"upgrade-insecure-requests"</span>, <span class="string">"1"</span>);</span><br><span class="line">myHeaders.append(<span class="string">"content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">myHeaders.append(<span class="string">"user-agent"</span>, <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"</span>);</span><br><span class="line">myHeaders.append(<span class="string">"sec-fetch-dest"</span>, <span class="string">"document"</span>);</span><br><span class="line">myHeaders.append(<span class="string">"accept"</span>, <span class="string">"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9"</span>);</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> urlencoded = <span class="keyword">new</span> URLSearchParams();</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> requestOptions = &#123;</span><br><span class="line">  method: <span class="string">'POST'</span>,</span><br><span class="line">  headers: myHeaders,</span><br><span class="line">  body: urlencoded,</span><br><span class="line">  redirect: <span class="string">'follow'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">fetch(<span class="string">"https://www.evernote.com/Login.action"</span>, requestOptions)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> response.text())</span><br><span class="line">  .then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'error'</span>, error));</span><br></pre></td></tr></table></figure>
+<p>接著在前面貼上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fetch = <span class="built_in">require</span>(<span class="string">'node-fetch'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;Headers&#125; = <span class="built_in">require</span>(<span class="string">'node-fetch'</span>);</span><br><span class="line"><span class="keyword">const</span> &#123;URLSearchParams&#125; = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br></pre></td></tr></table></figure>
 <p>照理來說就能正確地執行</p>
 <p>記得用npm下載相依的Library</p>
 <p>目前遇到的問題是 在 myHeaders.append(“cookie”, …) 裡面會有一個ㄧsession-id</p>
 <p>使用的時候 還是要手動登入一次 去查cookie中的session id為何 並修改程式 或 將其帶入程式</p>
 <p>我在猜應該是我同時在使用網頁的關係 導致session-id也一直更新 or 伺服器本來就會刷新seesion-id 這部分我目前還沒想到方法 但對我來說 我覺得已經足夠</p>
-<p>extra 提供一下</p>
+<p>Extra 提供一下 大家可能會想去比對response的content    </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">"https://www.evernote.com/Login.action"</span>, requestOptions)</span><br><span class="line">.then(<span class="function"><span class="params">response</span> =&gt;</span> response.text().then(<span class="function"><span class="keyword">function</span> (<span class="params">text</span>) </span>&#123;</span><br><span class="line"><span class="comment">// do something with the text response </span></span><br><span class="line">  <span class="keyword">if</span>( text.indexOf(<span class="string">'Keyword you want to find'</span>) &gt; <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Successful"</span>);</span><br><span class="line">      <span class="comment">//Do next job or use call back function</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Failed"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;))</span><br><span class="line">  .then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line">  .catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'error'</span>, error));</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/18/postman/" data-id="ck970szn2000m78u0iqccyl0h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/18/postman/" data-id="ck9773cmq000rc4u05bw6u0xd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li></ul>
@@ -157,7 +156,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/10/codility-Rakuten/">Rakuten Codility online programming test</a>
+      <a class="article-title" href="/2020/03/10/codility-Rakuten/">Rakuten Codility Online Programming Test</a>
     </h1>
   
 
@@ -190,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/10/codility-Rakuten/" data-id="ck970szms000978u06sk9kpy4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/10/codility-Rakuten/" data-id="ck9773cmb000cc4u0dbydrawr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program-Rakuten/">Codility, Program, Rakuten</a></li></ul>
@@ -257,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/25/true-yoga/" data-id="ck970szn6000q78u0oxwsx1y8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/25/true-yoga/" data-id="ck9773cmr000tc4u0d4m0fkxh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -294,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/29/bgm/" data-id="ck970szmy000h78u0kn7imnef" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/29/bgm/" data-id="ck9773cm20007c4u0wczd6825" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/25/janpanese-song/" data-id="ck970szn1000k78u0xuwhptn3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/25/janpanese-song/" data-id="ck9773cmi000jc4u0go4vh690" class="article-share-link">Share</a>
       
       
     </footer>
@@ -370,7 +369,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/20/anime-song/" data-id="ck970szmw000e78u0w835sd0k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/20/anime-song/" data-id="ck9773cm10006c4u0ufmd1fl1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -410,61 +409,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/18/Movie/" data-id="ck970szm6000378u0s2fe9tft" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/18/Movie/" data-id="ck9773clx0003c4u0pdjess3n" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-codility-BizReach" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/02/codility-BizReach/" class="article-date">
-  <time datetime="2019-08-02T05:41:00.000Z" itemprop="datePublished">2019-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/02/codility-BizReach/">Codility</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Since I am not very sure that all paricipate will get same question, so I decide to publish these in Aug.</p>
-<p>In June late, I take participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
-<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
-<p>The first one is easy.</p>
-<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
-<p>The range of A and B is 1,000,000,000.</p>
-<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
-<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
-<p>For example,<br>[1, 2, -1, 4, 5]</p>
-<p>Then the anwser is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
-<p>p.s There must exist an index can seperate two group.</p>
-<p>I didn’t find O(n) solution in contest.<br>But later, I think a while the pseudo code for O(n) should be.</p>
-<p>size of array is N</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/02/codility-BizReach/" data-id="ck970szmt000a78u00ar5vywg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
-
     </footer>
   </div>
   
@@ -524,7 +471,59 @@ if(array[i] &gt; lmax)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/02/codility/" data-id="ck970szmu000c78u0xi2s6frc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/02/codility/" data-id="ck9773cma000bc4u0tlrgyoqh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-codility-BizReach" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/02/codility-BizReach/" class="article-date">
+  <time datetime="2019-08-02T05:41:00.000Z" itemprop="datePublished">2019-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/02/codility-BizReach/">Codility</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Since I am not very sure that all paricipate will get same question, so I decide to publish these in Aug.</p>
+<p>In June late, I take participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
+<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
+<p>The first one is easy.</p>
+<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
+<p>The range of A and B is 1,000,000,000.</p>
+<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
+<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
+<p>For example,<br>[1, 2, -1, 4, 5]</p>
+<p>Then the anwser is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
+<p>p.s There must exist an index can seperate two group.</p>
+<p>I didn’t find O(n) solution in contest.<br>But later, I think a while the pseudo code for O(n) should be.</p>
+<p>size of array is N</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/02/codility-BizReach/" data-id="ck9773cm40009c4u072dqr1b4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
@@ -563,7 +562,7 @@ if(array[i] &gt; lmax)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/01/English - how to learn English/" data-id="ck970szlz000078u09w971oym" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/01/English - how to learn English/" data-id="ck9773cls0001c4u098phsd00" class="article-share-link">Share</a>
       
       
     </footer>
@@ -627,7 +626,7 @@ if(array[i] &gt; lmax)
           </li>
         
           <li>
-            <a href="/2020/03/10/codility-Rakuten/">Rakuten Codility online programming test</a>
+            <a href="/2020/03/10/codility-Rakuten/">Rakuten Codility Online Programming Test</a>
           </li>
         
           <li>
