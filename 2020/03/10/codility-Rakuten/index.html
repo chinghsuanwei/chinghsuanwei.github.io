@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Rakuten Codility online programming test | Miso World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Only one question Q1.There has 3 rule for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  At first time, I just wanted to use bruteforce-way to so">
+<meta name="keywords" content="Codility, Program">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rakuten Codility online programming test">
+<meta property="og:url" content="http://yoursite.com/2020/03/10/codility-Rakuten/index.html">
+<meta property="og:site_name" content="Miso World">
+<meta property="og:description" content="Only one question Q1.There has 3 rule for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  At first time, I just wanted to use bruteforce-way to so">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-03-10T07:53:24.638Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rakuten Codility online programming test">
+<meta name="twitter:description" content="Only one question Q1.There has 3 rule for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  At first time, I just wanted to use bruteforce-way to so">
+  
+    <link rel="alternate" href="/atom.xml" title="Miso World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Miso World</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-codility-Rakuten" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/10/codility-Rakuten/" class="article-date">
+  <time datetime="2020-03-09T19:52:00.000Z" itemprop="datePublished">2020-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Rakuten Codility online programming test
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Only one question</p>
+<p>Q1.<br>There has 3 rule for string</p>
+<ol>
+<li>a string must start with a consonant</li>
+<li>no two consecutive vowels</li>
+<li>no two consecutive consonants</li>
+</ol>
+<p>At first time, I just wanted to use bruteforce-way to solve the problem. But I thought I could not pass the large test if I use bruteforce-way.<br>Then I spend like 20-min to figure out the question.</p>
+<p>It’s just a permutations problem.</p>
+<p>The count of vowels must equal or less than 1 to consonants.</p>
+<p>#include <string></string></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include &lt;unordered_map&gt;</p>
+<p>#include <iterator></iterator></p>
+<p>#include <string></string></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include &lt;unordered_map&gt;</p>
+<p>#include <iterator></iterator></p>
+<p>long long factorial(int N)<br>{<br>    long long sum = 1;<br>    for(int i=1; i&lt;=N; i++)<br>    {<br>        sum *= i;<br>    }</p>
+<pre><code>return sum;
+</code></pre><p>}</p>
+<p>int solution(string &amp;S) {<br>    // write your code in C++14 (g++ 6.2.0)<br>    std::sort(S.begin(), S.end());</p>
+<pre><code>std::unordered_map&lt;char, int&gt; vowels;
+std::unordered_map&lt;char, int&gt; consonants;
+
+int vowels_count = 0;
+int consonants_count = 0;
+
+for(int i=0; i&lt;S.length(); i++)
+{
+    if(S[i] == &apos;A&apos; || S[i] == &apos;E&apos; || S[i] == &apos;I&apos; || S[i] == &apos;O&apos; || S[i] == &apos;U&apos;)
+    {
+        std::unordered_map&lt;char,int&gt;::iterator it = vowels.find(S[i]);
+
+        // key already present in the map
+        if (it != vowels.end()) {
+            it-&gt;second++;    // increment map&apos;s value for key &apos;c&apos;
+        }
+        // key not found
+        else {
+            vowels.insert(std::make_pair(S[i], 1));
+        }
+        vowels_count++;
+    }
+    else
+    {
+        std::unordered_map&lt;char,int&gt;::iterator it = consonants.find(S[i]);
+
+        // key already present in the map
+        if (it != consonants.end()) {
+            it-&gt;second++;    // increment map&apos;s value for key &apos;c&apos;
+        }
+        // key not found
+        else {
+            consonants.insert(std::make_pair(S[i], 1));
+        }
+        consonants_count++;
+    }
+}
+
+
+if(vowels_count == consonants_count || (vowels_count+1) == consonants_count)
+{
+    long long vowel_sum = 1;
+    for(int i=1; i&lt;=vowels_count; i++)
+    {
+        vowel_sum *= i;
+    }
+
+    for (std::unordered_map&lt;char,int&gt;::iterator it=vowels.begin(); it!=vowels.end(); ++it)
+    {
+        vowel_sum /= factorial(it-&gt;second);
+    }
+
+    long long consonants_sum = 1;
+    for(int i=1; i&lt;=consonants_count; i++)
+    {
+        consonants_sum *= i;
+    }
+
+    for (std::unordered_map&lt;char,int&gt;::iterator it=consonants.begin(); it!=consonants.end(); ++it)
+    {
+        consonants_sum /= factorial(it-&gt;second);
+    }
+
+
+    return vowel_sum * consonants_sum;
+}
+else
+{
+    return 0;
+}
+</code></pre><p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/10/codility-Rakuten/" data-id="ck96gp7av0009g8u0ot86mlw7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/18/postman/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          使用Node-js 網站自動登入程式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/12/25/true-yoga/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">True Yoga</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language/">Language</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吉他譜/">吉他譜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Codility-Program/" style="font-size: 20px;">Codility, Program</a> <a href="/tags/Language/" style="font-size: 10px;">Language</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Postman-Node-js/" style="font-size: 10px;">Postman, Node-js</a> <a href="/tags/吉他譜/" style="font-size: 15px;">吉他譜</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/18/postman/">使用Node-js 網站自動登入程式</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/10/codility-Rakuten/">Rakuten Codility online programming test</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/25/true-yoga/">True Yoga</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/29/bgm/">Japanese Anime Song</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/janpanese-song/">Japanese Song</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Ching-Hsuan Wei<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

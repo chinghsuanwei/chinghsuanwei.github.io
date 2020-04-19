@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Miso World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Miso World">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Miso World">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Miso World">
+  
+    <link rel="alternate" href="/atom.xml" title="Miso World" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Miso World</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Set-Up-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/23/Set-Up-Hexo/" class="article-date">
+  <time datetime="2018-09-23T11:09:23.000Z" itemprop="datePublished">2018-09-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/23/Set-Up-Hexo/">Set Up Hexo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>問題:<br>我設定_config.yml的git配置如下</p>
+<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/chinghsuanwei/chinghsuanwei.github.io.git" target="_blank" rel="noopener">https://github.com/chinghsuanwei/chinghsuanwei.github.io.git</a><br>  branch: master</p>
+<p>是正確的</p>
+<p>結果是整個hexo原始碼丟到repository上…</p>
+<p>原因:<br>好像是我自己耍87…<br>我先將hexo init 產生出來的根目錄整個先用git傳到[user].github.io<br>可能是這個原因 導致deploy的時候 他不是將 .deploy_git push上去</p>
+<p>解法:<br>我自己是將整個[user].github.io的repository砍掉重建</p>
+<p>問題:<br>Deployer not found: git</p>
+<p>解法: npm install hexo-deployer-git –save</p>
+<p>若還是沒解掉 就可能像我一樣 之前安裝有錯誤(沒下–save?)</p>
+<p>解法: 先移除 再裝一次就解了<br>npm remove hexo-deployer-git<br>npm install hexo-deployer-git –save</p>
+<p>Extra:<br>若使用git有問題 可能是</p>
+<ol>
+<li>你沒裝git</li>
+<li>盡量使用git bash 別用cmd or PowerShell</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/23/Set-Up-Hexo/" data-id="ck96gp7ad0003g8u0h0ilogl0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language/">Language</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吉他譜/">吉他譜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Codility-Program/" style="font-size: 20px;">Codility, Program</a> <a href="/tags/Language/" style="font-size: 10px;">Language</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Postman-Node-js/" style="font-size: 10px;">Postman, Node-js</a> <a href="/tags/吉他譜/" style="font-size: 15px;">吉他譜</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/18/postman/">使用Node-js 網站自動登入程式</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/10/codility-Rakuten/">Rakuten Codility online programming test</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/25/true-yoga/">True Yoga</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/29/bgm/">Japanese Anime Song</a>
+          </li>
+        
+          <li>
+            <a href="/2019/08/25/janpanese-song/">Japanese Song</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Ching-Hsuan Wei<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
