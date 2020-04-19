@@ -7,18 +7,18 @@
   
   <title>Rakuten Codility online programming test | Miso World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Only one question Q1.There has 3 rule for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  At first time, I just wanted to use bruteforce-way to so">
-<meta name="keywords" content="Codility, Program">
+  <meta name="description" content="Only one question Q1.There has 3 rules for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  just only consider upper-case At first time, I just wan">
+<meta name="keywords" content="Codility, Program, Rakuten">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rakuten Codility online programming test">
 <meta property="og:url" content="http://yoursite.com/2020/03/10/codility-Rakuten/index.html">
 <meta property="og:site_name" content="Miso World">
-<meta property="og:description" content="Only one question Q1.There has 3 rule for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  At first time, I just wanted to use bruteforce-way to so">
+<meta property="og:description" content="Only one question Q1.There has 3 rules for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  just only consider upper-case At first time, I just wan">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-10T07:53:24.638Z">
+<meta property="og:updated_time" content="2020-04-19T12:21:49.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rakuten Codility online programming test">
-<meta name="twitter:description" content="Only one question Q1.There has 3 rule for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  At first time, I just wanted to use bruteforce-way to so">
+<meta name="twitter:description" content="Only one question Q1.There has 3 rules for string  a string must start with a consonant no two consecutive vowels no two consecutive consonants  just only consider upper-case At first time, I just wan">
   
     <link rel="alternate" href="/atom.xml" title="Miso World" type="application/atom+xml">
   
@@ -88,106 +88,34 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Only one question</p>
-<p>Q1.<br>There has 3 rule for string</p>
+<p>Q1.<br>There has 3 rules for string</p>
 <ol>
 <li>a string must start with a consonant</li>
 <li>no two consecutive vowels</li>
 <li>no two consecutive consonants</li>
 </ol>
-<p>At first time, I just wanted to use bruteforce-way to solve the problem. But I thought I could not pass the large test if I use bruteforce-way.<br>Then I spend like 20-min to figure out the question.</p>
+<p>just only consider upper-case</p>
+<p>At first time, I just wanted to use bruteforce-way to solve the problem. But I thought I could not pass the large test if I used bruteforce-way.<br>Then I spend like 20-min to figure out the question.</p>
 <p>It’s just a permutations problem.</p>
-<p>The count of vowels must equal or less than 1 to consonants.</p>
-<p>#include <string></string></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include &lt;unordered_map&gt;</p>
-<p>#include <iterator></iterator></p>
-<p>#include <string></string></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include &lt;unordered_map&gt;</p>
-<p>#include <iterator></iterator></p>
-<p>long long factorial(int N)<br>{<br>    long long sum = 1;<br>    for(int i=1; i&lt;=N; i++)<br>    {<br>        sum *= i;<br>    }</p>
-<pre><code>return sum;
-</code></pre><p>}</p>
-<p>int solution(string &amp;S) {<br>    // write your code in C++14 (g++ 6.2.0)<br>    std::sort(S.begin(), S.end());</p>
-<pre><code>std::unordered_map&lt;char, int&gt; vowels;
-std::unordered_map&lt;char, int&gt; consonants;
-
-int vowels_count = 0;
-int consonants_count = 0;
-
-for(int i=0; i&lt;S.length(); i++)
-{
-    if(S[i] == &apos;A&apos; || S[i] == &apos;E&apos; || S[i] == &apos;I&apos; || S[i] == &apos;O&apos; || S[i] == &apos;U&apos;)
-    {
-        std::unordered_map&lt;char,int&gt;::iterator it = vowels.find(S[i]);
-
-        // key already present in the map
-        if (it != vowels.end()) {
-            it-&gt;second++;    // increment map&apos;s value for key &apos;c&apos;
-        }
-        // key not found
-        else {
-            vowels.insert(std::make_pair(S[i], 1));
-        }
-        vowels_count++;
-    }
-    else
-    {
-        std::unordered_map&lt;char,int&gt;::iterator it = consonants.find(S[i]);
-
-        // key already present in the map
-        if (it != consonants.end()) {
-            it-&gt;second++;    // increment map&apos;s value for key &apos;c&apos;
-        }
-        // key not found
-        else {
-            consonants.insert(std::make_pair(S[i], 1));
-        }
-        consonants_count++;
-    }
-}
-
-
-if(vowels_count == consonants_count || (vowels_count+1) == consonants_count)
-{
-    long long vowel_sum = 1;
-    for(int i=1; i&lt;=vowels_count; i++)
-    {
-        vowel_sum *= i;
-    }
-
-    for (std::unordered_map&lt;char,int&gt;::iterator it=vowels.begin(); it!=vowels.end(); ++it)
-    {
-        vowel_sum /= factorial(it-&gt;second);
-    }
-
-    long long consonants_sum = 1;
-    for(int i=1; i&lt;=consonants_count; i++)
-    {
-        consonants_sum *= i;
-    }
-
-    for (std::unordered_map&lt;char,int&gt;::iterator it=consonants.begin(); it!=consonants.end(); ++it)
-    {
-        consonants_sum /= factorial(it-&gt;second);
-    }
-
-
-    return vowel_sum * consonants_sum;
-}
-else
-{
-    return 0;
-}
-</code></pre><p>}</p>
+<p>The count of vowels must equal or less than 1 to consonants</p>
+<p>So for alphabets “AEBBC”, there has 2! * (3! / 2!) = 6 kind of permutations</p>
+<ol>
+<li>“BABEC”</li>
+<li>“BACEB”</li>
+<li>“CABEB”</li>
+<li>“CEBAB”</li>
+<li>“BECAB”</li>
+<li>“BEBAC”</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum *= i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="built_in">string</span> &amp;S)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code in C++14 (g++ 6.2.0)</span></span><br><span class="line">    <span class="built_in">std</span>::sort(S.begin(), S.end());</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; vowels;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; consonants;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> vowels_count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> consonants_count = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;S.length(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(S[i] == <span class="string">'A'</span> || S[i] == <span class="string">'E'</span> || S[i] == <span class="string">'I'</span> || S[i] == <span class="string">'O'</span> || S[i] == <span class="string">'U'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = vowels.find(S[i]);</span><br><span class="line">    </span><br><span class="line">    		<span class="comment">// key already present in the map</span></span><br><span class="line">    		<span class="keyword">if</span> (it != vowels.end()) &#123;</span><br><span class="line">    			it-&gt;second++;	<span class="comment">// increment map's value for key 'c'</span></span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">// key not found</span></span><br><span class="line">    		<span class="keyword">else</span> &#123;</span><br><span class="line">    			vowels.insert(<span class="built_in">std</span>::make_pair(S[i], <span class="number">1</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    		vowels_count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = consonants.find(S[i]);</span><br><span class="line">    </span><br><span class="line">    		<span class="comment">// key already present in the map</span></span><br><span class="line">    		<span class="keyword">if</span> (it != consonants.end()) &#123;</span><br><span class="line">    			it-&gt;second++;	<span class="comment">// increment map's value for key 'c'</span></span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">// key not found</span></span><br><span class="line">    		<span class="keyword">else</span> &#123;</span><br><span class="line">    			consonants.insert(<span class="built_in">std</span>::make_pair(S[i], <span class="number">1</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    		consonants_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line">    <span class="keyword">if</span>(vowels_count == consonants_count || (vowels_count+<span class="number">1</span>) == consonants_count)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> vowel_sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=vowels_count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            vowel_sum *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it=vowels.begin(); it!=vowels.end(); ++it)</span><br><span class="line">        &#123;</span><br><span class="line">            vowel_sum /= factorial(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> consonants_sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=consonants_count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            consonants_sum *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it=consonants.begin(); it!=consonants.end(); ++it)</span><br><span class="line">        &#123;</span><br><span class="line">            consonants_sum /= factorial(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​        </span><br><span class="line">        <span class="keyword">return</span> vowel_sum * consonants_sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/10/codility-Rakuten/" data-id="ck96gp7av0009g8u0ot86mlw7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/10/codility-Rakuten/" data-id="ck970szms000978u06sk9kpy4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program-Rakuten/">Codility, Program, Rakuten</a></li></ul>
 
     </footer>
   </div>
@@ -226,7 +154,7 @@ else
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language/">Language</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吉他譜/">吉他譜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program-Rakuten/">Codility, Program, Rakuten</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language/">Language</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吉他譜/">吉他譜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a></li></ul>
     </div>
   </div>
 
@@ -236,7 +164,7 @@ else
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Codility-Program/" style="font-size: 20px;">Codility, Program</a> <a href="/tags/Language/" style="font-size: 10px;">Language</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Postman-Node-js/" style="font-size: 10px;">Postman, Node-js</a> <a href="/tags/吉他譜/" style="font-size: 15px;">吉他譜</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a>
+      <a href="/tags/Codility-Program/" style="font-size: 20px;">Codility, Program</a> <a href="/tags/Codility-Program-Rakuten/" style="font-size: 10px;">Codility, Program, Rakuten</a> <a href="/tags/Language/" style="font-size: 10px;">Language</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Postman-Node-js/" style="font-size: 10px;">Postman, Node-js</a> <a href="/tags/吉他譜/" style="font-size: 20px;">吉他譜</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a>
     </div>
   </div>
 

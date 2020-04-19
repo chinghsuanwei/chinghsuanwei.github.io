@@ -84,9 +84,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近因為有上某個 但課程的訂課方式是 每天到了某個時間點 開放大家去搶課</p>
-<p>每次當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘</p>
-<p>看到列表時 大部分的課程都全部顯示已滿</p>
+        <p>最近因為有上某個實體課程 但它的課程訂課方式是 每天到了某個時間點 開放大家去搶課</p>
+<p>每天當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘</p>
+<p>看到列表時 大部分的好課程都全部都顯示已滿</p>
 <p>對此我感到很不滿 怎麼訂課是這種形式 錢都繳了 但卻都上不到課</p>
 <p>後來就決定寫一個自動訂課的程式</p>
 <p>我想各位也可能會遇到相似的問題 例如: “需要在某個時間點 登入某個網站 trigger 某個按鈕之類的”</p>
@@ -126,11 +126,12 @@
 <p>目前遇到的問題是 在 myHeaders.append(“cookie”, …) 裡面會有一個ㄧsession-id</p>
 <p>使用的時候 還是要手動登入一次 去查cookie中的session id為何 並修改程式 或 將其帶入程式</p>
 <p>我在猜應該是我同時在使用網頁的關係 導致session-id也一直更新 or 伺服器本來就會刷新seesion-id 這部分我目前還沒想到方法 但對我來說 我覺得已經足夠</p>
+<p>extra 提供一下</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/18/postman/" data-id="ck96gp7bl000lg8u0l7utuwsu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/18/postman/" data-id="ck970szn2000m78u0iqccyl0h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li></ul>
@@ -165,106 +166,34 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Only one question</p>
-<p>Q1.<br>There has 3 rule for string</p>
+<p>Q1.<br>There has 3 rules for string</p>
 <ol>
 <li>a string must start with a consonant</li>
 <li>no two consecutive vowels</li>
 <li>no two consecutive consonants</li>
 </ol>
-<p>At first time, I just wanted to use bruteforce-way to solve the problem. But I thought I could not pass the large test if I use bruteforce-way.<br>Then I spend like 20-min to figure out the question.</p>
+<p>just only consider upper-case</p>
+<p>At first time, I just wanted to use bruteforce-way to solve the problem. But I thought I could not pass the large test if I used bruteforce-way.<br>Then I spend like 20-min to figure out the question.</p>
 <p>It’s just a permutations problem.</p>
-<p>The count of vowels must equal or less than 1 to consonants.</p>
-<p>#include <string></string></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include &lt;unordered_map&gt;</p>
-<p>#include <iterator></iterator></p>
-<p>#include <string></string></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include &lt;unordered_map&gt;</p>
-<p>#include <iterator></iterator></p>
-<p>long long factorial(int N)<br>{<br>    long long sum = 1;<br>    for(int i=1; i&lt;=N; i++)<br>    {<br>        sum *= i;<br>    }</p>
-<pre><code>return sum;
-</code></pre><p>}</p>
-<p>int solution(string &amp;S) {<br>    // write your code in C++14 (g++ 6.2.0)<br>    std::sort(S.begin(), S.end());</p>
-<pre><code>std::unordered_map&lt;char, int&gt; vowels;
-std::unordered_map&lt;char, int&gt; consonants;
-
-int vowels_count = 0;
-int consonants_count = 0;
-
-for(int i=0; i&lt;S.length(); i++)
-{
-    if(S[i] == &apos;A&apos; || S[i] == &apos;E&apos; || S[i] == &apos;I&apos; || S[i] == &apos;O&apos; || S[i] == &apos;U&apos;)
-    {
-        std::unordered_map&lt;char,int&gt;::iterator it = vowels.find(S[i]);
-
-        // key already present in the map
-        if (it != vowels.end()) {
-            it-&gt;second++;    // increment map&apos;s value for key &apos;c&apos;
-        }
-        // key not found
-        else {
-            vowels.insert(std::make_pair(S[i], 1));
-        }
-        vowels_count++;
-    }
-    else
-    {
-        std::unordered_map&lt;char,int&gt;::iterator it = consonants.find(S[i]);
-
-        // key already present in the map
-        if (it != consonants.end()) {
-            it-&gt;second++;    // increment map&apos;s value for key &apos;c&apos;
-        }
-        // key not found
-        else {
-            consonants.insert(std::make_pair(S[i], 1));
-        }
-        consonants_count++;
-    }
-}
-
-
-if(vowels_count == consonants_count || (vowels_count+1) == consonants_count)
-{
-    long long vowel_sum = 1;
-    for(int i=1; i&lt;=vowels_count; i++)
-    {
-        vowel_sum *= i;
-    }
-
-    for (std::unordered_map&lt;char,int&gt;::iterator it=vowels.begin(); it!=vowels.end(); ++it)
-    {
-        vowel_sum /= factorial(it-&gt;second);
-    }
-
-    long long consonants_sum = 1;
-    for(int i=1; i&lt;=consonants_count; i++)
-    {
-        consonants_sum *= i;
-    }
-
-    for (std::unordered_map&lt;char,int&gt;::iterator it=consonants.begin(); it!=consonants.end(); ++it)
-    {
-        consonants_sum /= factorial(it-&gt;second);
-    }
-
-
-    return vowel_sum * consonants_sum;
-}
-else
-{
-    return 0;
-}
-</code></pre><p>}</p>
+<p>The count of vowels must equal or less than 1 to consonants</p>
+<p>So for alphabets “AEBBC”, there has 2! * (3! / 2!) = 6 kind of permutations</p>
+<ol>
+<li>“BABEC”</li>
+<li>“BACEB”</li>
+<li>“CABEB”</li>
+<li>“CEBAB”</li>
+<li>“BECAB”</li>
+<li>“BEBAC”</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum *= i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="built_in">string</span> &amp;S)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code in C++14 (g++ 6.2.0)</span></span><br><span class="line">    <span class="built_in">std</span>::sort(S.begin(), S.end());</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; vowels;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; consonants;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> vowels_count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> consonants_count = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;S.length(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(S[i] == <span class="string">'A'</span> || S[i] == <span class="string">'E'</span> || S[i] == <span class="string">'I'</span> || S[i] == <span class="string">'O'</span> || S[i] == <span class="string">'U'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = vowels.find(S[i]);</span><br><span class="line">    </span><br><span class="line">    		<span class="comment">// key already present in the map</span></span><br><span class="line">    		<span class="keyword">if</span> (it != vowels.end()) &#123;</span><br><span class="line">    			it-&gt;second++;	<span class="comment">// increment map's value for key 'c'</span></span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">// key not found</span></span><br><span class="line">    		<span class="keyword">else</span> &#123;</span><br><span class="line">    			vowels.insert(<span class="built_in">std</span>::make_pair(S[i], <span class="number">1</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    		vowels_count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = consonants.find(S[i]);</span><br><span class="line">    </span><br><span class="line">    		<span class="comment">// key already present in the map</span></span><br><span class="line">    		<span class="keyword">if</span> (it != consonants.end()) &#123;</span><br><span class="line">    			it-&gt;second++;	<span class="comment">// increment map's value for key 'c'</span></span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">// key not found</span></span><br><span class="line">    		<span class="keyword">else</span> &#123;</span><br><span class="line">    			consonants.insert(<span class="built_in">std</span>::make_pair(S[i], <span class="number">1</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    		consonants_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line">    <span class="keyword">if</span>(vowels_count == consonants_count || (vowels_count+<span class="number">1</span>) == consonants_count)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> vowel_sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=vowels_count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            vowel_sum *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it=vowels.begin(); it!=vowels.end(); ++it)</span><br><span class="line">        &#123;</span><br><span class="line">            vowel_sum /= factorial(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> consonants_sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=consonants_count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            consonants_sum *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it=consonants.begin(); it!=consonants.end(); ++it)</span><br><span class="line">        &#123;</span><br><span class="line">            consonants_sum /= factorial(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​        </span><br><span class="line">        <span class="keyword">return</span> vowel_sum * consonants_sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/10/codility-Rakuten/" data-id="ck96gp7av0009g8u0ot86mlw7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/10/codility-Rakuten/" data-id="ck970szms000978u06sk9kpy4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program-Rakuten/">Codility, Program, Rakuten</a></li></ul>
 
     </footer>
   </div>
@@ -328,7 +257,7 @@ else
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/25/true-yoga/" data-id="ck96gp7bm000mg8u0am0tx2jl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/25/true-yoga/" data-id="ck970szn6000q78u0oxwsx1y8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -365,7 +294,7 @@ else
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/29/bgm/" data-id="ck96gp7am0006g8u0yryqj2cw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/29/bgm/" data-id="ck970szmy000h78u0kn7imnef" class="article-share-link">Share</a>
       
       
     </footer>
@@ -402,7 +331,7 @@ else
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/25/janpanese-song/" data-id="ck96gp7b0000dg8u0y1zvn5o5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/25/janpanese-song/" data-id="ck970szn1000k78u0xuwhptn3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -441,7 +370,7 @@ else
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/20/anime-song/" data-id="ck96gp7aj0004g8u0vcyboj5z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/20/anime-song/" data-id="ck970szmw000e78u0w835sd0k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -481,9 +410,61 @@ else
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/18/Movie/" data-id="ck96gp7b2000eg8u00h36vbkx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/18/Movie/" data-id="ck970szm6000378u0s2fe9tft" class="article-share-link">Share</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-codility-BizReach" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/02/codility-BizReach/" class="article-date">
+  <time datetime="2019-08-02T05:41:00.000Z" itemprop="datePublished">2019-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/02/codility-BizReach/">Codility</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Since I am not very sure that all paricipate will get same question, so I decide to publish these in Aug.</p>
+<p>In June late, I take participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
+<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
+<p>The first one is easy.</p>
+<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
+<p>The range of A and B is 1,000,000,000.</p>
+<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
+<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
+<p>For example,<br>[1, 2, -1, 4, 5]</p>
+<p>Then the anwser is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
+<p>p.s There must exist an index can seperate two group.</p>
+<p>I didn’t find O(n) solution in contest.<br>But later, I think a while the pseudo code for O(n) should be.</p>
+<p>size of array is N</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/08/02/codility-BizReach/" data-id="ck970szmt000a78u00ar5vywg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
+
     </footer>
   </div>
   
@@ -543,71 +524,7 @@ if(array[i] &gt; lmax)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/02/codility/" data-id="ck96gp7at0008g8u05qhl8gls" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-codility-BizReach" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/02/codility-BizReach/" class="article-date">
-  <time datetime="2019-08-02T05:41:00.000Z" itemprop="datePublished">2019-08-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/02/codility-BizReach/">Codility</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Since I am not very sure that all paricipate will get same question, so I decide to publish these in Aug.</p>
-<p>In June late, I take participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
-<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
-<p>The first one is easy.</p>
-<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
-<p>The range of A and B is 1,000,000,000.</p>
-<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
-<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
-<p>For example,<br>[1, 2, -1, 4, 5]</p>
-<p>Then the anwser is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
-<p>p.s There must exist an index can seperate two group.</p>
-<p>I didn’t find O(n) solution in contest.<br>But later, I think a while the pseudo code for O(n) should be.</p>
-<p>size of array is N</p>
-<p>int max_idx = N-1;<br>int max = array[N-1];</p>
-<p>//Max won’t appear in first element<br>//We need to find leftmost max<br>for(int i=N-2; i&gt;0; i++)<br>{<br>    if(array[i] &gt;= max)<br>    {<br>        max = array[i];<br>        max_idx = i;<br>    }<br>}</p>
-<p>int rmin = array[max_idx];</p>
-<p>//find the smallest number at right size<br>for(int i=max_idx+1; i&lt;=N; i++)<br>{<br>    if(array[i] &lt; rmin)<br>    {<br>        rmin = array[i];<br>    }<br>}</p>
-<p>int target_idx = 0;<br>int lmax = array[0];</p>
-<p>for(int i=1; i&lt;max_idx; i++)<br>{<br>   if(array[i-1] &gt; array[i])<br>   {<br>        target_idx = -1;<br>   }<br>   else if(array[i] &gt; array[i-1])<br>   {<br>        //target idx must bigger than lmax and rmin, at same time target_idx is not assigned<br>        if(array[i] &gt; lmax &amp;&amp; array[i] &gt; rmin &amp;&amp; target_idx == -1)<br>        {<br>            target_idx = i;<br>        }</p>
-<pre><code>//keep track lmax
-if(array[i] &gt; lmax)
-{
-    lmax = array[i];
-}
-</code></pre><p>   }<br>}</p>
-<p>return target_idx == -1? max_idx : target_idx;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/02/codility-BizReach/" data-id="ck96gp7c5000vg8u0bw3q8f0b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/02/codility/" data-id="ck970szmu000c78u0xi2s6frc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li></ul>
@@ -646,7 +563,7 @@ if(array[i] &gt; lmax)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/08/01/English - how to learn English/" data-id="ck96gp7a90001g8u027pio15u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/08/01/English - how to learn English/" data-id="ck970szlz000078u09w971oym" class="article-share-link">Share</a>
       
       
     </footer>
@@ -674,7 +591,7 @@ if(array[i] &gt; lmax)
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language/">Language</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吉他譜/">吉他譜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program-Rakuten/">Codility, Program, Rakuten</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language/">Language</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吉他譜/">吉他譜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a></li></ul>
     </div>
   </div>
 
@@ -684,7 +601,7 @@ if(array[i] &gt; lmax)
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Codility-Program/" style="font-size: 20px;">Codility, Program</a> <a href="/tags/Language/" style="font-size: 10px;">Language</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Postman-Node-js/" style="font-size: 10px;">Postman, Node-js</a> <a href="/tags/吉他譜/" style="font-size: 15px;">吉他譜</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a>
+      <a href="/tags/Codility-Program/" style="font-size: 20px;">Codility, Program</a> <a href="/tags/Codility-Program-Rakuten/" style="font-size: 10px;">Codility, Program, Rakuten</a> <a href="/tags/Language/" style="font-size: 10px;">Language</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Postman-Node-js/" style="font-size: 10px;">Postman, Node-js</a> <a href="/tags/吉他譜/" style="font-size: 20px;">吉他譜</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a>
     </div>
   </div>
 

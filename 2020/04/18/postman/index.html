@@ -7,23 +7,23 @@
   
   <title>使用Node-js 網站自動登入程式 | Miso World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近因為有上某個 但課程的訂課方式是 每天到了某個時間點 開放大家去搶課 每次當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘 看到列表時 大部分的課程都全部顯示已滿 對此我感到很不滿 怎麼訂課是這種形式 錢都繳了 但卻都上不到課 後來就決定寫一個自動訂課的程式 我想各位也可能會遇到相似的問題 例如: “需要在某個時間點 登入某個網站 trigger 某個按鈕之類的” 若是如此 那可">
+  <meta name="description" content="最近因為有上某個實體課程 但它的課程訂課方式是 每天到了某個時間點 開放大家去搶課 每天當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘 看到列表時 大部分的好課程都全部都顯示已滿 對此我感到很不滿 怎麼訂課是這種形式 錢都繳了 但卻都上不到課 後來就決定寫一個自動訂課的程式 我想各位也可能會遇到相似的問題 例如: “需要在某個時間點 登入某個網站 trigger 某個按鈕之類的”">
 <meta name="keywords" content="Postman, Node-js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Node-js 網站自動登入程式">
 <meta property="og:url" content="http://yoursite.com/2020/04/18/postman/index.html">
 <meta property="og:site_name" content="Miso World">
-<meta property="og:description" content="最近因為有上某個 但課程的訂課方式是 每天到了某個時間點 開放大家去搶課 每次當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘 看到列表時 大部分的課程都全部顯示已滿 對此我感到很不滿 怎麼訂課是這種形式 錢都繳了 但卻都上不到課 後來就決定寫一個自動訂課的程式 我想各位也可能會遇到相似的問題 例如: “需要在某個時間點 登入某個網站 trigger 某個按鈕之類的” 若是如此 那可">
+<meta property="og:description" content="最近因為有上某個實體課程 但它的課程訂課方式是 每天到了某個時間點 開放大家去搶課 每天當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘 看到列表時 大部分的好課程都全部都顯示已滿 對此我感到很不滿 怎麼訂課是這種形式 錢都繳了 但卻都上不到課 後來就決定寫一個自動訂課的程式 我想各位也可能會遇到相似的問題 例如: “需要在某個時間點 登入某個網站 trigger 某個按鈕之類的”">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/google_chrome_preserve_log.png">
 <meta property="og:image" content="http://yoursite.com/images/google_chrome_login_request.png">
 <meta property="og:image" content="http://yoursite.com/images/google_chrome_copy_request.png">
 <meta property="og:image" content="http://yoursite.com/images/postman_import.png">
 <meta property="og:image" content="http://yoursite.com/images/postman_code.png">
-<meta property="og:updated_time" content="2020-04-19T02:52:09.992Z">
+<meta property="og:updated_time" content="2020-04-19T03:15:16.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Node-js 網站自動登入程式">
-<meta name="twitter:description" content="最近因為有上某個 但課程的訂課方式是 每天到了某個時間點 開放大家去搶課 每次當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘 看到列表時 大部分的課程都全部顯示已滿 對此我感到很不滿 怎麼訂課是這種形式 錢都繳了 但卻都上不到課 後來就決定寫一個自動訂課的程式 我想各位也可能會遇到相似的問題 例如: “需要在某個時間點 登入某個網站 trigger 某個按鈕之類的” 若是如此 那可">
+<meta name="twitter:description" content="最近因為有上某個實體課程 但它的課程訂課方式是 每天到了某個時間點 開放大家去搶課 每天當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘 看到列表時 大部分的好課程都全部都顯示已滿 對此我感到很不滿 怎麼訂課是這種形式 錢都繳了 但卻都上不到課 後來就決定寫一個自動訂課的程式 我想各位也可能會遇到相似的問題 例如: “需要在某個時間點 登入某個網站 trigger 某個按鈕之類的”">
 <meta name="twitter:image" content="http://yoursite.com/images/google_chrome_preserve_log.png">
   
     <link rel="alternate" href="/atom.xml" title="Miso World" type="application/atom+xml">
@@ -93,9 +93,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近因為有上某個 但課程的訂課方式是 每天到了某個時間點 開放大家去搶課</p>
-<p>每次當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘</p>
-<p>看到列表時 大部分的課程都全部顯示已滿</p>
+        <p>最近因為有上某個實體課程 但它的課程訂課方式是 每天到了某個時間點 開放大家去搶課</p>
+<p>每天當搶課時間到的時候 光是refresh課程列表 就卡了好幾秒鐘</p>
+<p>看到列表時 大部分的好課程都全部都顯示已滿</p>
 <p>對此我感到很不滿 怎麼訂課是這種形式 錢都繳了 但卻都上不到課</p>
 <p>後來就決定寫一個自動訂課的程式</p>
 <p>我想各位也可能會遇到相似的問題 例如: “需要在某個時間點 登入某個網站 trigger 某個按鈕之類的”</p>
@@ -135,11 +135,12 @@
 <p>目前遇到的問題是 在 myHeaders.append(“cookie”, …) 裡面會有一個ㄧsession-id</p>
 <p>使用的時候 還是要手動登入一次 去查cookie中的session id為何 並修改程式 或 將其帶入程式</p>
 <p>我在猜應該是我同時在使用網頁的關係 導致session-id也一直更新 or 伺服器本來就會刷新seesion-id 這部分我目前還沒想到方法 但對我來說 我覺得已經足夠</p>
+<p>extra 提供一下</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/18/postman/" data-id="ck96gp7bl000lg8u0l7utuwsu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/18/postman/" data-id="ck970szn2000m78u0iqccyl0h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li></ul>
@@ -172,7 +173,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language/">Language</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吉他譜/">吉他譜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program/">Codility, Program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Codility-Program-Rakuten/">Codility, Program, Rakuten</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Language/">Language</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Postman-Node-js/">Postman, Node-js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吉他譜/">吉他譜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日本/">日本</a></li></ul>
     </div>
   </div>
 
@@ -182,7 +183,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Codility-Program/" style="font-size: 20px;">Codility, Program</a> <a href="/tags/Language/" style="font-size: 10px;">Language</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Postman-Node-js/" style="font-size: 10px;">Postman, Node-js</a> <a href="/tags/吉他譜/" style="font-size: 15px;">吉他譜</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a>
+      <a href="/tags/Codility-Program/" style="font-size: 20px;">Codility, Program</a> <a href="/tags/Codility-Program-Rakuten/" style="font-size: 10px;">Codility, Program, Rakuten</a> <a href="/tags/Language/" style="font-size: 10px;">Language</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Postman-Node-js/" style="font-size: 10px;">Postman, Node-js</a> <a href="/tags/吉他譜/" style="font-size: 20px;">吉他譜</a> <a href="/tags/日本/" style="font-size: 10px;">日本</a>
     </div>
   </div>
 
