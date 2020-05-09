@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta property="og:type" content="website">
@@ -112,6 +112,11 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -283,8 +288,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-04-19 23:04:34" itemprop="dateModified" datetime="2020-04-19T23:04:34+08:00">2020-04-19</time>
+                <time title="修改時間：2020-05-09 12:33:09" itemprop="dateModified" datetime="2020-05-09T12:33:09+08:00">2020-05-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Programming-Test/" itemprop="url" rel="index"><span itemprop="name">Online Programming Test</span></a>
+                </span>
+            </span>
 
           
 
@@ -297,16 +311,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Only one question</p>
-<p>Q1.<br>There has 3 rules for string</p>
+          <p>I was a little supprised, There has only one question.</p>
+<p>Q1.<br>There has 3 rules for a legal string</p>
 <ol>
 <li>a string must start with a consonant</li>
 <li>no two consecutive vowels</li>
 <li>no two consecutive consonants</li>
 </ol>
-<p>just only consider upper-case</p>
-<p>At first time, I just wanted to use bruteforce-way to solve the problem. But I thought I could not pass the large test if I used bruteforce-way.<br>Then I spend like 20-min to figure out the question.</p>
-<p>It’s just a permutations problem.</p>
+<p>Just consider only upper-case</p>
+<p>At first time, I just wanted to use bruteforce-way to solve the problem. But I thought I could not pass the large test if I used bruteforce-way.<br>Then I spend like 20-min to figure out the questio, And found out that it’s just a permutations problem.</p>
 <p>The count of vowels must equal or less than 1 to consonants</p>
 <p>So for alphabets “AEBBC”, there has 2! * (3! / 2!) = 6 kind of permutations</p>
 <ol>
@@ -317,353 +330,8 @@
 <li>“BECAB”</li>
 <li>“BEBAC”</li>
 </ol>
+<p>The code is following:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum *= i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="built_in">string</span> &amp;S)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code in C++14 (g++ 6.2.0)</span></span><br><span class="line">    <span class="built_in">std</span>::sort(S.begin(), S.end());</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; vowels;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; consonants;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> vowels_count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> consonants_count = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;S.length(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(S[i] == <span class="string">'A'</span> || S[i] == <span class="string">'E'</span> || S[i] == <span class="string">'I'</span> || S[i] == <span class="string">'O'</span> || S[i] == <span class="string">'U'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = vowels.find(S[i]);</span><br><span class="line">    </span><br><span class="line">    		<span class="comment">// key already present in the map</span></span><br><span class="line">    		<span class="keyword">if</span> (it != vowels.end()) &#123;</span><br><span class="line">    			it-&gt;second++;	<span class="comment">// increment map's value for key 'c'</span></span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">// key not found</span></span><br><span class="line">    		<span class="keyword">else</span> &#123;</span><br><span class="line">    			vowels.insert(<span class="built_in">std</span>::make_pair(S[i], <span class="number">1</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    		vowels_count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = consonants.find(S[i]);</span><br><span class="line">    </span><br><span class="line">    		<span class="comment">// key already present in the map</span></span><br><span class="line">    		<span class="keyword">if</span> (it != consonants.end()) &#123;</span><br><span class="line">    			it-&gt;second++;	<span class="comment">// increment map's value for key 'c'</span></span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">// key not found</span></span><br><span class="line">    		<span class="keyword">else</span> &#123;</span><br><span class="line">    			consonants.insert(<span class="built_in">std</span>::make_pair(S[i], <span class="number">1</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    		consonants_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line">    <span class="keyword">if</span>(vowels_count == consonants_count || (vowels_count+<span class="number">1</span>) == consonants_count)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> vowel_sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=vowels_count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            vowel_sum *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it=vowels.begin(); it!=vowels.end(); ++it)</span><br><span class="line">        &#123;</span><br><span class="line">            vowel_sum /= factorial(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> consonants_sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=consonants_count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            consonants_sum *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it=consonants.begin(); it!=consonants.end(); ++it)</span><br><span class="line">        &#123;</span><br><span class="line">            consonants_sum /= factorial(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​        </span><br><span class="line">        <span class="keyword">return</span> vowel_sum * consonants_sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/25/true-yoga/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/25/true-yoga/" class="post-title-link" itemprop="url">True Yoga</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-12-25 12:00:00" itemprop="dateCreated datePublished" datetime="2019-12-25T12:00:00+08:00">2019-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-04-05 21:13:44" itemprop="dateModified" datetime="2020-04-05T21:13:44+08:00">2020-04-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Yoga Edition<br>溫和伸展 Darryl(E)<br>很細微，我自己是沒什麼感覺<br>強度 <em><br>推薦 </em></p>
-<p>瑜珈療法 Vinodh(E)<br>還不錯的伸展<br>強度 <strong><br>推薦 *</strong></p>
-<p>熱哈達 Shannon<br>老師會講中文 講的不錯 但老實說 我希望老師講英文 不然會卡</p>
-<p>強度 <strong>*<br>推薦 </strong></p>
-<p>熱哈達 Ellen<br>有點難度… 腿會有點沒力<br>強度 <strong>*<em><br>推薦 </em></strong></p>
-<p>熱哈達 Darryl<br>溫度太低了?<br>強度 <strong><br>柔軟度 </strong><br>推薦 **</p>
-<p>瑜珈輪 Lilian<br>新奇 但不覺得瑜珈輪有什麼特別之處<br>強度 <strong><br>柔軟度 *</strong><br>推薦 **</p>
-<p>椅子瑜珈  Joy<br>上了兩次，只能說有時候體位剛好有拉到我要的，有時候沒有。<br>強度 <strong><br>柔軟度 </strong><br>推薦 <em>**</em></p>
-<p>溫和伸展 Mei<br>還可以，有巡場。<br>強度 <em><br>柔軟度 **</em><br>推薦 ***</p>
-<p>和緩瑜珈 Simon<br>我覺得投影有和沒有應該沒差<br>強度 <strong><br>推薦 *</strong></p>
-<p>溫和伸展 Fly<br>溫度調太低了 教學時沒有教替代動作 且沒有巡場 導致只有柔軟度好的人能精準做到位置 我看有些人根本沒伸展到</p>
-<p>強度 <em><br>柔軟度 **</em><br>推薦 *</p>
-<p>陰瑜珈 Mei<br>我覺得感覺不多，而且陰瑜珈很容易擺錯體位後要堅持幾分鐘，感覺普普</p>
-<p>強度 <em><br>柔軟度 **</em><br>推薦 *</p>
-<p>流暢入門 Una</p>
-<p>強度 <strong><br>柔軟度 </strong><br>推薦 <strong>*</strong></p>
-<p>熱哈達 Sada<br>很不喜歡他上課沒有專心的感覺，不神聖。只調整女生動作，然後調的時候還有拍打聲，但我覺得女生柔軟度好可能可以被他拉很開，但男生上就很爛，難怪班上沒男的</p>
-<p>強度 <strong>*<br>柔軟度 **</strong><br>推薦 </p>
-<p>Ashitagari Simon</p>
-<p>中和館<br>Sunny<br>一開始講了很多廢話，但後來帶動作很順，難怪那麼多人</p>
-<p>強度 <strong>*<br>推薦 **</strong></p>
-<p>Zoe<br>還不錯，可以上的課</p>
-<p>強度 <strong><em><br>推薦 </em></strong></p>
-<p>忠孝館<br>Teresa 佳彤<br>熱流動 老師太猛了 且普遍學生也很強 腳有點撐不住 我覺得目前這堂課 一個禮拜一次就好<br>結束時 教室超臭… 大休息時 呼吸根本受不了 想趕快離開<br>只推薦高階的人來<br>強度 <strong>***</strong><br>推薦 ***</p>
-<p>Teresa 佳彤<br>伸展瑜珈 一樣不小心膝蓋受傷了 伸展強度對我來說大概是中上等 但我有點受不了 怎麼課堂標註是Beginner…<br>只推薦高階的人來<br>強度 <strong>*</strong><br>推薦 ***</p>
-<p>Hot Gentle(May)<br>強度 <strong><br>推薦 </strong></p>
-<p>Hot Gentle(Rachel)<br>強度 <strong>*<br>推薦 </strong></p>
-<p>Hot Yoga(Neo)<br>老師會用奇怪的音調上課 跟他平常說話的聲音不一樣 但他在鴿式的部份 幫我放磚做矯正 我覺得不錯<br>強度 <strong><br>推薦 </strong></p>
-<p>Hot Yoga(Sasa H)<br>新老師? 老師會矯正學生 但似乎太在意學生要做到位<br>強度 <strong>**<br>推薦 </strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/bgm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/29/bgm/" class="post-title-link" itemprop="url">Japanese Anime Song</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2019-08-29 19:30:00 / 修改時間：19:44:52" itemprop="dateCreated datePublished" datetime="2019-08-29T19:30:00+08:00">2019-08-29</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>遊戲<br>Ragnarok Online - Title<br>Ragnarok Online - Peaceful Forest</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/25/japanese-song/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/25/japanese-song/" class="post-title-link" itemprop="url">Japanese Song</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-08-25 15:00:00" itemprop="dateCreated datePublished" datetime="2019-08-25T15:00:00+08:00">2019-08-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-08 13:38:05" itemprop="dateModified" datetime="2020-05-08T13:38:05+08:00">2020-05-08</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ずっと真夜中でいいのに - 秒針を噛む<br>Aimer - Kataomoi<br>RADIO FISH - PERFECT HUMAN<br>スキマスイッチ - 全力少年<br>GReeeeN - キセキ<br>Angela Aki - 手紙 〜拝啓 十五の君へ〜</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/anime-song/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/20/anime-song/" class="post-title-link" itemprop="url">Japanese Anime Song</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-08-20 20:30:00" itemprop="dateCreated datePublished" datetime="2019-08-20T20:30:00+08:00">2019-08-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-03-25 12:17:08" itemprop="dateModified" datetime="2020-03-25T12:17:08+08:00">2020-03-25</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>動畫<br>星空下的邂逅/おねがい☆ティーチャー OP - Kotoko - Shooting star<br>星空下的邂逅/おねがい☆ティーチャー Final ED - Kotoko - Love a Riddle<br>BLOOD+ OP1 - 高橋瞳 - 青空のナミダ<br>Gurren Lagann 天元突破グレンラガン OP - 中川翔子 - 空色デイズ OP<br>東京喰種 OP - TK from 凜冽時雨 - Unravel<br>中華一番 OP3 - Deen - 君さえいれば<br>Dragon Ball GT OP - the FIELD OF VIEW - DAN DAN 心魅かれてく<br>幽浮寶貝 ED - TRF - Boy meets girl<br>GTO OP1 - L’Arc〜en〜Ciel - Driver’s High<br>GTO OP2 - ヒトリノ夜 - ポルノグラフィティ<br>涼宮ハルヒの憂鬱 OST - 平野 綾 - God Knows<br>刀劍神域/Sword Art Online OP - LiSA - Crossing Field<br>不可思議的遊戲 - 今野 友加里 - ときめきの導火線<br>最遊記 - 徳山秀典 - For Real<br>封神演義 - 米倉千尋 - Will<br>鋼の錬金術師 OP1 - ポルノグラフィティ - Melissa<br>月刊少女野崎くん OP - 大石昌良 - 君じゃなきゃダメみたい<br>フルーツバスケット OP - 岡崎律子 - For フルーツバスケット<br>奧運高手/ガンバ! Fly high - リディアン・モード - キラキラ　キセキ<br>D.N. Angel OP - 宮本駿一 - 白夜〜True Light〜<br>コードギアス OP1 - FLOW - COLORS<br>ちょびっツ/Chobits - ROUND TABLE - Let Me Be With You<br>デジモンアドベンチャー OP1 - 和田光司 - Buffer Fly<br>Eyeshield21 OP2 - 20th Century - Innocence<br>One Punch Man OP1 - JAM Project - THE HERO !!<br>One Piece OP1 - 北谷洋 - We are<br>One Piece OP3 - ザ·ベイビースターズ - ヒカリへ<br>One Piece OP4 - BON-BON BLANCO - BON VOYAGE!<br>One Piece OP5 - BOYSTYLE - ココロのちず<br>One Piece OP6 - D-51 - BRAND NEW WORLD<br>犬夜叉 ED2 - Do As Infinity - 深い森<br>犬夜叉 OP4 - Every Little Thing - Grip!<br>犬夜叉 OP6 - NGELUS -アンジェラス- - 島谷ひとみ<br>通靈王 OP1 - 林原惠 - Over Soul<br>新世紀福音戰士 OP - 高橋洋子 - 残酷な天使のテーゼ<br>Bleach OP1 - Orange Range - <em>~Asterisk”<br>Bleach OP2 - UVERworld - D-tecnolife<br>Bleach ED5 - Yui - Life<br>フルメタル・パニック！The Second Raid OP - 下川 みくに - 南風<br>フルメタル・パニック？ ふもっふ ED - 下川みくに - 君に吹く風<br>植木的法則/うえきの法則 - 倖田來未 - No Regret<br>火影忍者/ナルト OP12 - いきものがかり - ブルーバード<br>HUNTER X HUNTER OP1 - Keno - おはよう<br>Hunter x Hunter 蟻王篇 ED -<br>SLAM DUNK ED - 大黒摩季 - あなただけ見つめてる<br>SLAM DUNK ED2 - WANDS - 世界が終るまでは…<br>SLAM DUNK ED3 - MANISH - 煌めく瞬間に捕われて<br>庫洛魔法師/カードキャプターさくら OP - Catch You Catch me - グミ<br>庫洛魔法師/カードキャプターさくら OP2 - 扉をあけて - ANZA<br>庫洛魔法師/カードキャプターさくら OP3 - プラチナ - 坂本真綾<br>Fate/Zero OP - LiSA - oath sign<br>神鵰俠侶 OP - NoR - 優<br>蜂蜜幸運草/ドラマチック OP - YUKI - ドラマチック<br>蜂蜜幸運草/ハチミツとクローバー ED - スネオヘアー - ワルツ<br>增血鬼果林 OP - BRACE;d - scarlet<br>スクールランブル OP - 堀江由衣 - スクランブル<br>実験品家族 -クリーチャーズ・ファミリー・デイズ- - 暁月凛 - Early Days<br>妖精狩獵者 - 濱崎直子 - Angel Blue<br>AIR - Key Sound Label - 鳥の詩<br>爆走獵人/爆れつハンター OP - 古本新之輔、林原めぐみ - What’s Up Guys?<br>金色のガッシュベル!! - 千綿ヒデノリ - カサブタ<br>D.C.〜ダ・カーポ〜 -  サクラサクミライコイユメ - yozuca</em><br>妹妹公主/シスタープリンセス - 堀江由衣 - Love Destiny<br>SHUFFLE! OP - YURIA - YOU<br>天才小釣手/スーパーフィッシンググランダー武蔵 OP - COA - Chase The Wind<br>鋼鐵神兵/ビート・エックス OP - FENCE OF DEFENSE - 遙遠〜SAILING FOR MY DREAM〜<br>玩偶遊戲 OP1 - TOKIO - 19時のニュース<br>男女翹翹板/彼氏彼女の事情 OP - 福田舞 - 天使のゆびきり<br>男女翹翹板/彼氏彼女の事情 ED - 榎本温子、鈴木千尋 - 夢の中へ<br>新機動戦記ガンダムW - TWO-MIX - JUST COMMUNICATION<br>横山光輝 三国志 OP - FENCE OF DEFENSE - 時の河<br>赤ずきんチャチャ OP - SMAP - 君色思い<br>ケロロ軍曹 ED1 - アフロ軍曹- ダンス☆マン<br>魔法陣グルグル - TOo’s - Magic of Love<br>宇宙學園/宇宙のステルヴィア - angela - 明日へのbrilliant road<br>とある科学の超電磁砲 - 南條愛乃 - only my railgun<br>地獄少女 - SNoW - 逆さまの蝶<br>珍珠美人魚/マーメイドメロディーぴちぴちピッチ - 七海るちあ(中田あすみ)・宝生波音(寺門仁美)・洞院リナ(浅野まゆみ) - 七つの海の物語〜Pearls of Mermaid〜<br>機動戦艦ナデシコ - 松澤由実 - YOU GET TO BURNING<br>機械女神/セイバーマリオネット - 林原めぐみ - Successful Mission<br>DARKER THAN BLACK -黒の契約者- OP2 - アンティック-珈琲店- - 覚醒ヒロイズム 〜THE HERO WITHOUT A “NAME”〜<br>神劍闖江湖<br>小紅豆/あずきちゃん OP - RAZZ MA TAZZ - 素敵な君<br>聖槍修女/クロノクルセイド - 栗林みな実 - 翼はPleasure Line<br>水色時代 - 米屋純 - 水色時代<br>北斗の拳 - クリスタルキング - 愛をとりもどせ<br>.hack//Roots OP - YUUKA - Silly-Go-Round<br>.hack//黄昏の腕輪伝説 - ROUND TABLE featuring Nino - NEW WORLD<br>閃電霹靂車/新世紀GPXサイバーフォーミュラ - G・GRIP - I’ll Come<br>魔法少女リリカルなのは - 水樹奈々 - innocent starter<br>けいおん! - 日笠陽子 - Don’t say “lazy”<br>第一神拳/はじめの一歩 - 森直哉 - 夕空の紙飛行機<br>漫遊記/ゴクドーくん漫遊記 OP - BAISER - プリズム<br>ちっちゃな雪使いシュガー OP - 石田燿子 - Sugar Baby Love<br>愛的魔法/まぶらほ - ICHIKO - 恋のマホウ<br>機動戦士ガンダムSEED DESTINY - 玉置成実 - Reason<br>烘焙王/焼きたて!!ジャぱん - TiA - Promise<br>仰望半月的夜空/半分の月がのぼる空 - nobuko - 青い幸福<br>噬魂者/ソウルイーター - 西野加奈 - style<br>灼眼的夏娜Second - 川田まみ - JOINT</p>
-<p>電影<br>穿越時空的少女/時をかける少女 ED - 奥 華子 - 変わらないもの<br>Fate Stay Night - Heaven’s Feeling ED - Aimer - I beg you<br>貓的報恩/猫の恩返し ED - つじあやの - 風になる<br>秒速5厘米/秒速5センチメートル ED - 山崎將義 - One more time, One more chance<br>庫洛魔法師/カードキャプターさくら 封印されたカード コンプリートブック ED - 明日へのメロディー</p>
-<p>遊戲<br>Tomoyo After ~It’s a Wonderful Life~ OP - Lia - Light colors<br>ひぐらしのなく頃に解 - 片霧烈火/TERRA - 月下の決闘者<br>沙耶の唄 - いとうかなこ - ガラスのくつ<br>ファーランドシンフォニー ～アンコール～ - KOTOKO - Wing My Way<br>大番長-Big Bang Age- ブリジット本田 - 「Dash! To Truth」</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/Movie/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/18/Movie/" class="post-title-link" itemprop="url">Japan Drama/Movie</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2019-08-18 19:09:23 / 修改時間：20:24:08" itemprop="dateCreated datePublished" datetime="2019-08-18T19:09:23+08:00">2019-08-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Legal High </p>
-<p>告白<br>愛的成人式</p>
-<p>Unnatural</p>
-<p>18+<br>全裸監督</p>
 
       
     </div>
@@ -697,7 +365,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/08/02/codility-BizReach/" class="post-title-link" itemprop="url">Codility</a>
+            <a href="/2019/08/02/codility-BizReach/" class="post-title-link" itemprop="url">BizReach Hackathon in Tokyo 2019 - Codility</a>
         </h2>
 
         <div class="post-meta">
@@ -714,8 +382,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-04-19 11:20:41" itemprop="dateModified" datetime="2020-04-19T11:20:41+08:00">2020-04-19</time>
+                <time title="修改時間：2020-05-09 12:29:36" itemprop="dateModified" datetime="2020-05-09T12:29:36+08:00">2020-05-09</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Programming-Test/" itemprop="url" rel="index"><span itemprop="name">Online Programming Test</span></a>
+                </span>
+            </span>
 
           
 
@@ -728,8 +405,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Since I am not very sure that all paricipate will get same question, so I decide to publish these in Aug.</p>
-<p>In June late, I take participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
+          <p>Since I am not very sure that all participates will get same questions, so I decide to publish these  later in Aug.</p>
+<p>In June late, I took participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
 <p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
 <p>The first one is easy.</p>
 <p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
@@ -739,9 +416,8 @@
 <p>For example,<br>[1, 2, -1, 4, 5]</p>
 <p>Then the anwser is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
 <p>p.s There must exist an index can seperate two group.</p>
-<p>I didn’t find O(n) solution in contest.<br>But later, I think a while the pseudo code for O(n) should be.</p>
-<p>size of array is N</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
+<p>I didn’t find O(n) solution in contest.<br>But later, I thought a while and came out the answer, the pseudo code of O(n) solution should be like the following:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//size of array is N</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -761,7 +437,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/codility/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/macbook-pro-2010/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/miso.jpg">
@@ -775,7 +451,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/08/02/codility/" class="post-title-link" itemprop="url">Codility</a>
+            <a href="/2019/04/12/macbook-pro-2010/" class="post-title-link" itemprop="url">Macbook Pro 2010 mid</a>
         </h2>
 
         <div class="post-meta">
@@ -784,16 +460,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2019-08-02 13:41:00" itemprop="dateCreated datePublished" datetime="2019-08-02T13:41:00+08:00">2019-08-02</time>
+              <time title="創建時間：2019-04-12 11:19:05 / 修改時間：11:21:01" itemprop="dateCreated datePublished" datetime="2019-04-12T11:19:05+08:00">2019-04-12</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-03-11 10:18:11" itemprop="dateModified" datetime="2020-03-11T10:18:11+08:00">2020-03-11</time>
-              </span>
 
           
 
@@ -806,32 +476,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Since I am not very sure that all paricipate will get same question, so I decide to publish these in Aug.</p>
-<p>In June late, I take participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
-<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
-<p>The first one is easy.</p>
-<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
-<p>The range of A and B is 1,000,000,000.</p>
-<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
-<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
-<p>For example,<br>[1, 2, -1, 4, 5]</p>
-<p>Then the anwser is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
-<p>p.s There must exist an index can seperate two group.</p>
-<p>I didn’t find O(n) solution in contest.<br>But later, I think a while the pseudo code for O(n) should be.</p>
-<p>size of array is N</p>
-<p>int max_idx = N-1;<br>int max = array[N-1];</p>
-<p>//Max won’t appear in first element<br>//We need to find leftmost max<br>for(int i=N-2; i&gt;0; i++)<br>{<br>    if(array[i] &gt;= max)<br>    {<br>        max = array[i];<br>        max_idx = i;<br>    }<br>}</p>
-<p>int rmin = array[max_idx];</p>
-<p>//find the smallest number at right size<br>for(int i=max_idx+1; i&lt;=N; i++)<br>{<br>    if(array[i] &lt; rmin)<br>    {<br>        rmin = array[i];<br>    }<br>}</p>
-<p>int target_idx = 0;<br>int lmax = array[0];</p>
-<p>for(int i=1; i&lt;max_idx; i++)<br>{<br>   if(array[i-1] &gt; array[i])<br>   {<br>        target_idx = -1;<br>   }<br>   else if(array[i] &gt; array[i-1])<br>   {<br>        //target idx must bigger than lmax and rmin, at same time target_idx is not assigned<br>        if(array[i] &gt; lmax &amp;&amp; array[i] &gt; rmin &amp;&amp; target_idx == -1)<br>        {<br>            target_idx = i;<br>        }</p>
-<pre><code>//keep track lmax
-if(array[i] &gt; lmax)
-{
-    lmax = array[i];
-}
-</code></pre><p>   }<br>}</p>
-<p>return target_idx == -1? max_idx : target_idx;</p>
+          <p>If you are using <em>Macbook pro 2010 mid</em>, remember to install gfxCardStatus and turn on 僅Integrated晶片. Otherwise your computer will crash often when OS decide to use external graphic card.<br>Reference: <a href="https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0" target="_blank" rel="noopener">https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0</a></p>
+<p>Notice! After upgrade to 10.12, the gfxCardStatus 2.3 version won’t work. I need to use previous version like v1.7.5, to force turning on Internal Graphic Card only mode.</p>
 
       
     </div>
@@ -851,7 +497,7 @@ if(array[i] &gt; lmax)
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/01/English - how to learn English/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/Set-Up-Hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/miso.jpg">
@@ -865,7 +511,7 @@ if(array[i] &gt; lmax)
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/08/01/English - how to learn English/" class="post-title-link" itemprop="url">English</a>
+            <a href="/2018/09/23/Set-Up-Hexo/" class="post-title-link" itemprop="url">Set Up Hexo</a>
         </h2>
 
         <div class="post-meta">
@@ -875,14 +521,14 @@ if(array[i] &gt; lmax)
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2019-08-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
+              <time title="創建時間：2018-09-23 19:09:23" itemprop="dateCreated datePublished" datetime="2018-09-23T19:09:23+08:00">2018-09-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2019-08-20 23:22:50" itemprop="dateModified" datetime="2019-08-20T23:22:50+08:00">2019-08-20</time>
+                <time title="修改時間：2020-05-09 12:21:44" itemprop="dateModified" datetime="2020-05-09T12:21:44+08:00">2020-05-09</time>
               </span>
 
           
@@ -896,7 +542,23 @@ if(array[i] &gt; lmax)
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>For Chinese learner, very recommend this website<br><a href="https://tw.voicetube.com/" target="_blank" rel="noopener">https://tw.voicetube.com/</a></p>
+          <p>問題:<br>我設定_config.yml的git配置如下</p>
+<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/chinghsuanwei/chinghsuanwei.github.io.git" target="_blank" rel="noopener">https://github.com/chinghsuanwei/chinghsuanwei.github.io.git</a><br>  branch: master</p>
+<p>是正確的</p>
+<p>結果是整個hexo原始碼丟到repository上…</p>
+<p>原因:<br>好像是我自己耍87…<br>我先將hexo init 產生出來的根目錄整個先用git傳到[user].github.io<br>可能是這個原因 導致deploy的時候 他不是將 .deploy_git push上去</p>
+<p>解法:<br>我自己是將整個[user].github.io的repository砍掉重建</p>
+<p>問題:<br>Deployer not found: git</p>
+<p>解法: npm install hexo-deployer-git –save</p>
+<p>若還是沒解掉 就可能像我一樣 之前安裝有錯誤(沒下–save?)</p>
+<p>解法: 先移除 再裝一次就解了<br>npm remove hexo-deployer-git<br>npm install hexo-deployer-git –save</p>
+<p>Extra:<br>若使用git有問題 可能是</p>
+<ol>
+<li>你沒裝git</li>
+<li>盡量使用git bash 別用cmd or PowerShell</li>
+</ol>
+<p>如何新增 categories</p>
+<p><a href="https://linlif.github.io/2017/05/27/Hexo使用攻略-添加分类及标签/" target="_blank" rel="noopener">https://linlif.github.io/2017/05/27/Hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</a></p>
 
       
     </div>
@@ -914,9 +576,6 @@ if(array[i] &gt; lmax)
 
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
-  </nav>
 
 
 
@@ -983,12 +642,18 @@ if(array[i] &gt; lmax)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
