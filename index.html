@@ -156,6 +156,126 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/project-woocommerce-points/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/09/project-woocommerce-points/" class="post-title-link" itemprop="url">如何寫一個 Woocommerce 點數折抵 的plugin</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-05-09 20:00:00" itemprop="dateCreated datePublished" datetime="2020-05-09T20:00:00+08:00">2020-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-05-10 14:09:53" itemprop="dateModified" datetime="2020-05-10T14:09:53+08:00">2020-05-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近接到一個e-commerce的案子</p>
+<p>案主的網站主要是由 WordPress + Woocommerce  所組成的商城</p>
+<p>其實Woocommerce 本身就有出紅利折抵的plugin <strong>WooCommerce Points and Rewards</strong></p>
+<p>但此案主 和 另外一方的公司(以下皆稱乙方)有合作 乙方有自己的點數 乙方的網站會員能夠登入到案主的網站 並可以使用乙方點數消費</p>
+<p>所以統整一下 主要會有幾個功能</p>
+<p> 提供給乙方會員登入入口</p>
+<p> 能查詢/使用/退還 乙方點數</p>
+<p> 要提供介面，讓後台管理員能輸入 對 全域/分類/單一商品 折抵的%數</p>
+<p> 其餘小功能 類似Log…之類的</p>
+<p><strong>WordPress</strong> version 5.3.2</p>
+<p><strong>Woocommerce</strong> version 3.9.2</p>
+<p><strong>WooCommerce Points and Rewards</strong>  version 1.6.21</p>
+<p>開發環境<br>OS: Windows 10<br>Web server: Appserv(Apache + mysql  + phpMyAdmin)</p>
+<h3 id="一、WordPress-Migration"><a href="#一、WordPress-Migration" class="headerlink" title="一、WordPress Migration"></a>一、WordPress Migration</h3><p>要修改既有的WordPress 網站 第一件事情就是將Live-site移到Local讓我們能亂玩</p>
+<p>這裡我們使用 WordPress的 <strong>All-in-one WP Migration</strong></p>
+<p>但遇到的問題是php設定 限制了上傳檔案大小 (我使用php 7)</p>
+<p>因為案主的WordPress封裝檔 有1GB</p>
+<p>我使用的是AppServ裝的php 要修改的路徑在 [Appserv安裝路徑]\php7\php.ini</p>
+<p>修改單一檔案大小上限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; Maximum allowed size for uploaded files.</span><br><span class="line">; http://php.net/upload-max-filesize</span><br><span class="line">upload_max_filesize = 16M</span><br></pre></td></tr></table></figure>
+<p>修改 POST 資料大小上限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">; Maximum size of POST data that PHP will accept.</span><br><span class="line">; Its value may be 0 to disable the limit. It is ignored if POST data reading</span><br><span class="line">; is disabled through enable_post_data_reading.</span><br><span class="line">; http://php.net/post-max-size</span><br><span class="line">post_max_size = 32M</span><br></pre></td></tr></table></figure>
+<p>似乎 也要修改此Plugin的 constants.php 將值改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">define( &apos;AI1WM_MAX_FILE_SIZE&apos;, 2 &lt;&lt; 30 );</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>不然他會Plugin會限制最大的WP封裝檔 512MB </p>
+<h3 id="二、-登入功能"><a href="#二、-登入功能" class="headerlink" title="二、 登入功能"></a>二、 登入功能</h3><p>UI的部分我是直接修改wp-login.php，多新增一個按鈕 和 UI 讓乙方會員可以登入</p>
+<p>在登入認證的部分 我是在我的plugin裡 加入 init的hook 兼 判斷是否為登入頁面(這邊我覺得可能有更好的hook可以使用)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add_action( <span class="string">'init'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( $GLOBALS[<span class="string">'pagenow'</span>] === <span class="string">'wp-login.php'</span> )</span><br><span class="line">	&#123;</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+<p>再者是創立WP帳號 帳號 和 密碼 我是用 encryption(乙方帳號) 產生</p>
+<p>最後在導向首頁</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$user_id = wp_create_user( $username, $password, $email_address );</span><br><span class="line">$user = <span class="keyword">new</span> WP_User( $user_id );</span><br><span class="line">$user-&gt;set_role( <span class="string">'customer'</span> );</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">    </span><br><span class="line">$creds = <span class="keyword">array</span>();</span><br><span class="line">$creds[<span class="string">'user_login'</span>] = $username;</span><br><span class="line">$creds[<span class="string">'user_password'</span>] = $password;</span><br><span class="line">$creds[<span class="string">'remember'</span>] = <span class="keyword">true</span>;</span><br><span class="line">			</span><br><span class="line">$user = wp_signon( $creds, <span class="keyword">false</span> );</span><br><span class="line">$userID = $user-&gt;ID;</span><br><span class="line">wp_set_auth_cookie( $userID, $remember=<span class="keyword">true</span>, <span class="keyword">false</span> );</span><br><span class="line">wp_set_current_user($username);</span><br><span class="line">			</span><br><span class="line">wp_redirect(get_home_url());</span><br><span class="line"><span class="keyword">exit</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="三、能查詢-使用-退還-乙方點數"><a href="#三、能查詢-使用-退還-乙方點數" class="headerlink" title="三、能查詢/使用/退還 乙方點數"></a>三、能查詢/使用/退還 乙方點數</h3><p>這邊就比較複雜 要熟悉WP的hook運作機制</p>
+<p>但基本上的改法就是 把plugin裡面的參數 wc_points_xxxx 改成 miso_points_xxxx之類的</p>
+<p>然後將本來在mysql 做點數控管的部分 改成 Call 乙方提供的API 其實這樣就完成了</p>
+<p>可以看看下圖</p>
+<p><img src="/images/woocommerce-points-and-rewards-demo1.png" alt=""></p>
+<p>紅利點數是使用 <strong>WooCommerce Points and Rewards</strong>  建置的</p>
+<p>而下面的那欄就是乙方點數 UI是不是很像呢? 因為UI的部分 我就直接使用 <strong>WooCommerce Points and Rewards</strong>  plugin裡面的css</p>
+<p>紅利點數 和 乙方點數可以同時使用 不衝突</p>
+<p><img src="/images/woocommerce-points-and-rewards-demo2.png" alt=""></p>
+<p>Admin的部分也是沿用，因為案主只需要能設定 全域/分類/單一商品 折抵的%數</p>
+<p>所以大部分的設定都被comment掉了</p>
+<p><img src="/images/woocommerce-points-and-rewards-demo3.png" alt=""></p>
+<p>最後此專案只有一個地方 沒有寫進 plugin</p>
+<p>就是wp-login.php裡面的UI部分 知道怎麼做 不過覺得有點麻煩</p>
+<p>其實用wc_enqueue_js 另外把 login的UI包進去 append到wp-login.php即可</p>
+<p>但我想 若是此plugin有在串接到別的 同樣使用woo-commerce網站上 我在把它完成吧</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/18/postman-and-node-js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -451,66 +571,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/macbook-pro-2010/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/04/12/macbook-pro-2010/" class="post-title-link" itemprop="url">Macbook Pro 2010 mid</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2019-04-12 11:19:05 / 修改時間：11:21:01" itemprop="dateCreated datePublished" datetime="2019-04-12T11:19:05+08:00">2019-04-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>If you are using <em>Macbook pro 2010 mid</em>, remember to install gfxCardStatus and turn on 僅Integrated晶片. Otherwise your computer will crash often when OS decide to use external graphic card.<br>Reference: <a href="https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0" target="_blank" rel="noopener">https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0</a></p>
-<p>Notice! After upgrade to 10.12, the gfxCardStatus 2.3 version won’t work. I need to use previous version like v1.7.5, to force turning on Internal Graphic Card only mode.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/Set-Up-Hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -542,7 +602,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-09 12:21:44" itemprop="dateModified" datetime="2020-05-09T12:21:44+08:00">2020-05-09</time>
+                <time title="修改時間：2020-05-09 12:46:45" itemprop="dateModified" datetime="2020-05-09T12:46:45+08:00">2020-05-09</time>
               </span>
 
           
@@ -573,6 +633,81 @@
 </ol>
 <p>如何新增 categories</p>
 <p><a href="https://linlif.github.io/2017/05/27/Hexo使用攻略-添加分类及标签/" target="_blank" rel="noopener">https://linlif.github.io/2017/05/27/Hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/macbook-pro-2010/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/05/08/macbook-pro-2010/" class="post-title-link" itemprop="url">Macbook Pro 2010 mid</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2017-05-08 00:00:00" itemprop="dateCreated datePublished" datetime="2017-05-08T00:00:00+08:00">2017-05-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-05-09 19:46:50" itemprop="dateModified" datetime="2020-05-09T19:46:50+08:00">2020-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hardware-Setting/" itemprop="url" rel="index"><span itemprop="name">Hardware Setting</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>If you are using <em>Macbook pro 2010 mid</em>, remember to install gfxCardStatus and turn on 僅Integrated晶片.<br>Otherwise your computer will crash often when OS decide to use external graphic card.<br>Reference: <a href="https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0" target="_blank" rel="noopener">https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0</a></p>
+<p>Notice! After upgrade to 10.12, the gfxCardStatus 2.3 version won’t work.<br>I need to use previous version like v1.7.5, to forcely turn on Internal Graphic Card only mode.</p>
 
       
     </div>
@@ -656,18 +791,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
