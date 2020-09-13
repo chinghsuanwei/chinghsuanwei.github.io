@@ -20,15 +20,23 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Miso">
-<meta property="og:url" content="http://yoursite.com/categories/Project/index.html">
+  <meta name="description" content="最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。 不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。 我主要試過了兩個方法 方法一、pnputil /add-driver [.INF] 會在 C:\Windows\in">
+<meta name="keywords" content="INF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="INF installation">
+<meta property="og:url" content="http://yoursite.com/2020/09/10/inf/index.html">
 <meta property="og:site_name" content="Miso">
+<meta property="og:description" content="最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。 不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。 我主要試過了兩個方法 方法一、pnputil /add-driver [.INF] 會在 C:\Windows\in">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:image" content="http://yoursite.com/images/device_manager_1.png">
+<meta property="og:image" content="http://yoursite.com/images/device_manager_2.png">
+<meta property="og:updated_time" content="2020-09-11T07:23:04.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Miso">
+<meta name="twitter:title" content="INF installation">
+<meta name="twitter:description" content="最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。 不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。 我主要試過了兩個方法 方法一、pnputil /add-driver [.INF] 會在 C:\Windows\in">
+<meta name="twitter:image" content="http://yoursite.com/images/device_manager_1.png">
 
-<link rel="canonical" href="http://yoursite.com/categories/Project/">
+<link rel="canonical" href="http://yoursite.com/2020/09/10/inf/">
 
 
 <script id="page-configurations">
@@ -36,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>分類: Project | Miso</title>
+  <title>INF installation | Miso</title>
   
 
 
@@ -150,111 +158,96 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Project
-          <small>分類</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/10/inf/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          INF installation
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-09-10 21:00:00" itemprop="dateCreated datePublished" datetime="2020-09-10T21:00:00+08:00">2020-09-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-09-11 15:23:04" itemprop="dateModified" datetime="2020-09-11T15:23:04+08:00">2020-09-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-06T17:00:00+08:00"
-              content="2020-08-06">
-          08-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/06/visual-studio-2003-.net1.1/" itemprop="url">
-            <span itemprop="name">.Net 1.1 Visual Studio 2003</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-06T16:00:00+08:00"
-              content="2020-07-06">
-          07-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/06/project-aes-csharp-to-php/" itemprop="url">
-            <span itemprop="name">C# .NET 轉 php</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-05-09T20:00:00+08:00"
-              content="2020-05-09">
-          05-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/05/09/project-woocommerce-points/" itemprop="url">
-            <span itemprop="name">如何寫一個 Woocommerce 點數折抵 的plugin</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-04-18T20:00:00+08:00"
-              content="2020-04-18">
-          04-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/04/18/postman-and-node-js/" itemprop="url">
-            <span itemprop="name">使用Node-js 製作網站自動登入程式</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <p>最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。</p>
+<p>不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。</p>
+<p>我主要試過了兩個方法</p>
+<p>方法一、pnputil /add-driver [.INF] 會在 C:\Windows\inf 下產生oem**.inf (**為數字) 但沒用，在裝置管理員還是顯示 ? 裝置</p>
+<p>方法二、裝置管理員安裝</p>
+<p><img src="/images/device_manager_1.png" alt=""></p>
+<p><img src="/images/device_manager_2.png" alt=""></p>
+<p>但會顯示安裝失敗</p>
+<p>經過好幾個小時的嘗試，也詢問日本工程師是否Driver有給錯，但得到的回答是該Driver是使用usbscan.sys 和 sti.dll等Windows本來就擁有的Capture Device Driver，通訊是用別的.dll和驅動無關。雖然給的訊息看似沒有幫助，實際上好像真的沒幫助…。後來我忽然想到為什麼我們的實體機上能使用照相機呢? 他一定是有安裝驅動才能用</p>
+<p>於是我直接連到實體機裡面，到C:\Windows\inf 把所有的oem**.inf  (**為數字)，全部掃描一下，發現裡面有一個檔案裡面，有照相機製造商的關鍵字，且Driver的INF也和之前工程師給的很類似，於是我把它下載下來(記得看一下裡面文字，可能包含其他.inf file 也必須一起下載下來)，然後使用 <strong>方法二</strong> 在安裝一次，神奇的事情發生了，既然安裝成功了。</p>
+<p>結論: 只要相同的OS下，若有某台電腦有和你一樣的Windows OS有安裝成功，你有可能可以在那台OS裡面找到oem**.inf  (**為數字)，下載下來並安裝該驅動。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/INF/" rel="tag"># INF</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/06/visual-studio-2003-.net1.1/" rel="prev" title=".Net 1.1 Visual Studio 2003">
+      <i class="fa fa-chevron-left"></i> .Net 1.1 Visual Studio 2003
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
