@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh-TW">
 <meta property="og:image" content="http://yoursite.com/images/device_manager_1.png">
 <meta property="og:image" content="http://yoursite.com/images/device_manager_2.png">
-<meta property="og:updated_time" content="2020-09-11T07:23:04.576Z">
+<meta property="og:updated_time" content="2020-09-27T07:18:17.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="INF installation">
 <meta name="twitter:description" content="最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。 不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。 我主要試過了兩個方法 方法一、pnputil /add-driver [.INF] 會在 C:\Windows\in">
@@ -195,7 +195,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-09-11 15:23:04" itemprop="dateModified" datetime="2020-09-11T15:23:04+08:00">2020-09-11</time>
+                <time title="修改時間：2020-09-27 15:18:17" itemprop="dateModified" datetime="2020-09-27T15:18:17+08:00">2020-09-27</time>
               </span>
 
           
@@ -217,9 +217,9 @@
 <p><img src="/images/device_manager_1.png" alt=""></p>
 <p><img src="/images/device_manager_2.png" alt=""></p>
 <p>但會顯示安裝失敗</p>
-<p>經過好幾個小時的嘗試，也詢問日本工程師是否Driver有給錯，但得到的回答是該Driver是使用usbscan.sys 和 sti.dll等Windows本來就擁有的Capture Device Driver，通訊是用別的.dll和驅動無關。雖然給的訊息看似沒有幫助，實際上好像真的沒幫助…。後來我忽然想到為什麼我們的實體機上能使用照相機呢? 他一定是有安裝驅動才能用</p>
+<p>經過好幾個小時的嘗試，也詢問日本工程師是否Driver有給錯，但得到的回答是該Driver是使用<strong>usbscan.sys</strong> 和 <strong>sti.dll</strong>等Windows本來就擁有的<strong>Capture Device Driver</strong>，與照相機的通訊是用別的.dll與該驅動無關。雖然給的訊息看似沒有幫助，但…後來我忽然想到<strong>為什麼我們的實體機上能使用照相機呢</strong>? 他一定是有安裝驅動才能用。</p>
 <p>於是我直接連到實體機裡面，到C:\Windows\inf 把所有的oem**.inf  (**為數字)，全部掃描一下，發現裡面有一個檔案裡面，有照相機製造商的關鍵字，且Driver的INF也和之前工程師給的很類似，於是我把它下載下來(記得看一下裡面文字，可能包含其他.inf file 也必須一起下載下來)，然後使用 <strong>方法二</strong> 在安裝一次，神奇的事情發生了，既然安裝成功了。</p>
-<p>結論: 只要相同的OS下，若有某台電腦有和你一樣的Windows OS有安裝成功，你有可能可以在那台OS裡面找到oem**.inf  (**為數字)，下載下來並安裝該驅動。</p>
+<p>我使用上面的方法，成功安裝該台相機的驅動在兩個不同版本的Windows OS上，最後得到的結論是: 若有某台電腦有和你一樣的Windows OS，並有安裝某驅動，那你有可能可以在那台OS裡面找到oem**.inf  (**為數字)，下載他並安裝該驅動。</p>
 
     </div>
 
