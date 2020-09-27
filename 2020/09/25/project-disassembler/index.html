@@ -20,19 +20,23 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Since I am not very sure that all participates will get same questions, so I decide to publish these  later in Aug. In June late, I took participation from【BizReach Hackathon in Tokyo 2019】Invitation">
+  <meta name="description" content="分享最近一個案子，專案裡面有一個Windows .exe執行檔，是一個Windows視窗程式，程式是可以跑起來，但沒有source code。不過Runtime時，有一個按鈕按下去，裡面內部的function沒有正常運作，UI上吐出Error number和Error message，但Error message 是Google or Stack overflow也找不到問題的那種，搜尋都出現一堆">
+<meta name="keywords" content="Window Application, disassembler, ollydbg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BizReach Hackathon in Tokyo 2019 - Codility">
-<meta property="og:url" content="http://yoursite.com/2019/08/02/codility-BizReach/index.html">
+<meta property="og:title" content="反組譯 Windows 視窗程式">
+<meta property="og:url" content="http://yoursite.com/2020/09/25/project-disassembler/index.html">
 <meta property="og:site_name" content="Miso">
-<meta property="og:description" content="Since I am not very sure that all participates will get same questions, so I decide to publish these  later in Aug. In June late, I took participation from【BizReach Hackathon in Tokyo 2019】Invitation">
+<meta property="og:description" content="分享最近一個案子，專案裡面有一個Windows .exe執行檔，是一個Windows視窗程式，程式是可以跑起來，但沒有source code。不過Runtime時，有一個按鈕按下去，裡面內部的function沒有正常運作，UI上吐出Error number和Error message，但Error message 是Google or Stack overflow也找不到問題的那種，搜尋都出現一堆">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-09-06T07:18:41.434Z">
+<meta property="og:image" content="http://yoursite.com/images/ollydbg.png">
+<meta property="og:image" content="http://yoursite.com/images/ollydbg_windows.png">
+<meta property="og:updated_time" content="2020-09-27T07:04:33.173Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BizReach Hackathon in Tokyo 2019 - Codility">
-<meta name="twitter:description" content="Since I am not very sure that all participates will get same questions, so I decide to publish these  later in Aug. In June late, I took participation from【BizReach Hackathon in Tokyo 2019】Invitation">
+<meta name="twitter:title" content="反組譯 Windows 視窗程式">
+<meta name="twitter:description" content="分享最近一個案子，專案裡面有一個Windows .exe執行檔，是一個Windows視窗程式，程式是可以跑起來，但沒有source code。不過Runtime時，有一個按鈕按下去，裡面內部的function沒有正常運作，UI上吐出Error number和Error message，但Error message 是Google or Stack overflow也找不到問題的那種，搜尋都出現一堆">
+<meta name="twitter:image" content="http://yoursite.com/images/ollydbg.png">
 
-<link rel="canonical" href="http://yoursite.com/2019/08/02/codility-BizReach/">
+<link rel="canonical" href="http://yoursite.com/2020/09/25/project-disassembler/">
 
 
 <script id="page-configurations">
@@ -45,7 +49,7 @@
   };
 </script>
 
-  <title>BizReach Hackathon in Tokyo 2019 - Codility | Miso</title>
+  <title>反組譯 Windows 視窗程式 | Miso</title>
   
 
 
@@ -161,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/codility-BizReach/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/25/project-disassembler/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/miso.jpg">
@@ -174,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          BizReach Hackathon in Tokyo 2019 - Codility
+          反組譯 Windows 視窗程式
         </h1>
 
         <div class="post-meta">
@@ -184,14 +188,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2019-08-02 13:41:00" itemprop="dateCreated datePublished" datetime="2019-08-02T13:41:00+08:00">2019-08-02</time>
+              <time title="創建時間：2020-09-25 17:00:00" itemprop="dateCreated datePublished" datetime="2020-09-25T17:00:00+08:00">2020-09-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-09-06 15:18:41" itemprop="dateModified" datetime="2020-09-06T15:18:41+08:00">2020-09-06</time>
+                <time title="修改時間：2020-09-27 15:04:33" itemprop="dateModified" datetime="2020-09-27T15:04:33+08:00">2020-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -199,7 +203,7 @@
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Online-Programming-Test/" itemprop="url" rel="index"><span itemprop="name">Online Programming Test</span></a>
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
                 </span>
             </span>
 
@@ -214,19 +218,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Since I am not very sure that all participates will get same questions, so I decide to publish these  later in Aug.</p>
-<p>In June late, I took participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
-<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
-<p>The first one is easy.</p>
-<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
-<p>The range of A and B is 1,000,000,000.</p>
-<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
-<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
-<p>For example,<br>[1, 2, -1, 4, 5]</p>
-<p>Then the answer is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
-<p>p.s. There must exists an index can separate two group.</p>
-<p>I didn’t find O(n) solution in contest.<br>But later, I thought a while and came out the answer, the pseudo code of O(n) solution should be like the following:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//size of array is N</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
+        <p>分享最近一個案子，專案裡面有一個Windows .exe執行檔，是一個Windows視窗程式，程式是可以跑起來，但沒有source code。不過Runtime時，有一個按鈕按下去，裡面內部的function沒有正常運作，UI上吐出Error number和Error message，但Error message 是Google or Stack overflow也找不到問題的那種，搜尋都出現一堆不關聯的結果，因為程式也很老舊，也沒有文件可以翻閱。</p>
+<p>但因為在Operation的機器上，該程式的該按鈕按下去能正常運作，從以往的經驗猜測，應該是我開發環境少了什麼檔案。</p>
+<h3 id="Try"><a href="#Try" class="headerlink" title="Try"></a><strong>Try</strong></h3><p><strong>以下部分是我嘗試的經過，若對過程沒興趣，可以直接跳到下面段落</strong></p>
+<p>於是我想了一下，以前上課都有說，程式一定都可以反組譯的，只是會變成了亂碼，我的第一步驟其實是打開notepad++，先看是否能找到該字串，結果找不到，由此推斷有可能是他的動態連結庫.dll拋出的訊息，並不是執行檔本身所產生。</p>
+<p>上網找了一下，好像<strong>IDA PRO</strong>是蠻有名的反組譯軟體，但因為不是免費的，所以試用一下他們的<strong>IDA Freeware</strong>，但是沒成功。還試了免費軟體<strong>radare2</strong>，他介面也蠻酷的，是console UI，但我都沒找到方法能中斷在按鈕按下去的時候停，最後找到UI看起來很陽春的<strong>Ollydbg</strong>，解決了我的問題。</p>
+<h3 id="Ollydbg"><a href="#Ollydbg" class="headerlink" title="Ollydbg"></a><strong>Ollydbg</strong></h3><p>我在下載  <a href="http://www.ollydbg.de/" target="_blank" rel="noopener">http://www.ollydbg.de/</a> 下載version 1.1(final)的版本</p>
+<p>開啟後將你想deassemble的程式exe，即可看到他反組譯的程式，然後在按下Run，你就可以用組合語言Debug了</p>
+<p><img src="/images/ollydbg.png" alt=""></p>
+<p>基本上我參考下面網站的作法</p>
+<p><a href="https://stackoverflow.com/questions/24138087/how-can-i-set-a-breakpoint-for-a-button-click-using-ollydbg/26540612" target="_blank" rel="noopener">https://stackoverflow.com/questions/24138087/how-can-i-set-a-breakpoint-for-a-button-click-using-ollydbg/26540612</a></p>
+<p>以下是設定按下某個按鈕後，會中斷程式讓你可以Debug。我覺得ollydbg厲害的是，他既然有選單可以選，他會列出畫面上Button的文字，讓你可以註冊某個event，下面的步驟就是註冊<strong>LBUTTONUP</strong>，按下滑鼠左鍵後要中斷程式。</p>
+<ul>
+<li><p>go to <code>view &gt; windows</code></p>
+<p>如果按下windows沒看到東西，可以在windows視窗的空白地方點滑鼠右鍵，會出現Menubar，選<strong>Actualize</strong></p>
+<p><img src="/images/ollydbg_windows.png" alt=""></p>
+</li>
+<li><p>select your button.</p>
+</li>
+<li><p>right click and select <code>Message breakpoint on ClassProc</code></p>
+</li>
+<li><p>in <code>Messages:</code> select <code>202 WM LBUTTONUP</code></p>
+</li>
+<li><p>select <code>Break on all windows with same title</code></p>
+</li>
+<li><p>select <code>Pause program: On message</code></p>
+</li>
+<li><p>select <code>Log WinProc arguments: Never</code></p>
+</li>
+</ul>
+<p>我自己會蠻常按<strong>control + F9</strong> 他的功能是<strong>execute till return</strong>，直接找到Return點，然後在該點看一下stack 裡面是否有類似Error number的值或是Error message的字串，若有的話，在他前後設定中斷點再尋找一下，可能就會找到根源。</p>
 
     </div>
 
@@ -235,6 +256,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Window-Application-disassembler-ollydbg/" rel="tag"># Window Application, disassembler, ollydbg</a>
+          </div>
 
         
 
@@ -242,13 +266,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2018/09/23/Set-Up-Hexo/" rel="prev" title="Set Up Hexo">
-      <i class="fa fa-chevron-left"></i> Set Up Hexo
+    <a href="/2020/09/10/inf/" rel="prev" title="INF installation">
+      <i class="fa fa-chevron-left"></i> INF installation
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/03/10/codility-Rakuten/" rel="next" title="Rakuten Codility Online Programming Test">
-      Rakuten Codility Online Programming Test <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -307,6 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Try"><span class="nav-number">1.</span> <span class="nav-text">Try</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ollydbg"><span class="nav-number">2.</span> <span class="nav-text">Ollydbg</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
