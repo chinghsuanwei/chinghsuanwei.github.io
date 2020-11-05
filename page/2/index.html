@@ -156,6 +156,173 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/codility-BizReach/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/02/codility-BizReach/" class="post-title-link" itemprop="url">BizReach Hackathon in Tokyo 2019 - Codility</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-08-02 13:41:00" itemprop="dateCreated datePublished" datetime="2019-08-02T13:41:00+08:00">2019-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-09-06 15:18:41" itemprop="dateModified" datetime="2020-09-06T15:18:41+08:00">2020-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Programming-Test/" itemprop="url" rel="index"><span itemprop="name">Online Programming Test</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Since I am not very sure that all participates will get same questions, so I decide to publish these  later in Aug.</p>
+<p>In June late, I took participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
+<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
+<p>The first one is easy.</p>
+<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
+<p>The range of A and B is 1,000,000,000.</p>
+<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
+<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
+<p>For example,<br>[1, 2, -1, 4, 5]</p>
+<p>Then the answer is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
+<p>p.s. There must exists an index can separate two group.</p>
+<p>I didn’t find O(n) solution in contest.<br>But later, I thought a while and came out the answer, the pseudo code of O(n) solution should be like the following:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//size of array is N</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/Set-Up-Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/23/Set-Up-Hexo/" class="post-title-link" itemprop="url">Set Up Hexo</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2018-09-23 19:09:23" itemprop="dateCreated datePublished" datetime="2018-09-23T19:09:23+08:00">2018-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-05-09 12:46:45" itemprop="dateModified" datetime="2020-05-09T12:46:45+08:00">2020-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>問題:<br>我設定_config.yml的git配置如下</p>
+<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/chinghsuanwei/chinghsuanwei.github.io.git" target="_blank" rel="noopener">https://github.com/chinghsuanwei/chinghsuanwei.github.io.git</a><br>  branch: master</p>
+<p>是正確的</p>
+<p>結果是整個hexo原始碼丟到repository上…</p>
+<p>原因:<br>好像是我自己耍87…<br>我先將hexo init 產生出來的根目錄整個先用git傳到[user].github.io<br>可能是這個原因 導致deploy的時候 他不是將 .deploy_git push上去</p>
+<p>解法:<br>我自己是將整個[user].github.io的repository砍掉重建</p>
+<p>問題:<br>Deployer not found: git</p>
+<p>解法: npm install hexo-deployer-git –save</p>
+<p>若還是沒解掉 就可能像我一樣 之前安裝有錯誤(沒下–save?)</p>
+<p>解法: 先移除 再裝一次就解了<br>npm remove hexo-deployer-git<br>npm install hexo-deployer-git –save</p>
+<p>Extra:<br>若使用git有問題 可能是</p>
+<ol>
+<li>你沒裝git</li>
+<li>盡量使用git bash 別用cmd or PowerShell</li>
+</ol>
+<p>如何新增 categories</p>
+<p><a href="https://linlif.github.io/2017/05/27/Hexo使用攻略-添加分类及标签/" target="_blank" rel="noopener">https://linlif.github.io/2017/05/27/Hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/macbook-pro-2010/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -298,7 +465,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -309,7 +476,7 @@
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>

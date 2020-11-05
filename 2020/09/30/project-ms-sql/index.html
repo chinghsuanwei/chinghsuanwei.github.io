@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="最近接到一個C# .NET 轉 php的案子 對方是使用AES加密 和 Base64轉成文字 帶入到Http Param裡面 C# 有兩個function Base64UrlEncoder.Encode(Byte[]) 和 Base64UrlEncoder.DecodeBytes(String) 分別做Base64Url的加密解密 基本上這個function做的是 將 “+“ 變成 “-“, “/">
-<meta name="keywords" content="C#, php, Base64, AES">
+  <meta name="description" content="最近接的案子使用MS SQL server，來記錄一下過程中所使用的SQL語法。 尋找所有Table是否有存在某個Column欄位 https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/ Example: DB名稱為miso，想尋找DB裡面所有tabl">
+<meta name="keywords" content="SQL, MSSQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C# .NET 轉 php">
-<meta property="og:url" content="http://yoursite.com/2020/07/06/project-aes-csharp-to-php/index.html">
+<meta property="og:title" content="MS Sql Server">
+<meta property="og:url" content="http://yoursite.com/2020/09/30/project-ms-sql/index.html">
 <meta property="og:site_name" content="Miso">
-<meta property="og:description" content="最近接到一個C# .NET 轉 php的案子 對方是使用AES加密 和 Base64轉成文字 帶入到Http Param裡面 C# 有兩個function Base64UrlEncoder.Encode(Byte[]) 和 Base64UrlEncoder.DecodeBytes(String) 分別做Base64Url的加密解密 基本上這個function做的是 將 “+“ 變成 “-“, “/">
+<meta property="og:description" content="最近接的案子使用MS SQL server，來記錄一下過程中所使用的SQL語法。 尋找所有Table是否有存在某個Column欄位 https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/ Example: DB名稱為miso，想尋找DB裡面所有tabl">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-07-06T10:47:14.902Z">
+<meta property="og:updated_time" content="2020-10-23T03:31:15.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C# .NET 轉 php">
-<meta name="twitter:description" content="最近接到一個C# .NET 轉 php的案子 對方是使用AES加密 和 Base64轉成文字 帶入到Http Param裡面 C# 有兩個function Base64UrlEncoder.Encode(Byte[]) 和 Base64UrlEncoder.DecodeBytes(String) 分別做Base64Url的加密解密 基本上這個function做的是 將 “+“ 變成 “-“, “/">
+<meta name="twitter:title" content="MS Sql Server">
+<meta name="twitter:description" content="最近接的案子使用MS SQL server，來記錄一下過程中所使用的SQL語法。 尋找所有Table是否有存在某個Column欄位 https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/ Example: DB名稱為miso，想尋找DB裡面所有tabl">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/06/project-aes-csharp-to-php/">
+<link rel="canonical" href="http://yoursite.com/2020/09/30/project-ms-sql/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>C# .NET 轉 php | Miso</title>
+  <title>MS Sql Server | Miso</title>
   
 
 
@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/project-aes-csharp-to-php/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/project-ms-sql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/miso.jpg">
@@ -175,7 +175,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C# .NET 轉 php
+          MS Sql Server
         </h1>
 
         <div class="post-meta">
@@ -184,10 +184,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-07-06 16:00:00 / 修改時間：18:47:14" itemprop="dateCreated datePublished" datetime="2020-07-06T16:00:00+08:00">2020-07-06</time>
+              <time title="創建時間：2020-09-30 17:00:00" itemprop="dateCreated datePublished" datetime="2020-09-30T17:00:00+08:00">2020-09-30</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-23 11:31:15" itemprop="dateModified" datetime="2020-10-23T11:31:15+08:00">2020-10-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -209,18 +215,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近接到一個C# .NET 轉 php的案子 對方是使用AES加密 和 Base64轉成文字 帶入到Http Param裡面</p>
-<p>C# 有兩個function <strong>Base64UrlEncoder.Encode(Byte[])</strong> 和 <strong>Base64UrlEncoder.DecodeBytes(String)</strong></p>
-<p>分別做Base64Url的加密解密</p>
-<p>基本上這個function做的是</p>
-<p>將 “<strong>+</strong>“ 變成 “<strong>-</strong>“, “<strong>/</strong>“ 變成 “<strong>_</strong>“</p>
-<p>最後把所以結尾的 “<strong>=</strong>“ 刪除 簡要而言 就是將有特殊意義的URL的特殊符號 轉換成 安全的符號</p>
-<p>decoder 就是倒著做過來</p>
-<p>php 的轉法就是</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64url_encode</span><span class="params">($data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// First of all you should encode $data to Base64 string</span></span><br><span class="line">	$b64 = base64_encode($data);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Make sure you get a valid result, otherwise, return FALSE, as the base64_encode() function do</span></span><br><span class="line">	<span class="keyword">if</span> ($b64 === <span class="keyword">false</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Convert Base64 to Base64URL by replacing “+” with “-” and “/” with “_”</span></span><br><span class="line">	$url = strtr($b64, <span class="string">'+/'</span>, <span class="string">'-_'</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Remove padding character from the end of line and return the Base64URL result</span></span><br><span class="line">	<span class="keyword">return</span> rtrim($url, <span class="string">'='</span>);</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64url_decode</span><span class="params">($data, $strict = false)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// Convert Base64URL to Base64 by replacing “-” with “+” and “_” with “/”</span></span><br><span class="line">	$b64 = strtr($data, <span class="string">'-_'</span>, <span class="string">'+/'</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Decode Base64 string and return the original data</span></span><br><span class="line">	<span class="keyword">return</span> base64_decode($b64, $strict);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因為base64特性的關係 其實不用知道有幾個<strong>=</strong>也能反解碼回來</p>
-<p>AES加解密的部分</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Encryption</span></span><br><span class="line">$encrypted_data = openssl_encrypt($plain_text, <span class="string">"AES-256-CBC"</span>, $key, $options=OPENSSL_RAW_DATA , $iv);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Decryption</span></span><br><span class="line">$plain_text = openssl_decrypt($encrypted_data, <span class="string">"AES-256-CBC"</span>, $key, $options=OPENSSL_RAW_DATA , $iv);</span><br></pre></td></tr></table></figure>
+        <p>最近接的案子使用MS SQL server，來記錄一下過程中所使用的SQL語法。</p>
+<p>尋找所有Table是否有存在某個Column欄位</p>
+<p><a href="https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/" target="_blank" rel="noopener">https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/</a></p>
+<p>Example: DB名稱為<strong>miso</strong>，想尋找DB裡面所有table是否存在 <strong>order_id</strong>的欄位可以使用下列Sql語法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> miso</span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"><span class="keyword">SELECT</span> t.name <span class="keyword">AS</span> table_name,</span><br><span class="line">SCHEMA_NAME(schema_id) <span class="keyword">AS</span> schema_name,</span><br><span class="line">c.name <span class="keyword">AS</span> column_name</span><br><span class="line"><span class="keyword">FROM</span> sys.tables <span class="keyword">AS</span> t</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> sys.columns c <span class="keyword">ON</span> t.OBJECT_ID = c.OBJECT_ID</span><br><span class="line"><span class="keyword">WHERE</span> c.name <span class="keyword">LIKE</span> <span class="string">'order_id'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> schema_name, table_name;</span><br></pre></td></tr></table></figure>
+<p>SQL不支援 <strong>INSERT IGNORE INTO</strong> 這讓我有點困擾，因為客戶那邊是說有隱私權的問題，所以他給資料庫都是一次給一小部分，過程中就會出現資料重複的問題，我沒辦法將他給的資料加到既有的Table，於是我就想到用batch file解決此問題</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">ECHO</span> OFF</span><br><span class="line"><span class="keyword">for</span> /F "tokens=*" <span class="variable">%%A</span> <span class="keyword">in</span> (file.sql) <span class="keyword">do</span> (</span><br><span class="line">	sqlcmd -S [INSTANCENAME] -Q "<span class="built_in">SET</span> IDENTITY_INSERT moodle2.dbo.mdl_pid ON;<span class="variable">%%A</span>"</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>這個script是直接跑在sql server那台主機上，你可以用sqlcmd -L 去查一下 [INSTANCENAME]的名稱，不過缺點是跑得有點慢…</p>
+<p><strong>RANDOM generate number from 1 to 9</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ABS</span>(<span class="keyword">CHECKSUM</span>(NEWID()))%<span class="number">9</span> + <span class="number">1</span> <span class="keyword">RESULT</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>Choose item from array</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CHOOSE</span>(<span class="number">2</span>, <span class="string">'First'</span>, <span class="string">'Second'</span>, <span class="string">'Third'</span>) <span class="keyword">Result</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>Count with condition</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COUNT(CASE WHEN is_person = 0 then 1 else null <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -230,7 +238,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/C-php-Base64-AES/" rel="tag"># C#, php, Base64, AES</a>
+              <a href="/tags/SQL-MSSQL/" rel="tag"># SQL, MSSQL</a>
           </div>
 
         
@@ -239,12 +247,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/09/project-woocommerce-points/" rel="prev" title="如何寫一個 Woocommerce 點數折抵 的plugin">
-      <i class="fa fa-chevron-left"></i> 如何寫一個 Woocommerce 點數折抵 的plugin
+    <a href="/2020/09/30/project-php-sql/" rel="prev" title="MS Sql Server">
+      <i class="fa fa-chevron-left"></i> MS Sql Server
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/07/29/facebook-hacker-cup-2020/" rel="next" title="Facebook Hacker Cup 2020 QA Round">
-      Facebook Hacker Cup 2020 QA Round <i class="fa fa-chevron-right"></i>
+    <a href="/2020/11/05/visual-studio-2003-.net1.1/" rel="next" title="VB.Net 1.1">
+      VB.Net 1.1 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

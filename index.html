@@ -156,6 +156,276 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/05/visual-studio-2003-.net1.1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/05/visual-studio-2003-.net1.1/" class="post-title-link" itemprop="url">VB.Net 1.1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-11-05 17:00:00 / 修改時間：20:15:45" itemprop="dateCreated datePublished" datetime="2020-11-05T17:00:00+08:00">2020-11-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近接的案子使用Visual Studio 2003開發 .Net 1.1，因為遇到太多問題了，因此想紀錄一下。</p>
+<p><strong>安裝:</strong></p>
+<p>根據網路上的調查，Windows 10 在某個patch後就會和Visual Studio 2003有相容性的問題</p>
+<p><a href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/3aaa01ef-e2e1-4cac-a3a8-c6978b78cfcc/visual-studio-2003-on-windows-10-build-1703?forum=visualstudiogeneral" target="_blank" rel="noopener">https://social.msdn.microsoft.com/Forums/vstudio/en-US/3aaa01ef-e2e1-4cac-a3a8-c6978b78cfcc/visual-studio-2003-on-windows-10-build-1703?forum=visualstudiogeneral</a></p>
+<p>我自己沒試過 但為了避免遇到此問題 我就裝在Windows 7的虛擬機上了</p>
+<p>一開始我嘗試想裝在Windows XP上，覺得Visual Studio 2003這IDE應該會和Windows XP比較合，但後來發現XP會少很多library，在使用客戶的library的時候都缺東缺西。最後使用Window 7，library dependency的問題就沒了。</p>
+<p>不太清楚為什麼，我使用<strong>Ctrl + Alt + F </strong>全域搜尋，Visual Studio 2003一定會Crash</p>
+<p>在VB.net 1.1 類似Map的結構 可以使用System.Collections.Specialized裡面的Library</p>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Imports</span> System.Collections.Specialized</span><br><span class="line"><span class="keyword">Dim</span> dict <span class="keyword">As</span> StringDictionary</span><br><span class="line"><span class="keyword">Public</span> <span class="keyword">Function</span> getValue(<span class="keyword">ByVal</span> <span class="keyword">key</span> <span class="keyword">As</span> <span class="built_in">String</span>) <span class="keyword">As</span> <span class="built_in">String</span></span><br><span class="line">    <span class="keyword">If</span> dict.ContainsKey(<span class="keyword">key</span>) <span class="keyword">Then</span></span><br><span class="line">        <span class="keyword">Return</span> dict(<span class="keyword">key</span>)</span><br><span class="line">    <span class="keyword">Else</span></span><br><span class="line">        <span class="keyword">Return</span> <span class="string">""</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure>
+<p>How to Define Array</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dim myValues As Integer() = New Integer() &#123;0, 0, 0&#125;</span><br></pre></td></tr></table></figure>
+<p>VB的除法運算子 / 會自動變成浮點數  若你指定他為整數 他會做四捨五入</p>
+<p>要進行整除可以用 \ </p>
+<p>三元運算子</p>
+<p>reference from: <a href="https://www.huanlintalk.com/2010/09/vb-iif-if.html" target="_blank" rel="noopener">https://www.huanlintalk.com/2010/09/vb-iif-if.html</a></p>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">'示範 IIf 函式的陷阱</span></span><br><span class="line">    <span class="keyword">Dim</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">Dim</span> j = <span class="built_in">IIf</span>(i &lt;&gt; <span class="number">0</span>, <span class="number">10</span> \ i, <span class="number">0</span>)  <span class="comment">'執行時會出錯! </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">Dim</span> x <span class="keyword">As</span> <span class="built_in">Integer</span>?</span><br><span class="line">    <span class="keyword">Dim</span> y = <span class="built_in">IIf</span>(x.HasValue, x.Value, <span class="number">0</span>)   <span class="comment">'執行時會出錯!</span></span><br></pre></td></tr></table></figure>
+<p>第 3 行和第 6 行的寫法，在執行時都會出錯，因為 IIf 不管第一個引數的布林運算結果為 True 還是 False，後面兩個引數的數值都會被評估。</p>
+<p>如果改用 If 函數，由於它具有短路（short circuit）的特性，只會評估其中一個引數值，因此相對保險一些。改寫之後程式碼如下：</p>
+<p><strong>(自己嘗試一下，在Visual Studio 2003 .Net 1.1的環境下，下面程式碼無法編譯過，應該是沒支援的關係 )</strong></p>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">'   改用 If 函式</span></span><br><span class="line">    <span class="keyword">Dim</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">Dim</span> j = <span class="keyword">If</span>(i &lt;&gt; <span class="number">0</span>, <span class="number">10</span> \ i, <span class="number">0</span>)  <span class="comment">'OK!</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">Dim</span> x <span class="keyword">As</span> <span class="built_in">Integer</span>?</span><br><span class="line">    <span class="keyword">Dim</span> z = <span class="keyword">If</span>(x.HasValue, x.Value, <span class="number">0</span>)  <span class="comment">'OK!</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>AxMediaPlayer.AxMediaPlayer</strong> 升級成 <strong>AxWMPLib.AxWindowsMediaPlayer</strong>(C:\Windows\System32\wmp.dll) function 對照表</p>
+<p>但要注意的是player.PlayState的部分，兩個library是用不同的namespace，在做判斷的時候要小心，他們的Enum的常數是完全不一樣的，比如說  </p>
+<p>MediaPlayer.MPPlayStateConstants.mpStopped = 0<br>WMPLib.WMPPlayState.wmppsStopped = 1</p>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> player <span class="keyword">As</span> AxMediaPlayer.AxMediaPlayer</span><br><span class="line">player.AutoStart = <span class="literal">False</span></span><br><span class="line">player.FileName = filenpath</span><br><span class="line">player.PlayCount = <span class="number">1</span></span><br><span class="line">player.Play()</span><br><span class="line"></span><br><span class="line">player.<span class="keyword">Stop</span>()</span><br><span class="line">player.CurrentPosition = <span class="number">0</span> </span><br><span class="line"><span class="keyword">If</span> player.PlayState = MediaPlayer.MPPlayStateConstants.mpStopped <span class="keyword">Then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> player <span class="keyword">As</span> AxWMPLib.AxWindowsMediaPlayer</span><br><span class="line">player.settings().autoStart = <span class="literal">False</span></span><br><span class="line">player.URL = filenpath</span><br><span class="line">player.settings.playCount = <span class="number">1</span></span><br><span class="line">player.Ctlcontrols().play()</span><br><span class="line"></span><br><span class="line">player.Ctlcontrols().<span class="keyword">stop</span>()</span><br><span class="line">player.Ctlcontrols.currentPosition = <span class="number">0</span></span><br><span class="line"><span class="keyword">If</span> player.PlayState = WMPLib.WMPPlayState.wmppsStopped  <span class="keyword">Then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>QueryInterface for interface [COM library]::[function failed.</p>
+<p>當我在使用Thread call外部dll的時候，出現了上面以上的error。查了一下網路，他似乎是為了防止<strong>一般人</strong>在Thread中使用非thread-safe的dll，所以就彈出了這個error。</p>
+<p><strong>解法:</strong></p>
+<p>必須宣告你的Thread為STA Thread. 必且你使用的COM object 也是要在該Thread 生成</p>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ProcessThread = <span class="keyword">New</span> Threading.Thread(<span class="keyword">AddressOf</span> foo)</span><br><span class="line">ProcessThread.Priority = ThreadPriority.Normal</span><br><span class="line">ProcessThread.ApartmentState = ApartmentState.STA <span class="comment">'這裡關鍵的設定</span></span><br><span class="line">ProcessThread.Start()</span><br><span class="line"></span><br><span class="line"><span class="comment">'</span></span><br><span class="line"><span class="keyword">Sub</span> foo()</span><br><span class="line">    YourCOMLibrary <span class="keyword">lib</span> = <span class="keyword">New</span> YourCOMLibrary() <span class="comment">'你必須要在Thread中生成該COM物件，並只在該Thread使用它</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/project-ms-sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/30/project-ms-sql/" class="post-title-link" itemprop="url">MS Sql Server</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-09-30 17:00:00" itemprop="dateCreated datePublished" datetime="2020-09-30T17:00:00+08:00">2020-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-23 11:31:15" itemprop="dateModified" datetime="2020-10-23T11:31:15+08:00">2020-10-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近接的案子使用MS SQL server，來記錄一下過程中所使用的SQL語法。</p>
+<p>尋找所有Table是否有存在某個Column欄位</p>
+<p><a href="https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/" target="_blank" rel="noopener">https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/</a></p>
+<p>Example: DB名稱為<strong>miso</strong>，想尋找DB裡面所有table是否存在 <strong>order_id</strong>的欄位可以使用下列Sql語法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USE</span> miso</span><br><span class="line"><span class="keyword">GO</span></span><br><span class="line"><span class="keyword">SELECT</span> t.name <span class="keyword">AS</span> table_name,</span><br><span class="line">SCHEMA_NAME(schema_id) <span class="keyword">AS</span> schema_name,</span><br><span class="line">c.name <span class="keyword">AS</span> column_name</span><br><span class="line"><span class="keyword">FROM</span> sys.tables <span class="keyword">AS</span> t</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> sys.columns c <span class="keyword">ON</span> t.OBJECT_ID = c.OBJECT_ID</span><br><span class="line"><span class="keyword">WHERE</span> c.name <span class="keyword">LIKE</span> <span class="string">'order_id'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> schema_name, table_name;</span><br></pre></td></tr></table></figure>
+<p>SQL不支援 <strong>INSERT IGNORE INTO</strong> 這讓我有點困擾，因為客戶那邊是說有隱私權的問題，所以他給資料庫都是一次給一小部分，過程中就會出現資料重複的問題，我沒辦法將他給的資料加到既有的Table，於是我就想到用batch file解決此問題</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">ECHO</span> OFF</span><br><span class="line"><span class="keyword">for</span> /F "tokens=*" <span class="variable">%%A</span> <span class="keyword">in</span> (file.sql) <span class="keyword">do</span> (</span><br><span class="line">	sqlcmd -S [INSTANCENAME] -Q "<span class="built_in">SET</span> IDENTITY_INSERT moodle2.dbo.mdl_pid ON;<span class="variable">%%A</span>"</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>這個script是直接跑在sql server那台主機上，你可以用sqlcmd -L 去查一下 [INSTANCENAME]的名稱，不過缺點是跑得有點慢…</p>
+<p><strong>RANDOM generate number from 1 to 9</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ABS</span>(<span class="keyword">CHECKSUM</span>(NEWID()))%<span class="number">9</span> + <span class="number">1</span> <span class="keyword">RESULT</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>Choose item from array</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CHOOSE</span>(<span class="number">2</span>, <span class="string">'First'</span>, <span class="string">'Second'</span>, <span class="string">'Third'</span>) <span class="keyword">Result</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>Count with condition</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COUNT(CASE WHEN is_person = 0 then 1 else null <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/project-php-sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/30/project-php-sql/" class="post-title-link" itemprop="url">MS Sql Server</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-09-30 17:00:00" itemprop="dateCreated datePublished" datetime="2020-09-30T17:00:00+08:00">2020-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-22 11:56:24" itemprop="dateModified" datetime="2020-10-22T11:56:24+08:00">2020-10-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>SQL不支援 <strong>INSERT IGNORE INTO</strong> 這讓我有點困擾，因為客戶有隱私權的問題，他給資料庫都是給一部分一部分，中間就出現資料重複的問題，我沒辦法將他給的資料加到既有的Table，於是我想說用php寫個程式，然後讀檔案一筆一筆丟上去</p>
+<p>目前在我環境已經安裝有php 7.3.10</p>
+<p>我上網Google 一開始有人說要到這裡載</p>
+<p><a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=20098" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/confirmation.aspx?id=20098</a></p>
+<p>載下來 設定一下php.ini 加入<br><strong>extension=php_sqlsrv_7_nts_x64.dll</strong><br>一直跳出<strong>找不到指定的模組</strong></p>
+<p>後來才找到 <a href="https://github.com/microsoft/msphpsql/releases/" target="_blank" rel="noopener">https://github.com/microsoft/msphpsql/releases/</a></p>
+<p>要到這裡找到和你php版號一樣的版本 才OK </p>
+<p>例如我要下載的是 <a href="https://github.com/microsoft/msphpsql/releases/download/v5.9.0-preview1/Windows-7.3.zip" target="_blank" rel="noopener">Windows-7.3.zip</a></p>
+<p>然後我一定要使用 <strong>php_sqlsrv_73_ts.dll</strong> 才能使用 <strong>sqlsrv_connect()</strong>這個function</p>
+<p>最後設定一下php.ini 加入<br><strong>extension=php_sqlsrv_73_ts.dll</strong></p>
+<p>P.S 我在網站中有點迷路 反正是這個Link <a href="https://github.com/microsoft/msphpsql/releases/tag/v5.9.0-preview1" target="_blank" rel="noopener">https://github.com/microsoft/msphpsql/releases/tag/v5.9.0-preview1</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/25/project-disassembler/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,7 +457,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-09-27 15:04:33" itemprop="dateModified" datetime="2020-09-27T15:04:33+08:00">2020-09-27</time>
+                <time title="修改時間：2020-10-03 15:22:09" itemprop="dateModified" datetime="2020-10-03T15:22:09+08:00">2020-10-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +490,7 @@
 <p><img src="/images/ollydbg.png" alt=""></p>
 <p>基本上我參考下面網站的作法</p>
 <p><a href="https://stackoverflow.com/questions/24138087/how-can-i-set-a-breakpoint-for-a-button-click-using-ollydbg/26540612" target="_blank" rel="noopener">https://stackoverflow.com/questions/24138087/how-can-i-set-a-breakpoint-for-a-button-click-using-ollydbg/26540612</a></p>
-<p>以下是設定按下某個按鈕後，會中斷程式讓你可以Debug。我覺得ollydbg厲害的是，他既然有選單可以選，他會列出畫面上Button的文字，讓你可以註冊某個event，下面的步驟就是註冊<strong>LBUTTONUP</strong>，按下滑鼠左鍵後要中斷程式。</p>
+<p>以下是設定按下某個按鈕後，會中斷程式讓你可以Debug。我覺得ollydbg厲害的是，他既然有選單可以選，他會列出畫面上Button的文字，讓你可以註冊某個event，下面的步驟就是註冊<strong>LBUTTONUP</strong>，按下滑鼠左鍵後會中斷程式。</p>
 <ul>
 <li><p>go to <code>view &gt; windows</code></p>
 <p>如果按下windows沒看到東西，可以在windows視窗的空白地方點滑鼠右鍵，會出現Menubar，選<strong>Actualize</strong></p>
@@ -334,104 +604,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/06/visual-studio-2003-.net1.1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/06/visual-studio-2003-.net1.1/" class="post-title-link" itemprop="url">.Net 1.1 Visual Studio 2003</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-08-06 17:00:00" itemprop="dateCreated datePublished" datetime="2020-08-06T17:00:00+08:00">2020-08-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-09-13 23:30:05" itemprop="dateModified" datetime="2020-09-13T23:30:05+08:00">2020-09-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近接的案子使用Visual Studio 2003開發 .Net 1.1，因為遇到太多問題了，因此想紀錄一下。</p>
-<p><strong>安裝:</strong></p>
-<p>根據網路上的調查，Windows 10 在某個patch後就會和Visual Studio 2003有相容性的問題</p>
-<p><a href="https://social.msdn.microsoft.com/Forums/vstudio/en-US/3aaa01ef-e2e1-4cac-a3a8-c6978b78cfcc/visual-studio-2003-on-windows-10-build-1703?forum=visualstudiogeneral" target="_blank" rel="noopener">https://social.msdn.microsoft.com/Forums/vstudio/en-US/3aaa01ef-e2e1-4cac-a3a8-c6978b78cfcc/visual-studio-2003-on-windows-10-build-1703?forum=visualstudiogeneral</a></p>
-<p>我自己沒試過 但為了避免遇到此問題 我就裝在Windows 7的虛擬機上了</p>
-<p>一開始我嘗試想裝在Windows XP上，覺得Visual Studio 2003這IDE應該會和Windows XP比較合，但後來發現XP會少很多library，在使用客戶的library的時候都缺東缺西。最後使用Window 7，library dependency的問題就沒了。</p>
-<p>.Net 1.1</p>
-<p>類似Map的結構 可以使用System.Collections.Specialized裡面的Library 記得 Import</p>
-<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Imports</span> System.Collections.Specialized</span><br><span class="line">    <span class="keyword">Dim</span> dict <span class="keyword">As</span> StringDictionary</span><br><span class="line">    <span class="keyword">Public</span> <span class="keyword">Function</span> getValue(<span class="keyword">ByVal</span> <span class="keyword">key</span> <span class="keyword">As</span> <span class="built_in">String</span>) <span class="keyword">As</span> <span class="built_in">String</span></span><br><span class="line">        <span class="keyword">If</span> dict.ContainsKey(<span class="keyword">key</span>) <span class="keyword">Then</span></span><br><span class="line">            <span class="keyword">Return</span> dict(<span class="keyword">key</span>)</span><br><span class="line">        <span class="keyword">Else</span></span><br><span class="line">            <span class="keyword">Return</span> <span class="string">""</span></span><br><span class="line">        <span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">Function</span></span><br></pre></td></tr></table></figure>
-<p>How to Define Array</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dim myValues As Integer() = New Integer() &#123;0, 0, 0&#125;</span><br></pre></td></tr></table></figure>
-<p>VB的除法運算子 / 會自動變成浮點數  若你指定他為整數 他會做四捨五入</p>
-<p>要進行整除可以用 \ </p>
-<p>三元運算子</p>
-<p>reference from: <a href="https://www.huanlintalk.com/2010/09/vb-iif-if.html" target="_blank" rel="noopener">https://www.huanlintalk.com/2010/09/vb-iif-if.html</a></p>
-<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">'示範 IIf 函式的陷阱</span></span><br><span class="line">    <span class="keyword">Dim</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">Dim</span> j = <span class="built_in">IIf</span>(i &lt;&gt; <span class="number">0</span>, <span class="number">10</span> \ i, <span class="number">0</span>)  <span class="comment">'執行時會出錯! </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">Dim</span> x <span class="keyword">As</span> <span class="built_in">Integer</span>?</span><br><span class="line">    <span class="keyword">Dim</span> y = <span class="built_in">IIf</span>(x.HasValue, x.Value, <span class="number">0</span>)   <span class="comment">'執行時會出錯!</span></span><br></pre></td></tr></table></figure>
-<p>第 3 行和第 6 行的寫法，在執行時都會出錯，因為 IIf 不管第一個引數的布林運算結果為 True 還是 False，後面兩個引數的數值都會被評估。</p>
-<p>如果改用 If 函數，由於它具有短路（short circuit）的特性，只會評估其中一個引數值，因此相對保險一些。改寫之後程式碼如下：</p>
-<p><strong>(自己嘗試一下，在Visual Studio 2003 .Net 1.1的環境下，下面程式碼無法編譯過，應該是沒支援的關係 )</strong></p>
-<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">'   改用 If 函式</span></span><br><span class="line">    <span class="keyword">Dim</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">Dim</span> j = <span class="keyword">If</span>(i &lt;&gt; <span class="number">0</span>, <span class="number">10</span> \ i, <span class="number">0</span>)  <span class="comment">'OK!</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">Dim</span> x <span class="keyword">As</span> <span class="built_in">Integer</span>?</span><br><span class="line">    <span class="keyword">Dim</span> z = <span class="keyword">If</span>(x.HasValue, x.Value, <span class="number">0</span>)  <span class="comment">'OK!</span></span><br></pre></td></tr></table></figure>
-<p><strong>AxMediaPlayer.AxMediaPlayer</strong> 升級成 <strong>AxWMPLib.AxWindowsMediaPlayer</strong>(C:\Windows\System32\wmp.dll) function 對照表</p>
-<p>但要注意的是player.PlayState的部分，兩個library是用不同的namespace，在做判斷的時候要小心，他們的Enum的常數是完全不一樣的，比如說  </p>
-<p>MediaPlayer.MPPlayStateConstants.mpStopped = 0<br>WMPLib.WMPPlayState.wmppsStopped = 1</p>
-<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> player <span class="keyword">As</span> AxMediaPlayer.AxMediaPlayer</span><br><span class="line">player.AutoStart = <span class="literal">False</span></span><br><span class="line">player.FileName = filenpath</span><br><span class="line">player.PlayCount = <span class="number">1</span></span><br><span class="line">player.Play()</span><br><span class="line"></span><br><span class="line">player.<span class="keyword">Stop</span>()</span><br><span class="line">player.CurrentPosition = <span class="number">0</span> </span><br><span class="line"><span class="keyword">If</span> player.PlayState = MediaPlayer.MPPlayStateConstants.mpStopped <span class="keyword">Then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> player <span class="keyword">As</span> AxWMPLib.AxWindowsMediaPlayer</span><br><span class="line">player.settings().autoStart = <span class="literal">False</span></span><br><span class="line">player.URL = filenpath</span><br><span class="line">player.settings.playCount = <span class="number">1</span></span><br><span class="line">player.Ctlcontrols().play()</span><br><span class="line"></span><br><span class="line">player.Ctlcontrols().<span class="keyword">stop</span>()</span><br><span class="line">player.Ctlcontrols.currentPosition = <span class="number">0</span></span><br><span class="line"><span class="keyword">If</span> player.PlayState = WMPLib.WMPPlayState.wmppsStopped  <span class="keyword">Then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/29/facebook-hacker-cup-2020/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -463,7 +635,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-09-23 14:06:09" itemprop="dateModified" datetime="2020-09-23T14:06:09+08:00">2020-09-23</time>
+                <time title="修改時間：2020-09-27 15:21:41" itemprop="dateModified" datetime="2020-09-27T15:21:41+08:00">2020-09-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -486,13 +658,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>There are 5 questions in QA Round. I only could attend QA round, since Round 1 will be at mid-night. </p>
+          <p>There are 5 questions in QA Round. I only could attend QA round and Round 1, since other round will be hold at mid-night in my timezone.</p>
 <p><strong>Officail Link</strong>: <a href="https://www.facebook.com/codingcompetitions/hacker-cup/2020/qualification-round" target="_blank" rel="noopener">https://www.facebook.com/codingcompetitions/hacker-cup/2020/qualification-round</a></p>
 <p><strong>My Github</strong>: <a href="https://github.com/chinghsuanwei/FacebookHackerCup/tree/dev/2020" target="_blank" rel="noopener">https://github.com/chinghsuanwei/FacebookHackerCup/tree/dev/2020</a></p>
 <p><strong>A. Travel Restrictions</strong><br>I was a little surprised that it uses corona-virus as scenario. But whatever this question only need to check which country is allowed for incoming flight and outgoing flight, pretty straight forward. But you need to take care of the transfer case. </p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check_transfer</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to, <span class="built_in">string</span> incoming, <span class="built_in">string</span> outgoing)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (from &lt; to)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = from; i &lt; to; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (outgoing[i] == <span class="string">'N'</span> || incoming[i + <span class="number">1</span>] == <span class="string">'N'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = from; i &gt; to; i--)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (outgoing[i] == <span class="string">'N'</span> || incoming[i - <span class="number">1</span>] == <span class="string">'N'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solution</span><span class="params">(<span class="keyword">int</span> N, <span class="built_in">string</span> incoming, <span class="built_in">string</span> outgoing)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">bool</span>** available = <span class="keyword">new</span> <span class="keyword">bool</span>* [N];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i)</span><br><span class="line">		available[i] = <span class="keyword">new</span> <span class="keyword">bool</span>[N];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j &lt; N; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (i == j) available[i][j] = <span class="literal">true</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">abs</span>(i - j) == <span class="number">1</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (outgoing[i] == <span class="string">'N'</span> || incoming[j] == <span class="string">'N'</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					available[i][j] = <span class="literal">false</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					available[i][j] = <span class="literal">true</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				available[i][j] = check_transfer(i, j, incoming, outgoing);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; (available[i][j] ? <span class="string">'Y'</span> : <span class="string">'N'</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> T = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="function">ifstream <span class="title">in</span><span class="params">(<span class="string">"travel_restrictions_input.txt"</span>)</span></span>;</span><br><span class="line">	<span class="built_in">std</span>::streambuf* cinbuf = <span class="built_in">std</span>::<span class="built_in">cin</span>.rdbuf(); <span class="comment">//save old buf</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span>.rdbuf(in.rdbuf()); <span class="comment">//redirect std::cin to in.txt!</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::<span class="function">ofstream <span class="title">out</span><span class="params">(<span class="string">"travel_restrictions_output.txt"</span>)</span></span>;</span><br><span class="line">	<span class="built_in">std</span>::streambuf* coutbuf = <span class="built_in">std</span>::<span class="built_in">cout</span>.rdbuf(); <span class="comment">//save old buf</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span>.rdbuf(out.rdbuf()); <span class="comment">//redirect std::cout to out.txt!</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; T; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> N = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">		<span class="built_in">string</span> incoming;</span><br><span class="line">		<span class="built_in">string</span> outgoing;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; incoming;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; outgoing;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Case #"</span> &lt;&lt; i+<span class="number">1</span> &lt;&lt; <span class="string">":"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		solution(N, incoming, outgoing);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>B.Alchemy</strong></p>
-<p>I think the author of this question loves Japanese animation, this question is easier than first one. When you choose three words of any combination of ‘A’ and ‘B’, it leads to eliminate a ‘A’ and a ‘B’. So basically you only need to count the number of ‘A’ and ‘B’ is 1 difference.</p>
+<p>I think the author of this question loves Japanese animations, this question is easier than first one. When you choose three words of any combination of ‘A’ and ‘B’, it leads to eliminate a ‘A’ and a ‘B’. So basically you only need to count the number of ‘A’ and ‘B’ is 1 difference.</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">solution</span><span class="params">(<span class="built_in">string</span> shards)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> A_count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> B_count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> N = shards.length();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (shards[i] == <span class="string">'A'</span>) A_count++;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (shards[i] == <span class="string">'B'</span>) B_count++;</span><br><span class="line">		<span class="keyword">else</span> _ASSERT(<span class="literal">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">abs</span>(A_count - B_count) == <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> T = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="function">ifstream <span class="title">in</span><span class="params">(<span class="string">"alchemy_input.txt"</span>)</span></span>;</span><br><span class="line">	<span class="built_in">std</span>::streambuf* cinbuf = <span class="built_in">std</span>::<span class="built_in">cin</span>.rdbuf(); <span class="comment">//save old buf</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span>.rdbuf(in.rdbuf()); <span class="comment">//redirect std::cin to in.txt!</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">std</span>::<span class="function">ofstream <span class="title">out</span><span class="params">(<span class="string">"alchemy_output.txt"</span>)</span></span>;</span><br><span class="line">	<span class="built_in">std</span>::streambuf* coutbuf = <span class="built_in">std</span>::<span class="built_in">cout</span>.rdbuf(); <span class="comment">//save old buf</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span>.rdbuf(out.rdbuf()); <span class="comment">//redirect std::cout to out.txt!</span></span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i &lt; T; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> N = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">		<span class="built_in">string</span> shards;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; shards;</span><br><span class="line">	</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"Case #"</span> &lt;&lt; i+<span class="number">1</span> &lt;&lt; <span class="string">": "</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; (solution(shards)? <span class="string">'Y'</span> : <span class="string">'N'</span>);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>C.Timber</strong></p>
 <p>This one is tough than previous ones.  I haven’t checked for best solution which is written in Facebook website. But when I solved this problem and tried to run the big cases(about 24MB), my program just timed out. About this problem, you can think is to get longest interval. But there are two-side. The tree can fall to the right side and left side. So my solution is to use the caches, and start from left side, assume every tree only fall from left side, and try to connect every dots to form the longest interval,  and to remember the longest distance that <strong>the point</strong> has the most longest distance of falling tree(s) which are connected fell from left side. And do the same thing on the right side. In the end, I check if there are both falling point fell from left-side can connect with the point fell from right-side.  Remind to use the long long, if you pay attention to their constraint. </p>
@@ -938,173 +1110,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/codility-BizReach/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/02/codility-BizReach/" class="post-title-link" itemprop="url">BizReach Hackathon in Tokyo 2019 - Codility</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2019-08-02 13:41:00" itemprop="dateCreated datePublished" datetime="2019-08-02T13:41:00+08:00">2019-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-09-06 15:18:41" itemprop="dateModified" datetime="2020-09-06T15:18:41+08:00">2020-09-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Online-Programming-Test/" itemprop="url" rel="index"><span itemprop="name">Online Programming Test</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Since I am not very sure that all participates will get same questions, so I decide to publish these  later in Aug.</p>
-<p>In June late, I took participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
-<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
-<p>The first one is easy.</p>
-<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
-<p>The range of A and B is 1,000,000,000.</p>
-<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
-<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
-<p>For example,<br>[1, 2, -1, 4, 5]</p>
-<p>Then the answer is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
-<p>p.s. There must exists an index can separate two group.</p>
-<p>I didn’t find O(n) solution in contest.<br>But later, I thought a while and came out the answer, the pseudo code of O(n) solution should be like the following:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//size of array is N</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/Set-Up-Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/09/23/Set-Up-Hexo/" class="post-title-link" itemprop="url">Set Up Hexo</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2018-09-23 19:09:23" itemprop="dateCreated datePublished" datetime="2018-09-23T19:09:23+08:00">2018-09-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-09 12:46:45" itemprop="dateModified" datetime="2020-05-09T12:46:45+08:00">2020-05-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>問題:<br>我設定_config.yml的git配置如下</p>
-<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/chinghsuanwei/chinghsuanwei.github.io.git" target="_blank" rel="noopener">https://github.com/chinghsuanwei/chinghsuanwei.github.io.git</a><br>  branch: master</p>
-<p>是正確的</p>
-<p>結果是整個hexo原始碼丟到repository上…</p>
-<p>原因:<br>好像是我自己耍87…<br>我先將hexo init 產生出來的根目錄整個先用git傳到[user].github.io<br>可能是這個原因 導致deploy的時候 他不是將 .deploy_git push上去</p>
-<p>解法:<br>我自己是將整個[user].github.io的repository砍掉重建</p>
-<p>問題:<br>Deployer not found: git</p>
-<p>解法: npm install hexo-deployer-git –save</p>
-<p>若還是沒解掉 就可能像我一樣 之前安裝有錯誤(沒下–save?)</p>
-<p>解法: 先移除 再裝一次就解了<br>npm remove hexo-deployer-git<br>npm install hexo-deployer-git –save</p>
-<p>Extra:<br>若使用git有問題 可能是</p>
-<ol>
-<li>你沒裝git</li>
-<li>盡量使用git bash 別用cmd or PowerShell</li>
-</ol>
-<p>如何新增 categories</p>
-<p><a href="https://linlif.github.io/2017/05/27/Hexo使用攻略-添加分类及标签/" target="_blank" rel="noopener">https://linlif.github.io/2017/05/27/Hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1176,7 +1181,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1187,7 +1192,7 @@
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
