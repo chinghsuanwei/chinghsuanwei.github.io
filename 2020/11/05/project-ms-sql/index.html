@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Miso">
 <meta property="og:description" content="最近接的案子使用MS SQL server，來記錄一下過程中所使用的SQL語法。 尋找所有Table是否有存在某個Column欄位 https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/ Example: DB名稱為miso，想尋找DB裡面所有tabl">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:updated_time" content="2020-11-13T14:34:44.242Z">
+<meta property="og:updated_time" content="2020-11-21T11:44:32.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MS SQL Server">
 <meta name="twitter:description" content="最近接的案子使用MS SQL server，來記錄一下過程中所使用的SQL語法。 尋找所有Table是否有存在某個Column欄位 https://blog.sqlauthority.com/2008/08/06/sql-server-query-to-find-column-from-all-tables-of-database/ Example: DB名稱為miso，想尋找DB裡面所有tabl">
@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-13 22:34:44" itemprop="dateModified" datetime="2020-11-13T22:34:44+08:00">2020-11-13</time>
+                <time title="修改時間：2020-11-21 19:44:32" itemprop="dateModified" datetime="2020-11-21T19:44:32+08:00">2020-11-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,7 +232,7 @@
 <p><strong>Pagination</strong><br>example: record 11 to 20</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ASC </span><br><span class="line">OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY</span><br></pre></td></tr></table></figure>
 <p><strong>Numbers of records</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">As</span> <span class="keyword">sum</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">(</span><br><span class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">table</span></span><br><span class="line">) <span class="keyword">Query</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">As</span> <span class="keyword">sum</span></span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">(</span><br><span class="line">    <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">table</span></span><br><span class="line">) <span class="keyword">Query</span></span><br></pre></td></tr></table></figure>
 <p><strong>Select columns name from table</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> COLUMN_NAME</span><br><span class="line"><span class="keyword">FROM</span> INFORMATION_SCHEMA.COLUMNS</span><br><span class="line"><span class="keyword">WHERE</span> TABLE_NAME = <span class="string">'Your Table Name'</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> ORDINAL_POSITION</span><br></pre></td></tr></table></figure>
 <p><strong>Duplicate data row with different id</strong></p>
@@ -260,7 +260,10 @@
     <a href="/2020/11/05/visual-studio-2003-.net1.1/" rel="prev" title="VB.Net 1.1">
       <i class="fa fa-chevron-left"></i> VB.Net 1.1
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/21/project-php-office-word/" rel="next" title="PHP Produce/Process Word">
+      PHP Produce/Process Word <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
