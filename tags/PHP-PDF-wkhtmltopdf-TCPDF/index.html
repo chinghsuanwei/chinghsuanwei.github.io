@@ -20,23 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。 不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。 我主要試過了兩個方法 方法一、pnputil /add-driver [.INF] 會在 C:\Windows\in">
-<meta name="keywords" content="INF">
-<meta property="og:type" content="article">
-<meta property="og:title" content="INF installation">
-<meta property="og:url" content="http://yoursite.com/2020/09/10/inf/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Miso">
+<meta property="og:url" content="http://yoursite.com/tags/PHP-PDF-wkhtmltopdf-TCPDF/index.html">
 <meta property="og:site_name" content="Miso">
-<meta property="og:description" content="最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。 不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。 我主要試過了兩個方法 方法一、pnputil /add-driver [.INF] 會在 C:\Windows\in">
 <meta property="og:locale" content="zh-TW">
-<meta property="og:image" content="http://yoursite.com/images/device_manager_1.png">
-<meta property="og:image" content="http://yoursite.com/images/device_manager_2.png">
-<meta property="og:updated_time" content="2020-09-27T07:18:17.198Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="INF installation">
-<meta name="twitter:description" content="最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。 不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。 我主要試過了兩個方法 方法一、pnputil /add-driver [.INF] 會在 C:\Windows\in">
-<meta name="twitter:image" content="http://yoursite.com/images/device_manager_1.png">
+<meta name="twitter:title" content="Miso">
 
-<link rel="canonical" href="http://yoursite.com/2020/09/10/inf/">
+<link rel="canonical" href="http://yoursite.com/tags/PHP-PDF-wkhtmltopdf-TCPDF/">
 
 
 <script id="page-configurations">
@@ -44,12 +36,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>INF installation | Miso</title>
+  <title>標籤: PHP, PDF, wkhtmltopdf, TCPDF | Miso</title>
   
 
 
@@ -158,99 +150,51 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content tag">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/10/inf/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          INF installation
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-10 21:00:00" itemprop="dateCreated datePublished" datetime="2020-09-10T21:00:00+08:00">2020-09-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-09-27 15:18:17" itemprop="dateModified" datetime="2020-09-27T15:18:17+08:00">2020-09-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">PHP, PDF, wkhtmltopdf, TCPDF
+          <small>標籤</small>
+        </h2>
+      </div>
 
       
-        <p>最近因為有接了一個案子，有使用到日本照相機，但是那是一台很古老的相機，原廠都已經解散了。不過還好機台都還能繼續使用那台照相機。</p>
-<p>不過問題就來了，因為我在寫機台程式的時候，必須在我的環境安裝該照相機的驅動，我和日本那邊的工程師要了驅動，裡面包含2~3個INF檔案，但怎麼就是裝不起來。</p>
-<p>我主要試過了兩個方法</p>
-<p>方法一、pnputil /add-driver [.INF] 會在 C:\Windows\inf 下產生oem**.inf (**為數字) 但沒用，在裝置管理員還是顯示 ? 裝置</p>
-<p>方法二、裝置管理員安裝</p>
-<p><img src="/images/device_manager_1.png" alt=""></p>
-<p><img src="/images/device_manager_2.png" alt=""></p>
-<p>但會顯示安裝失敗</p>
-<p>經過好幾個小時的嘗試，也詢問日本工程師是否Driver有給錯，但得到的回答是該Driver是使用<strong>usbscan.sys</strong> 和 <strong>sti.dll</strong>等Windows本來就擁有的<strong>Capture Device Driver</strong>，與照相機的通訊是用別的.dll與該驅動無關。雖然給的訊息看似沒有幫助，但…後來我忽然想到<strong>為什麼我們的實體機上能使用照相機呢</strong>? 他一定是有安裝驅動才能用。</p>
-<p>於是我直接連到實體機裡面，到C:\Windows\inf 把所有的oem**.inf  (**為數字)，全部掃描一下，發現裡面有一個檔案裡面，有照相機製造商的關鍵字，且Driver的INF也和之前工程師給的很類似，於是我把它下載下來(記得看一下裡面文字，可能包含其他.inf file 也必須一起下載下來)，然後使用 <strong>方法二</strong> 在安裝一次，神奇的事情發生了，既然安裝成功了。</p>
-<p>我使用上面的方法，成功安裝該台相機的驅動在兩個不同版本的Windows OS上，最後得到的結論是: 若有某台電腦有和你一樣的Windows OS，並有安裝某驅動，那你有可能可以在那台OS裡面找到oem**.inf  (**為數字)，下載他並安裝該驅動。</p>
-
+    <div class="collection-year">
+      <span class="collection-header">2020</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/INF/" rel="tag"># INF</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-11-30T00:00:00+08:00"
+              content="2020-11-30">
+          11-30
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2020/11/30/project-php-generate_pdf_file/" itemprop="url">
+            <span itemprop="name">PHP download zip file</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/07/29/facebook-hacker-cup-2020/" rel="prev" title="Facebook Hacker Cup 2020 QA Round">
-      <i class="fa fa-chevron-left"></i> Facebook Hacker Cup 2020 QA Round
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/09/25/project-disassembler/" rel="next" title="反組譯 Windows 視窗程式">
-      反組譯 Windows 視窗程式 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
+  
+
   
 
 

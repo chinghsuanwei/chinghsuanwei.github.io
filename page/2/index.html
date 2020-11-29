@@ -156,6 +156,229 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/project-aes-csharp-to-php/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/06/project-aes-csharp-to-php/" class="post-title-link" itemprop="url">C# .NET 轉 PHP</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-07-06 16:00:00" itemprop="dateCreated datePublished" datetime="2020-07-06T16:00:00+08:00">2020-07-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-11-10 23:38:40" itemprop="dateModified" datetime="2020-11-10T23:38:40+08:00">2020-11-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近接到一個C# .NET 轉 php的案子 對方是使用AES加密 和 Base64轉成文字 帶入到Http Param裡面</p>
+<p>C# 有兩個function <strong>Base64UrlEncoder.Encode(Byte[])</strong> 和 <strong>Base64UrlEncoder.DecodeBytes(String)</strong></p>
+<p>分別做Base64Url的加密解密</p>
+<p>基本上這個function做的是</p>
+<p>將 “<strong>+</strong>“ 變成 “<strong>-</strong>“, “<strong>/</strong>“ 變成 “<strong>_</strong>“</p>
+<p>最後把所以結尾的 “<strong>=</strong>“ 刪除 簡要而言 就是將有特殊意義的URL的特殊符號 轉換成 安全的符號</p>
+<p>decoder 就是倒著做過來</p>
+<p>php 的轉法就是</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64url_encode</span><span class="params">($data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// First of all you should encode $data to Base64 string</span></span><br><span class="line">	$b64 = base64_encode($data);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Make sure you get a valid result, otherwise, return FALSE, as the base64_encode() function do</span></span><br><span class="line">	<span class="keyword">if</span> ($b64 === <span class="keyword">false</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Convert Base64 to Base64URL by replacing “+” with “-” and “/” with “_”</span></span><br><span class="line">	$url = strtr($b64, <span class="string">'+/'</span>, <span class="string">'-_'</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Remove padding character from the end of line and return the Base64URL result</span></span><br><span class="line">	<span class="keyword">return</span> rtrim($url, <span class="string">'='</span>);</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64url_decode</span><span class="params">($data, $strict = false)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// Convert Base64URL to Base64 by replacing “-” with “+” and “_” with “/”</span></span><br><span class="line">	$b64 = strtr($data, <span class="string">'-_'</span>, <span class="string">'+/'</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Decode Base64 string and return the original data</span></span><br><span class="line">	<span class="keyword">return</span> base64_decode($b64, $strict);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因為base64特性的關係 其實不用知道有幾個<strong>=</strong>也能反解碼回來</p>
+<p>AES加解密的部分</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Encryption</span></span><br><span class="line">$encrypted_data = openssl_encrypt($plain_text, <span class="string">"AES-256-CBC"</span>, $key, $options=OPENSSL_RAW_DATA , $iv);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Decryption</span></span><br><span class="line">$plain_text = openssl_decrypt($encrypted_data, <span class="string">"AES-256-CBC"</span>, $key, $options=OPENSSL_RAW_DATA , $iv);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/project-woocommerce-points/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/09/project-woocommerce-points/" class="post-title-link" itemprop="url">如何寫一個 Woocommerce 點數折抵 的plugin</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-05-09 20:00:00" itemprop="dateCreated datePublished" datetime="2020-05-09T20:00:00+08:00">2020-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-05-13 08:46:19" itemprop="dateModified" datetime="2020-05-13T08:46:19+08:00">2020-05-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近接到一個e-commerce的案子</p>
+<p>案主的網站主要是由 WordPress + Woocommerce  所組成的商城</p>
+<p>其實Woocommerce 本身就有出紅利折抵的plugin <strong>WooCommerce Points and Rewards</strong></p>
+<p>但此案主 和 另外一方的公司(以下皆稱乙方)有合作 乙方有自己的點數 乙方的網站會員能夠登入到案主的網站 並可以使用乙方點數消費</p>
+<p>所以統整一下 主要會有幾個功能</p>
+<p> 提供給乙方會員登入入口</p>
+<p> 能查詢/使用/退還 乙方點數</p>
+<p> 要提供介面，讓後台管理員能輸入 對 全域/分類/單一商品 折抵的%數</p>
+<p> 其餘小功能 類似Log…之類的</p>
+<p><strong>WordPress</strong> version 5.3.2</p>
+<p><strong>Woocommerce</strong> version 3.9.2</p>
+<p><strong>WooCommerce Points and Rewards</strong>  version 1.6.21</p>
+<p>開發環境<br>OS: Windows 10<br>Web server: Appserv(Apache + mysql  + phpMyAdmin)</p>
+<h3 id="一、WordPress-Migration"><a href="#一、WordPress-Migration" class="headerlink" title="一、WordPress Migration"></a>一、WordPress Migration</h3><p>要修改既有的WordPress 網站 第一件事情就是將Live-site移到Local讓我們能亂玩</p>
+<p>這裡我們使用 WordPress的 <strong>All-in-one WP Migration</strong></p>
+<p>但遇到的問題是php設定 限制了上傳檔案大小 (我使用php 7)</p>
+<p>因為案主的WordPress封裝檔 有1GB</p>
+<p>我使用的是AppServ裝的php 要修改的路徑在 [Appserv安裝路徑]\php7\php.ini</p>
+<p>修改單一檔案大小上限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; Maximum allowed size for uploaded files.</span><br><span class="line">; http://php.net/upload-max-filesize</span><br><span class="line">upload_max_filesize = 16M</span><br></pre></td></tr></table></figure>
+<p>修改 POST 資料大小上限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">; Maximum size of POST data that PHP will accept.</span><br><span class="line">; Its value may be 0 to disable the limit. It is ignored if POST data reading</span><br><span class="line">; is disabled through enable_post_data_reading.</span><br><span class="line">; http://php.net/post-max-size</span><br><span class="line">post_max_size = 32M</span><br></pre></td></tr></table></figure>
+<p>似乎 也要修改此Plugin的 constants.php 將值改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">define( &apos;AI1WM_MAX_FILE_SIZE&apos;, 2 &lt;&lt; 30 );</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>不然他會Plugin會限制最大的WP封裝檔 512MB </p>
+<h3 id="二、-登入功能"><a href="#二、-登入功能" class="headerlink" title="二、 登入功能"></a>二、 登入功能</h3><p>UI的部分我是直接修改wp-login.php，多新增一個按鈕 和 UI 讓乙方會員可以登入</p>
+<p>在登入認證的部分 我是在我的plugin裡 加入 init的hook 兼 判斷是否為登入頁面(這邊我覺得可能有更好的hook可以使用)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add_action( <span class="string">'init'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( $GLOBALS[<span class="string">'pagenow'</span>] === <span class="string">'wp-login.php'</span> )</span><br><span class="line">	&#123;</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+<p>再者是創立WP帳號 帳號 和 密碼 我是用 encryption(乙方帳號) 產生</p>
+<p>最後在導向首頁</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$user_id = wp_create_user( $username, $password, $email_address );</span><br><span class="line">$user = <span class="keyword">new</span> WP_User( $user_id );</span><br><span class="line">$user-&gt;set_role( <span class="string">'customer'</span> );</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">    </span><br><span class="line">$creds = <span class="keyword">array</span>();</span><br><span class="line">$creds[<span class="string">'user_login'</span>] = $username;</span><br><span class="line">$creds[<span class="string">'user_password'</span>] = $password;</span><br><span class="line">$creds[<span class="string">'remember'</span>] = <span class="keyword">true</span>;</span><br><span class="line">			</span><br><span class="line">$user = wp_signon( $creds, <span class="keyword">false</span> );</span><br><span class="line">$userID = $user-&gt;ID;</span><br><span class="line">wp_set_auth_cookie( $userID, $remember=<span class="keyword">true</span>, <span class="keyword">false</span> );</span><br><span class="line">wp_set_current_user($username);</span><br><span class="line">			</span><br><span class="line">wp_redirect(get_home_url());</span><br><span class="line"><span class="keyword">exit</span>();</span><br></pre></td></tr></table></figure>
+<h3 id="三、能查詢-使用-退還-乙方點數"><a href="#三、能查詢-使用-退還-乙方點數" class="headerlink" title="三、能查詢/使用/退還 乙方點數"></a>三、能查詢/使用/退還 乙方點數</h3><p>這邊就比較複雜 要熟悉WP的hook運作機制</p>
+<p>但基本上的改法就是 把plugin裡面的參數 wc_points_xxxx 改成 miso_points_xxxx之類的</p>
+<p>然後將本來在mysql 做點數控管的部分 改成 Call 乙方提供的API 其實這樣就完成了</p>
+<p>可以看看下圖</p>
+<p><img src="/images/woocommerce-points-and-rewards-demo1.png" alt=""></p>
+<p>紅利點數是使用 <strong>WooCommerce Points and Rewards</strong>  建置的</p>
+<p>而下面的那欄就是乙方點數 UI是不是很像呢? 因為UI的部分 我就直接使用 <strong>WooCommerce Points and Rewards</strong>  plugin裡面的css</p>
+<p>紅利點數 和 乙方點數可以同時使用 不衝突</p>
+<p><img src="/images/woocommerce-points-and-rewards-demo2.png" alt=""></p>
+<p>Admin的部分也是沿用，因為案主只需要能設定 全域/分類/單一商品 折抵的%數</p>
+<p>所以大部分的設定都被comment掉了</p>
+<p><img src="/images/woocommerce-points-and-rewards-demo3.png" alt=""></p>
+<strike>最後此專案只有一個地方 沒有寫進 plugin</strike>
+
+<strike>就是wp-login.php裡面的UI部分 知道怎麼做 不過覺得有點麻煩</strike>
+
+<strike>其實用wc_enqueue_js 另外把 login的UI包進去 append到wp-login.php即可</strike>
+
+<strike>但我想 若是此plugin有在串接到別的 同樣使用woo-commerce網站上 我在把它完成吧</strike>
+
+<h3 id="Extra、將wp-login-php-Code移到Plugin"><a href="#Extra、將wp-login-php-Code移到Plugin" class="headerlink" title="Extra、將wp-login.php Code移到Plugin"></a>Extra、將wp-login.php Code移到Plugin</h3><p>因為案主會自動更新WordPress版本，或著之後可能會更新 此時wp-login.php 的code就會被新版本的WordPress洗掉</p>
+<p>UI主要有三個部分</p>
+<p>第一個是要顯示的Button</p>
+<p>第二個是要載入的css</p>
+<p>第三個是彈跳視窗</p>
+<p>我把這三個部分都拆開</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">load_scripts</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    wp_enqueue_style(<span class="string">"ml"</span>, plugin_dir_url(<span class="keyword">__FILE__</span>) . <span class="string">"style.css"</span>);</span><br><span class="line">    wp_enqueue_script(<span class="string">"ml"</span>, plugin_dir_url(<span class="keyword">__FILE__</span>) . <span class="string">"miso-login.js"</span>);</span><br><span class="line">    <span class="keyword">include</span>( dirname( <span class="keyword">__FILE__</span> ) .<span class="string">'/miso-login.php'</span> );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add_action( <span class="string">'login_footer'</span>, <span class="string">'load_scripts'</span> );</span><br></pre></td></tr></table></figure>
+<p>style.css 是單純的css</p>
+<p>miso-login.js是在UI上加入的Button</p>
+<p>miso-login.php是彈跳視窗和一兩行的php code</p>
+<p>關於第一部分 我用的方法是 JQuery的insertAfter 記得這邊必須要用JQuery帶入$的符號</p>
+<p>原因可參考: <a href="https://stackoverflow.com/questions/3931529/is-not-a-function-jquery-error" target="_blank" rel="noopener">https://stackoverflow.com/questions/3931529/is-not-a-function-jquery-error</a></p>
+<p>裡面應該是講為了不讓$符號撞到其他Library 他有Call <strong>jQuery.noConflict()</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jQuery(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> $miso_object = $(<span class="string">"&lt;div class=\"miso-custom-login-form-main\" onclick=\"document.getElementById('miso_login_panel').style.display='block'\"&gt;&lt;div class=\"miso-container\" data-align=\"left\" style=\"display: block;\"&gt;&lt;div class=\"miso-label-container\"&gt;&lt;button class=\"miso-container-button\"&gt;以 &lt;b&gt;Miso帳號&lt;/b&gt; 登入&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"</span>);</span><br><span class="line">	$miso_object.insertAfter($(<span class="string">"#loginform"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/18/postman-and-node-js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -674,7 +897,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -685,7 +908,7 @@
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>

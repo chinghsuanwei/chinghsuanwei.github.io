@@ -156,6 +156,182 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/30/project-php-generate_pdf_file/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/30/project-php-generate_pdf_file/" class="post-title-link" itemprop="url">PHP download zip file</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-30T00:00:00+08:00">2020-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-11-29 23:56:12" itemprop="dateModified" datetime="2020-11-29T23:56:12+08:00">2020-11-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近做的專案因為需要使用php 從後台Query資料並將其輸出成PDF格式讓使用者下載</p>
+<p>上網Google第一個到的就是TCPDF</p>
+<p>使用方法這裡就不多講解，但我最後沒辦法採用它</p>
+<p>原因是當我的<tag>數量大到某個程度的時候</tag></p>
+<p>TCPDF裡面 會創建DOM Object，Memory會用超過128MB</p>
+<p>後來我就想一下，有沒有Free Software的Windows執行檔能做這件事情</p>
+<p>後來找到<strong>wkhtmltopdf</strong></p>
+<p>使用方法很簡單</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wkhtmltopdf local.html result.pdf</span><br></pre></td></tr></table></figure>
+<p><strong>local.html</strong> 就是你用php所產生出來的網頁</p>
+<p>wkhtmltopdf會將其轉成PDF</p>
+<p>之後就一樣使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-type:application/pdf"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// It will be called downloaded.pdf</span></span><br><span class="line">header(<span class="string">"Content-Disposition:attachment;filename='downloaded.pdf'"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// The PDF source is in original.pdf</span></span><br><span class="line">readfile(<span class="string">"original.pdf"</span>);</span><br></pre></td></tr></table></figure>
+<p>其中遇到的問題，是編碼問題，因為我的HTML有含中文，輸出的編碼是UTF-8</p>
+<p>第一次產生出來的pdf檔案 中文都是亂碼</p>
+<p>上網查一下 必須要在Html file的 head tag裡面加入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Problem solved!</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/29/project-php-download-zip-file/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/29/project-php-download-zip-file/" class="post-title-link" itemprop="url">PHP download zip file</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-11-29 20:00:00 / 修改時間：23:59:52" itemprop="dateCreated datePublished" datetime="2020-11-29T20:00:00+08:00">2020-11-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近做的專案因為需要用從Server端壓縮一些檔案，並讓使用者下載</p>
+<p>那簡單的可想而知，就是使用7zip壓縮成zip並設定header， 然後程式裡面call readfile($zip_filepath)就結束了</p>
+<p>下載的Code 可參考下列範例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-length: "</span> . filesize($zip_filepath)); </span><br><span class="line">header(<span class="string">'Content-type: application/zip'</span>);</span><br><span class="line">header(<span class="string">"Content-Disposition: attachment; filename=&#123;$zip_filename&#125;"</span>);</span><br><span class="line">header(<span class="string">'Content-Transfer-Encoding: binary'</span>);</span><br><span class="line">readfile($zip_filename);</span><br><span class="line"><span class="keyword">exit</span>();</span><br></pre></td></tr></table></figure>
+<p>但實際操作的時候遇到兩個問題 </p>
+<h4 id="一-下載的Zip檔案無法打開"><a href="#一-下載的Zip檔案無法打開" class="headerlink" title="一. 下載的Zip檔案無法打開"></a>一. 下載的Zip檔案無法打開</h4><p>通常這問題是是因為output buffer有殘留一些資料，我是在overflow看到這篇才解決問題</p>
+<p><a href="https://stackoverflow.com/questions/8041564/php-readfile-adding-extra-bytes-to-downloaded-file/8041597#8041597" target="_blank" rel="noopener">https://stackoverflow.com/questions/8041564/php-readfile-adding-extra-bytes-to-downloaded-file/8041597#8041597</a></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-length: "</span> . filesize(<span class="string">'upload/'</span> . $_GET[<span class="string">'name'</span>])); </span><br><span class="line">header(<span class="string">'Content-type: application/zip'</span>);</span><br><span class="line"><span class="comment">//header("Content-Disposition: attachment; filename=\"&#123;$_GET['name']&#125;\" ");</span></span><br><span class="line">header(<span class="string">"Content-Disposition: attachment; filename=&#123;$_GET['name']&#125;"</span>);</span><br><span class="line">header(<span class="string">'Content-Transfer-Encoding: binary'</span>);</span><br><span class="line"><span class="comment">// add these two lines</span></span><br><span class="line">ob_clean();   <span class="comment">// discard any data in the output buffer (if possible)</span></span><br><span class="line">flush();      <span class="comment">// flush headers (if possible)</span></span><br><span class="line"></span><br><span class="line">readfile(<span class="string">'upload/'</span> . $_GET[<span class="string">'name'</span>]);</span><br><span class="line"><span class="keyword">exit</span>();</span><br></pre></td></tr></table></figure>
+<p>我覺得關鍵程式碼是ob_clean()，應該是這行起作用。</p>
+<h4 id="二-7zip-壓縮會包含檔案路徑Folder"><a href="#二-7zip-壓縮會包含檔案路徑Folder" class="headerlink" title="二. 7zip 壓縮會包含檔案路徑Folder"></a>二. 7zip 壓縮會包含檔案路徑Folder</h4><p>我們希望壓縮檔的第一層就是檔案</p>
+<p>解法其實有兩個</p>
+<p>第一是 current folder 和 要壓縮檔案要在同一個folder下，就不會產生額外的目錄(只看網路上說明，但沒試過)</p>
+<p>第二個是我覺得比較漂亮的解法 也是我用的方法</p>
+<p>通常我們會將要使用者需要的檔案，也就是我們要壓縮的檔案都會放在一個暫存的目錄底下</p>
+<p>一來方便你壓縮 二來方便壓縮後順便刪除</p>
+<p>所以7zip的指令可以這樣下</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec(<span class="string">"\"$pathOf7zip\" a -tzip \"$zip_filepath\" \"./temp_folder/*\""</span>);</span><br></pre></td></tr></table></figure>
+<p>最重要的是前面的 <strong>“./“</strong> 有”<strong>./</strong>“ 和 沒有就會造就你的壓縮檔會不會產生 <strong>temp_folder/</strong> 資料夾的存在</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/29/project-php-draw-text-on-image/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -181,7 +357,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2020-11-29 14:00:00 / 修改時間：13:57:26" itemprop="dateCreated datePublished" datetime="2020-11-29T14:00:00+08:00">2020-11-29</time>
+              <time title="創建時間：2020-11-29 14:00:00 / 修改時間：15:48:47" itemprop="dateCreated datePublished" datetime="2020-11-29T14:00:00+08:00">2020-11-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,7 +388,7 @@
 <p>現在應該基本上都支援</p>
 <p>下面是範例程式碼 我們使用Linux Logo 來作範例</p>
 <p><img src="/images/Tux.png" alt=""></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$im  = @ imagecreatefrompng ( <span class="string">"Tux.png"</span> );  <span class="comment">/* Attempt to open */</span> </span><br><span class="line"><span class="keyword">if</span>($im) &#123;  <span class="comment">/* See if it failed */</span> </span><br><span class="line">    <span class="comment">/* load font 若有中文字，則需要載入中文字體，這裡使用標楷體當例子*/</span> </span><br><span class="line">    $font_path = <span class="string">"C:\Windows\Fonts\kaiu.ttf"</span>;</span><br><span class="line">	<span class="comment">/* pen color is grey */</span> </span><br><span class="line">	$grey = imagecolorallocate($im, <span class="number">0x88</span>, <span class="number">0x88</span>, <span class="number">0x88</span>);</span><br><span class="line">	<span class="comment">//draw text</span></span><br><span class="line">	imagettftext ($im, $size=<span class="number">16</span>, $angle=<span class="number">0</span>, $x=<span class="number">0</span> , $y=<span class="number">200</span> , $grey, $font_path, <span class="string">"Hello World! 歡迎光臨!"</span>);</span><br><span class="line">	<span class="comment">// Save image</span></span><br><span class="line">	imagepng($im, <span class="string">"Tux_with_text.png"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Clear Memory</span></span><br><span class="line">	imagedestroy($im);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$im  = @ imagecreatefrompng ( <span class="string">"Tux.png"</span> );  <span class="comment">/* Attempt to open */</span> </span><br><span class="line"><span class="keyword">if</span>($im) &#123;  <span class="comment">/* See if it failed */</span> </span><br><span class="line">    <span class="comment">/* load font 若有中文字，則需要載入中文字體，這裡使用標楷體當例子*/</span> </span><br><span class="line">    $font_path = <span class="string">"C:\Windows\Fonts\kaiu.ttf"</span>;</span><br><span class="line">	<span class="comment">/* pen color is gray */</span> </span><br><span class="line">	$gray = imagecolorallocate($im, <span class="number">0x88</span>, <span class="number">0x88</span>, <span class="number">0x88</span>);</span><br><span class="line">	<span class="comment">//draw text</span></span><br><span class="line">	imagettftext ($im, $size=<span class="number">16</span>, $angle=<span class="number">0</span>, $x=<span class="number">0</span> , $y=<span class="number">200</span> , $gray, $font_path, <span class="string">"Hello World! 歡迎光臨!"</span>);</span><br><span class="line">	<span class="comment">// Save image</span></span><br><span class="line">	imagepng($im, <span class="string">"Tux_with_text.png"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Clear Memory</span></span><br><span class="line">	imagedestroy($im);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>將上面程式 和 圖片 放在同一個資料夾 並用php 執行 會得到下列結果</p>
 <p><img src="/images/Tux_with_text.png" alt=""></p>
 
@@ -852,229 +1028,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/06/project-aes-csharp-to-php/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/06/project-aes-csharp-to-php/" class="post-title-link" itemprop="url">C# .NET 轉 PHP</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-07-06 16:00:00" itemprop="dateCreated datePublished" datetime="2020-07-06T16:00:00+08:00">2020-07-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-10 23:38:40" itemprop="dateModified" datetime="2020-11-10T23:38:40+08:00">2020-11-10</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近接到一個C# .NET 轉 php的案子 對方是使用AES加密 和 Base64轉成文字 帶入到Http Param裡面</p>
-<p>C# 有兩個function <strong>Base64UrlEncoder.Encode(Byte[])</strong> 和 <strong>Base64UrlEncoder.DecodeBytes(String)</strong></p>
-<p>分別做Base64Url的加密解密</p>
-<p>基本上這個function做的是</p>
-<p>將 “<strong>+</strong>“ 變成 “<strong>-</strong>“, “<strong>/</strong>“ 變成 “<strong>_</strong>“</p>
-<p>最後把所以結尾的 “<strong>=</strong>“ 刪除 簡要而言 就是將有特殊意義的URL的特殊符號 轉換成 安全的符號</p>
-<p>decoder 就是倒著做過來</p>
-<p>php 的轉法就是</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64url_encode</span><span class="params">($data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// First of all you should encode $data to Base64 string</span></span><br><span class="line">	$b64 = base64_encode($data);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Make sure you get a valid result, otherwise, return FALSE, as the base64_encode() function do</span></span><br><span class="line">	<span class="keyword">if</span> ($b64 === <span class="keyword">false</span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Convert Base64 to Base64URL by replacing “+” with “-” and “/” with “_”</span></span><br><span class="line">	$url = strtr($b64, <span class="string">'+/'</span>, <span class="string">'-_'</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Remove padding character from the end of line and return the Base64URL result</span></span><br><span class="line">	<span class="keyword">return</span> rtrim($url, <span class="string">'='</span>);</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">base64url_decode</span><span class="params">($data, $strict = false)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// Convert Base64URL to Base64 by replacing “-” with “+” and “_” with “/”</span></span><br><span class="line">	$b64 = strtr($data, <span class="string">'-_'</span>, <span class="string">'+/'</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Decode Base64 string and return the original data</span></span><br><span class="line">	<span class="keyword">return</span> base64_decode($b64, $strict);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>因為base64特性的關係 其實不用知道有幾個<strong>=</strong>也能反解碼回來</p>
-<p>AES加解密的部分</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Encryption</span></span><br><span class="line">$encrypted_data = openssl_encrypt($plain_text, <span class="string">"AES-256-CBC"</span>, $key, $options=OPENSSL_RAW_DATA , $iv);</span><br><span class="line"></span><br><span class="line"><span class="comment">//Decryption</span></span><br><span class="line">$plain_text = openssl_decrypt($encrypted_data, <span class="string">"AES-256-CBC"</span>, $key, $options=OPENSSL_RAW_DATA , $iv);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/09/project-woocommerce-points/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/09/project-woocommerce-points/" class="post-title-link" itemprop="url">如何寫一個 Woocommerce 點數折抵 的plugin</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-05-09 20:00:00" itemprop="dateCreated datePublished" datetime="2020-05-09T20:00:00+08:00">2020-05-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-13 08:46:19" itemprop="dateModified" datetime="2020-05-13T08:46:19+08:00">2020-05-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近接到一個e-commerce的案子</p>
-<p>案主的網站主要是由 WordPress + Woocommerce  所組成的商城</p>
-<p>其實Woocommerce 本身就有出紅利折抵的plugin <strong>WooCommerce Points and Rewards</strong></p>
-<p>但此案主 和 另外一方的公司(以下皆稱乙方)有合作 乙方有自己的點數 乙方的網站會員能夠登入到案主的網站 並可以使用乙方點數消費</p>
-<p>所以統整一下 主要會有幾個功能</p>
-<p> 提供給乙方會員登入入口</p>
-<p> 能查詢/使用/退還 乙方點數</p>
-<p> 要提供介面，讓後台管理員能輸入 對 全域/分類/單一商品 折抵的%數</p>
-<p> 其餘小功能 類似Log…之類的</p>
-<p><strong>WordPress</strong> version 5.3.2</p>
-<p><strong>Woocommerce</strong> version 3.9.2</p>
-<p><strong>WooCommerce Points and Rewards</strong>  version 1.6.21</p>
-<p>開發環境<br>OS: Windows 10<br>Web server: Appserv(Apache + mysql  + phpMyAdmin)</p>
-<h3 id="一、WordPress-Migration"><a href="#一、WordPress-Migration" class="headerlink" title="一、WordPress Migration"></a>一、WordPress Migration</h3><p>要修改既有的WordPress 網站 第一件事情就是將Live-site移到Local讓我們能亂玩</p>
-<p>這裡我們使用 WordPress的 <strong>All-in-one WP Migration</strong></p>
-<p>但遇到的問題是php設定 限制了上傳檔案大小 (我使用php 7)</p>
-<p>因為案主的WordPress封裝檔 有1GB</p>
-<p>我使用的是AppServ裝的php 要修改的路徑在 [Appserv安裝路徑]\php7\php.ini</p>
-<p>修改單一檔案大小上限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">; Maximum allowed size for uploaded files.</span><br><span class="line">; http://php.net/upload-max-filesize</span><br><span class="line">upload_max_filesize = 16M</span><br></pre></td></tr></table></figure>
-<p>修改 POST 資料大小上限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">; Maximum size of POST data that PHP will accept.</span><br><span class="line">; Its value may be 0 to disable the limit. It is ignored if POST data reading</span><br><span class="line">; is disabled through enable_post_data_reading.</span><br><span class="line">; http://php.net/post-max-size</span><br><span class="line">post_max_size = 32M</span><br></pre></td></tr></table></figure>
-<p>似乎 也要修改此Plugin的 constants.php 將值改成</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">define( &apos;AI1WM_MAX_FILE_SIZE&apos;, 2 &lt;&lt; 30 );</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>不然他會Plugin會限制最大的WP封裝檔 512MB </p>
-<h3 id="二、-登入功能"><a href="#二、-登入功能" class="headerlink" title="二、 登入功能"></a>二、 登入功能</h3><p>UI的部分我是直接修改wp-login.php，多新增一個按鈕 和 UI 讓乙方會員可以登入</p>
-<p>在登入認證的部分 我是在我的plugin裡 加入 init的hook 兼 判斷是否為登入頁面(這邊我覺得可能有更好的hook可以使用)</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">add_action( <span class="string">'init'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( $GLOBALS[<span class="string">'pagenow'</span>] === <span class="string">'wp-login.php'</span> )</span><br><span class="line">	&#123;</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
-<p>再者是創立WP帳號 帳號 和 密碼 我是用 encryption(乙方帳號) 產生</p>
-<p>最後在導向首頁</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$user_id = wp_create_user( $username, $password, $email_address );</span><br><span class="line">$user = <span class="keyword">new</span> WP_User( $user_id );</span><br><span class="line">$user-&gt;set_role( <span class="string">'customer'</span> );</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">    </span><br><span class="line">$creds = <span class="keyword">array</span>();</span><br><span class="line">$creds[<span class="string">'user_login'</span>] = $username;</span><br><span class="line">$creds[<span class="string">'user_password'</span>] = $password;</span><br><span class="line">$creds[<span class="string">'remember'</span>] = <span class="keyword">true</span>;</span><br><span class="line">			</span><br><span class="line">$user = wp_signon( $creds, <span class="keyword">false</span> );</span><br><span class="line">$userID = $user-&gt;ID;</span><br><span class="line">wp_set_auth_cookie( $userID, $remember=<span class="keyword">true</span>, <span class="keyword">false</span> );</span><br><span class="line">wp_set_current_user($username);</span><br><span class="line">			</span><br><span class="line">wp_redirect(get_home_url());</span><br><span class="line"><span class="keyword">exit</span>();</span><br></pre></td></tr></table></figure>
-<h3 id="三、能查詢-使用-退還-乙方點數"><a href="#三、能查詢-使用-退還-乙方點數" class="headerlink" title="三、能查詢/使用/退還 乙方點數"></a>三、能查詢/使用/退還 乙方點數</h3><p>這邊就比較複雜 要熟悉WP的hook運作機制</p>
-<p>但基本上的改法就是 把plugin裡面的參數 wc_points_xxxx 改成 miso_points_xxxx之類的</p>
-<p>然後將本來在mysql 做點數控管的部分 改成 Call 乙方提供的API 其實這樣就完成了</p>
-<p>可以看看下圖</p>
-<p><img src="/images/woocommerce-points-and-rewards-demo1.png" alt=""></p>
-<p>紅利點數是使用 <strong>WooCommerce Points and Rewards</strong>  建置的</p>
-<p>而下面的那欄就是乙方點數 UI是不是很像呢? 因為UI的部分 我就直接使用 <strong>WooCommerce Points and Rewards</strong>  plugin裡面的css</p>
-<p>紅利點數 和 乙方點數可以同時使用 不衝突</p>
-<p><img src="/images/woocommerce-points-and-rewards-demo2.png" alt=""></p>
-<p>Admin的部分也是沿用，因為案主只需要能設定 全域/分類/單一商品 折抵的%數</p>
-<p>所以大部分的設定都被comment掉了</p>
-<p><img src="/images/woocommerce-points-and-rewards-demo3.png" alt=""></p>
-<strike>最後此專案只有一個地方 沒有寫進 plugin</strike>
-
-<strike>就是wp-login.php裡面的UI部分 知道怎麼做 不過覺得有點麻煩</strike>
-
-<strike>其實用wc_enqueue_js 另外把 login的UI包進去 append到wp-login.php即可</strike>
-
-<strike>但我想 若是此plugin有在串接到別的 同樣使用woo-commerce網站上 我在把它完成吧</strike>
-
-<h3 id="Extra、將wp-login-php-Code移到Plugin"><a href="#Extra、將wp-login-php-Code移到Plugin" class="headerlink" title="Extra、將wp-login.php Code移到Plugin"></a>Extra、將wp-login.php Code移到Plugin</h3><p>因為案主會自動更新WordPress版本，或著之後可能會更新 此時wp-login.php 的code就會被新版本的WordPress洗掉</p>
-<p>UI主要有三個部分</p>
-<p>第一個是要顯示的Button</p>
-<p>第二個是要載入的css</p>
-<p>第三個是彈跳視窗</p>
-<p>我把這三個部分都拆開</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">load_scripts</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    wp_enqueue_style(<span class="string">"ml"</span>, plugin_dir_url(<span class="keyword">__FILE__</span>) . <span class="string">"style.css"</span>);</span><br><span class="line">    wp_enqueue_script(<span class="string">"ml"</span>, plugin_dir_url(<span class="keyword">__FILE__</span>) . <span class="string">"miso-login.js"</span>);</span><br><span class="line">    <span class="keyword">include</span>( dirname( <span class="keyword">__FILE__</span> ) .<span class="string">'/miso-login.php'</span> );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add_action( <span class="string">'login_footer'</span>, <span class="string">'load_scripts'</span> );</span><br></pre></td></tr></table></figure>
-<p>style.css 是單純的css</p>
-<p>miso-login.js是在UI上加入的Button</p>
-<p>miso-login.php是彈跳視窗和一兩行的php code</p>
-<p>關於第一部分 我用的方法是 JQuery的insertAfter 記得這邊必須要用JQuery帶入$的符號</p>
-<p>原因可參考: <a href="https://stackoverflow.com/questions/3931529/is-not-a-function-jquery-error" target="_blank" rel="noopener">https://stackoverflow.com/questions/3931529/is-not-a-function-jquery-error</a></p>
-<p>裡面應該是講為了不讓$符號撞到其他Library 他有Call <strong>jQuery.noConflict()</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jQuery(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> $miso_object = $(<span class="string">"&lt;div class=\"miso-custom-login-form-main\" onclick=\"document.getElementById('miso_login_panel').style.display='block'\"&gt;&lt;div class=\"miso-container\" data-align=\"left\" style=\"display: block;\"&gt;&lt;div class=\"miso-label-container\"&gt;&lt;button class=\"miso-container-button\"&gt;以 &lt;b&gt;Miso帳號&lt;/b&gt; 登入&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"</span>);</span><br><span class="line">	$miso_object.insertAfter($(<span class="string">"#loginform"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1146,7 +1099,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1157,7 +1110,7 @@
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
