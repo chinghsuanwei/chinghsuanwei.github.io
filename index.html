@@ -170,7 +170,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/30/project-php-generate_pdf_file/" class="post-title-link" itemprop="url">PHP download zip file</a>
+            <a href="/2020/11/30/project-php-generate_pdf_file/" class="post-title-link" itemprop="url">PHP Generate PDF file</a>
         </h2>
 
         <div class="post-meta">
@@ -179,16 +179,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2020-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-30T00:00:00+08:00">2020-11-30</time>
+              <time title="創建時間：2020-11-30 00:00:00 / 修改時間：00:03:51" itemprop="dateCreated datePublished" datetime="2020-11-30T00:00:00+08:00">2020-11-30</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-29 23:56:12" itemprop="dateModified" datetime="2020-11-29T23:56:12+08:00">2020-11-29</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -214,20 +208,21 @@
 <p>上網Google第一個到的就是TCPDF</p>
 <p>使用方法這裡就不多講解，但我最後沒辦法採用它</p>
 <p>原因是當我的<tag>數量大到某個程度的時候</tag></p>
-<p>TCPDF裡面 會創建DOM Object，Memory會用超過128MB</p>
+<p>TCPDF裡面 會創建DOM Object，而當資料量大的時候</p>
+<p>它使用的Memory會用超過128MB…(每個TAG似乎存的東西很多)</p>
 <p>後來我就想一下，有沒有Free Software的Windows執行檔能做這件事情</p>
 <p>後來找到<strong>wkhtmltopdf</strong></p>
 <p>使用方法很簡單</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wkhtmltopdf local.html result.pdf</span><br></pre></td></tr></table></figure>
 <p><strong>local.html</strong> 就是你用php所產生出來的網頁</p>
 <p>wkhtmltopdf會將其轉成PDF</p>
-<p>之後就一樣使用</p>
+<p>之後就一樣使用header 和 readfile 讓使用者下載</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-type:application/pdf"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// It will be called downloaded.pdf</span></span><br><span class="line">header(<span class="string">"Content-Disposition:attachment;filename='downloaded.pdf'"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// The PDF source is in original.pdf</span></span><br><span class="line">readfile(<span class="string">"original.pdf"</span>);</span><br></pre></td></tr></table></figure>
-<p>其中遇到的問題，是編碼問題，因為我的HTML有含中文，輸出的編碼是UTF-8</p>
-<p>第一次產生出來的pdf檔案 中文都是亂碼</p>
-<p>上網查一下 必須要在Html file的 head tag裡面加入</p>
+<p>實作中遇到的問題是編碼問題，因為我的HTML有含中文，它的編碼是UTF-8</p>
+<p>第一次產生出來的pdf檔案，中文都是亂碼</p>
+<p>上網查一下，必須要在Html file的 head tag 裡面加入下面的Code</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Problem solved!</p>
+<p>And problem solved!</p>
 
       
     </div>
