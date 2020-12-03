@@ -156,76 +156,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/03/project-bootstrap-table/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/03/project-bootstrap-table/" class="post-title-link" itemprop="url">Bootstrap-table</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-              
-
-              <time title="創建時間：2020-12-03 20:00:00 / 修改時間：23:51:01" itemprop="dateCreated datePublished" datetime="2020-12-03T20:00:00+08:00">2020-12-03</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Bootstrap-table應該算是在呈現列表時</p>
-<p>大家第一個會想到要使用的Free Library</p>
-<p>這裡記錄一些比較會常用到的欄位的使用方式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#table'</span>).bootstrapTable(&#123;</span><br><span class="line">    columns: [</span><br><span class="line">        &#123;</span><br><span class="line">			field: <span class="string">'selected'</span>,</span><br><span class="line">			checkbox: <span class="literal">true</span>,</span><br><span class="line">			formatter: <span class="function"><span class="keyword">function</span>(<span class="params">value, row, index</span>) </span></span><br><span class="line"><span class="function">            </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> &#123; <span class="attr">checked</span> : <span class="literal">true</span> &#125;; <span class="comment">// default is checked</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">			field: <span class="string">'id'</span>,</span><br><span class="line">            width: <span class="string">'100'</span>,</span><br><span class="line">            visible: <span class="literal">false</span> <span class="comment">//sometimes, if you just want to keep the data in memory, you can just set visible: false</span></span><br><span class="line">        &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           field: <span class="string">'name'</span>,</span><br><span class="line">           title: <span class="string">'姓名'</span>, <span class="comment">//column's name</span></span><br><span class="line">           width: <span class="string">'100'</span>,</span><br><span class="line">           sortable: <span class="literal">true</span>, <span class="comment">//this column is sortable</span></span><br><span class="line">           formatter: <span class="function"><span class="keyword">function</span>(<span class="params">value, row, index</span>) </span>&#123;              </span><br><span class="line">               <span class="keyword">return</span> row.firstname + row.lastname; <span class="comment">// default is checked</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">    ],</span><br><span class="line">	url: <span class="string">"/urlforquerydata"</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    contentType: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">    striped: <span class="literal">true</span>, <span class="comment">//讓每列的資料顯示為對比色</span></span><br><span class="line">    sortable: <span class="literal">false</span>,         <span class="comment">//is sortable? remember to turn it on, when you want to sort for columns</span></span><br><span class="line">    sortOrder: <span class="string">"DESC"</span>,        <span class="comment">//ASC or DESC</span></span><br><span class="line">	pagination: <span class="literal">true</span>,        </span><br><span class="line">	sidePagination: <span class="string">"server"</span>,    <span class="comment">//There has 2 options, "server" and "client", if it's server, then every query for page, will trigger the request for the certain page, If you set "client", I guess browser will save the records to it's cache, and page changing will only read local cache data.</span></span><br><span class="line">	pageNumber:<span class="number">1</span>,          <span class="comment">//first page is 1</span></span><br><span class="line">    pageSize: <span class="number">20</span>,</span><br><span class="line">	pageList: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>],   <span class="comment">//User can choose page size</span></span><br><span class="line">	onLoadError: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    onLoadSuccess: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/03/project-php-moodle-db/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -282,6 +212,76 @@
 <p>以上面的範例為例 就要改成 <strong>style=”color: red;”</strong> Insert才會成功</p>
 <p>以上是參考 <a href="http://tech.solin.eu/doku.php?id=moodle:database_access" target="_blank" rel="noopener">http://tech.solin.eu/doku.php?id=moodle:database_access</a></p>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/03/project-bootstrap-table/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/03/project-bootstrap-table/" class="post-title-link" itemprop="url">Bootstrap-table</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-12-03 11:59:00 / 修改時間：23:54:21" itemprop="dateCreated datePublished" datetime="2020-12-03T11:59:00+08:00">2020-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Bootstrap-table應該算是在呈現列表時</p>
+<p>大家第一個會想到要使用的Free Library</p>
+<p>這裡記錄一些比較會常用到的欄位的使用方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'#table'</span>).bootstrapTable(&#123;</span><br><span class="line">    columns: [</span><br><span class="line">        &#123;</span><br><span class="line">			field: <span class="string">'selected'</span>,</span><br><span class="line">			checkbox: <span class="literal">true</span>,</span><br><span class="line">			formatter: <span class="function"><span class="keyword">function</span>(<span class="params">value, row, index</span>) </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> &#123; <span class="attr">checked</span> : <span class="literal">true</span> &#125;; <span class="comment">// default is checked</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">			field: <span class="string">'id'</span>,</span><br><span class="line">            width: <span class="string">'100'</span>,</span><br><span class="line">            visible: <span class="literal">false</span> <span class="comment">//sometimes, if you just want to keep the data in memory, you can just set visible: false</span></span><br><span class="line">        &#125;,</span><br><span class="line">       &#123;</span><br><span class="line">           field: <span class="string">'name'</span>,</span><br><span class="line">           title: <span class="string">'姓名'</span>, <span class="comment">//column's name</span></span><br><span class="line">           width: <span class="string">'100'</span>,</span><br><span class="line">           sortable: <span class="literal">true</span>, <span class="comment">//this column is sortable</span></span><br><span class="line">           formatter: <span class="function"><span class="keyword">function</span>(<span class="params">value, row, index</span>) </span>&#123;              </span><br><span class="line">               <span class="keyword">return</span> row.firstname + row.lastname; <span class="comment">// default is checked</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">    ],</span><br><span class="line">    url: <span class="string">"/urlforquerydata"</span>,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    contentType: <span class="string">"application/x-www-form-urlencoded"</span>,</span><br><span class="line">    striped: <span class="literal">true</span>, <span class="comment">//讓每列的資料顯示為對比色</span></span><br><span class="line">    sortable: <span class="literal">false</span>,         <span class="comment">//is sortable? remember to turn it on, when you want to sort for columns</span></span><br><span class="line">    sortOrder: <span class="string">"DESC"</span>,        <span class="comment">//ASC or DESC</span></span><br><span class="line">	pagination: <span class="literal">true</span>,        </span><br><span class="line">	sidePagination: <span class="string">"server"</span>,    <span class="comment">//There has 2 options, "server" and "client", if it's server, then every query for page, will trigger the request for the certain page, If you set "client", I guess browser will save the records to it's cache, and page changing will only read local cache data.</span></span><br><span class="line">	pageNumber:<span class="number">1</span>,          <span class="comment">//first page is 1</span></span><br><span class="line">    pageSize: <span class="number">20</span>,</span><br><span class="line">    pageList: [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">50</span>],   <span class="comment">//User can choose page size</span></span><br><span class="line">    onLoadError: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    onLoadSuccess: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
       
     </div>
 
