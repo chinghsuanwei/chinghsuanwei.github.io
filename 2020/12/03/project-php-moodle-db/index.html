@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Miso">
-<meta property="og:url" content="http://yoursite.com/tags/Rakuten/index.html">
+  <meta name="description" content="最近的專案有使用到moodle，在使用途中發現，若使用moodle的DB object，有很多標點符號要注意 例如我Insert一段html代碼到DB 但一直失敗… 後來發現是moodle db元件 他會替換 “:xxxx” 為其他變數 剛好Html有很大的機率有這個pattern 例如style=”color:red;” moodle DB元件 會視:red為變數 當然我比較好的做法 應該是不要">
+<meta name="keywords" content="Moodle, PHP, SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Moodle DB object">
+<meta property="og:url" content="http://yoursite.com/2020/12/03/project-php-moodle-db/index.html">
 <meta property="og:site_name" content="Miso">
+<meta property="og:description" content="最近的專案有使用到moodle，在使用途中發現，若使用moodle的DB object，有很多標點符號要注意 例如我Insert一段html代碼到DB 但一直失敗… 後來發現是moodle db元件 他會替換 “:xxxx” 為其他變數 剛好Html有很大的機率有這個pattern 例如style=”color:red;” moodle DB元件 會視:red為變數 當然我比較好的做法 應該是不要">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:updated_time" content="2020-12-03T11:40:15.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Miso">
+<meta name="twitter:title" content="Moodle DB object">
+<meta name="twitter:description" content="最近的專案有使用到moodle，在使用途中發現，若使用moodle的DB object，有很多標點符號要注意 例如我Insert一段html代碼到DB 但一直失敗… 後來發現是moodle db元件 他會替換 “:xxxx” 為其他變數 剛好Html有很大的機率有這個pattern 例如style=”color:red;” moodle DB元件 會視:red為變數 當然我比較好的做法 應該是不要">
 
-<link rel="canonical" href="http://yoursite.com/tags/Rakuten/">
+<link rel="canonical" href="http://yoursite.com/2020/12/03/project-php-moodle-db/">
 
 
 <script id="page-configurations">
@@ -36,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>標籤: Rakuten | Miso</title>
+  <title>Moodle DB object | Miso</title>
   
 
 
@@ -150,51 +155,98 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Rakuten
-          <small>標籤</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/03/project-php-moodle-db/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Moodle DB object
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-12-03 19:30:00 / 修改時間：19:40:15" itemprop="dateCreated datePublished" datetime="2020-12-03T19:30:00+08:00">2020-12-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>最近的專案有使用到moodle，在使用途中發現，若使用moodle的DB object，有很多標點符號要注意</p>
+<p>例如我Insert一段html代碼到DB 但一直失敗… 後來發現是moodle db元件 他會替換 “:xxxx” 為其他變數</p>
+<p>剛好Html有很大的機率有這個pattern 例如<strong>style=”color:red;”</strong> moodle DB元件 會視:red為變數</p>
+<p>當然我比較好的做法 應該是不要用 moodle的DB元件 下這樣的SQL</p>
+<p>但如果你懶的話 解法就是必須在每個 “:” 後面 加一個空白</p>
+<p>以上面的範例為例 就要改成 <strong>style=”color: red;”</strong> Insert才會成功</p>
+<p>以上是參考 <a href="http://tech.solin.eu/doku.php?id=moodle:database_access" target="_blank" rel="noopener">http://tech.solin.eu/doku.php?id=moodle:database_access</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-10T03:52:00+08:00"
-              content="2020-03-10">
-          03-10
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Moodle-PHP-SQL/" rel="tag"># Moodle, PHP, SQL</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/03/10/codility-Rakuten/" itemprop="url">
-            <span itemprop="name">Rakuten Codility Online Programming Test</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/30/project-php-generate_pdf_file/" rel="prev" title="PHP Generate PDF file">
+      <i class="fa fa-chevron-left"></i> PHP Generate PDF file
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/12/03/project-bootstrap-table/" rel="next" title="Bootstrap-table">
+      Bootstrap-table <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
