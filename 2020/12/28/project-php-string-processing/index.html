@@ -20,28 +20,33 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Miso">
-<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+  <meta name="description" content="做PHP專案時需要處理字串和編碼問題，想記錄下來 半形數字轉全形數字 1$ROC_year = mb_convert_kana(&apos;109&apos;, &apos;N&apos;) . &apos;年&apos;; UTF-8轉Big5 12$utf8_string = &apos;安安&apos;;$big5_string = mb_convert_encoding($utf8_string, &apos;Big5&apos;, &apos;UTF-8&apos;);">
+<meta name="keywords" content="PHP, string">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP String Processing">
+<meta property="og:url" content="http://yoursite.com/2020/12/28/project-php-string-processing/index.html">
 <meta property="og:site_name" content="Miso">
+<meta property="og:description" content="做PHP專案時需要處理字串和編碼問題，想記錄下來 半形數字轉全形數字 1$ROC_year = mb_convert_kana(&apos;109&apos;, &apos;N&apos;) . &apos;年&apos;; UTF-8轉Big5 12$utf8_string = &apos;安安&apos;;$big5_string = mb_convert_encoding($utf8_string, &apos;Big5&apos;, &apos;UTF-8&apos;);">
 <meta property="og:locale" content="zh-TW">
+<meta property="og:updated_time" content="2020-12-28T07:39:34.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Miso">
+<meta name="twitter:title" content="PHP String Processing">
+<meta name="twitter:description" content="做PHP專案時需要處理字串和編碼問題，想記錄下來 半形數字轉全形數字 1$ROC_year = mb_convert_kana(&apos;109&apos;, &apos;N&apos;) . &apos;年&apos;; UTF-8轉Big5 12$utf8_string = &apos;安安&apos;;$big5_string = mb_convert_encoding($utf8_string, &apos;Big5&apos;, &apos;UTF-8&apos;);">
 
-<link rel="canonical" href="http://yoursite.com/page/3/">
+<link rel="canonical" href="http://yoursite.com/2020/12/28/project-php-string-processing/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>Miso</title>
+  <title>PHP String Processing | Miso</title>
   
 
 
@@ -150,13 +155,14 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/macbook-pro-2010/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/28/project-php-string-processing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/miso.jpg">
@@ -168,10 +174,9 @@
       <meta itemprop="name" content="Miso">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/05/08/macbook-pro-2010/" class="post-title-link" itemprop="url">Macbook Pro 2010 mid</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          PHP String Processing
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -179,23 +184,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2017-05-08 00:00:00" itemprop="dateCreated datePublished" datetime="2017-05-08T00:00:00+08:00">2017-05-08</time>
+              <time title="創建時間：2020-12-28 15:30:00 / 修改時間：15:39:34" itemprop="dateCreated datePublished" datetime="2020-12-28T15:30:00+08:00">2020-12-28</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-09 19:46:50" itemprop="dateModified" datetime="2020-05-09T19:46:50+08:00">2020-05-09</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分類於</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hardware-Setting/" itemprop="url" rel="index"><span itemprop="name">Hardware Setting</span></a>
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
                 </span>
             </span>
 
@@ -210,28 +209,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>If you are using <em>Macbook pro 2010 mid</em>, remember to install gfxCardStatus and turn on 僅Integrated晶片.<br>Otherwise your computer will crash often when OS decide to use external graphic card.<br>Reference: <a href="https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0" target="_blank" rel="noopener">https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0</a></p>
-<p>Notice! After upgrade to 10.12, the gfxCardStatus 2.3 version won’t work.<br>I need to use previous version like v1.7.5, to forcely turn on Internal Graphic Card only mode.</p>
+        <p>做PHP專案時需要處理字串和編碼問題，想記錄下來</p>
+<p><strong>半形數字轉全形數字</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ROC_year = mb_convert_kana(<span class="string">'109'</span>, <span class="string">'N'</span>) . <span class="string">'年'</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>UTF-8轉Big5</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$utf8_string = <span class="string">'安安'</span>;</span><br><span class="line">$big5_string = mb_convert_encoding($utf8_string, <span class="string">'Big5'</span>, <span class="string">'UTF-8'</span>);</span><br></pre></td></tr></table></figure>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/PHP-string/" rel="tag"># PHP, string</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/12/24/project-jquery/" rel="prev" title="JQuery">
+      <i class="fa fa-chevron-left"></i> JQuery
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
 
 

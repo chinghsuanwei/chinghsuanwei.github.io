@@ -156,6 +156,159 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/28/project-php-string-processing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/28/project-php-string-processing/" class="post-title-link" itemprop="url">PHP String Processing</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2020-12-28 15:30:00 / 修改時間：15:39:34" itemprop="dateCreated datePublished" datetime="2020-12-28T15:30:00+08:00">2020-12-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>做PHP專案時需要處理字串和編碼問題，想記錄下來</p>
+<p><strong>半形數字轉全形數字</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ROC_year = mb_convert_kana(<span class="string">'109'</span>, <span class="string">'N'</span>) . <span class="string">'年'</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>UTF-8轉Big5</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$utf8_string = <span class="string">'安安'</span>;</span><br><span class="line">$big5_string = mb_convert_encoding($utf8_string, <span class="string">'Big5'</span>, <span class="string">'UTF-8'</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/24/project-jquery/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/24/project-jquery/" class="post-title-link" itemprop="url">JQuery</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-12-24 20:00:00" itemprop="dateCreated datePublished" datetime="2020-12-24T20:00:00+08:00">2020-12-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-12-25 00:53:38" itemprop="dateModified" datetime="2020-12-25T00:53:38+08:00">2020-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>之前在第一份工作時候，做website就大量使用JQuery，JQuery好處是他真的很簡單，但壞處是他不算是Framework，bind和callback可能會散落在各處。不過至於製作比較小型網站，JQuery-ui 其實綽綽有餘。</p>
+<p>下面是紀錄一下，我常忘記的一些點</p>
+<p><strong>multiple class selector, exactly mactch</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$object.find('.a.b'); <span class="comment">--remember it will return array of HTMLElementObject</span></span><br></pre></td></tr></table></figure>
+<p>This will find children of $object whose has both <strong>class a and b</strong></p>
+<p><strong>multiple class selector</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$object.find('.a, .b'); <span class="comment">--remember it will return array of HTMLElementObject</span></span><br></pre></td></tr></table></figure>
+<p>This will find children of $object whose has either <strong>class a or b</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/03/project-php-moodle-db/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -667,7 +820,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-11-21 19:44:32" itemprop="dateModified" datetime="2020-11-21T19:44:32+08:00">2020-11-21</time>
+                <time title="修改時間：2020-12-28 10:11:47" itemprop="dateModified" datetime="2020-12-28T10:11:47+08:00">2020-12-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -714,7 +867,12 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">INTO</span> #TempTable <span class="keyword">FROM</span> [<span class="keyword">Table</span>] <span class="keyword">WHERE</span> <span class="keyword">id</span> = [src_id]</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> #TempTable</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">COLUMN</span> <span class="keyword">id</span>;</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span>[<span class="keyword">Table</span>](<span class="keyword">id</span>, [<span class="keyword">columns</span>])</span><br><span class="line"><span class="keyword">SELECT</span> [new_id]] <span class="keyword">As</span> <span class="keyword">id</span>,* <span class="keyword">FROM</span> #TempTable</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> #TempTable</span><br></pre></td></tr></table></figure>
 <p><strong>Insert into return sequence id</strong></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> [<span class="keyword">Table</span>] (<span class="keyword">name</span>)</span><br><span class="line"><span class="keyword">OUTPUT</span> Inserted.ID</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="string">'bob'</span>);</span><br></pre></td></tr></table></figure>
-
+<p><strong>Temp Table which only exist in current session</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> NOCOUNT <span class="keyword">ON</span>; <span class="comment">-- remember to use this line when you want to SELECT result and use temp table at same time, because some how, use temp table would make 'row count' zero</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">INTO</span> #TempTable <span class="keyword">FROM</span> [<span class="keyword">Table</span>] <span class="comment">--- remind the #, it's just for current session, won't store into real database</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> #TempTable; <span class="comment">---Also add DROP TABLE in the end, It's not necessary in program, but when you copy the sql to Navicat for testing. Then you might execute it many times, and error might occur since Query panel of Navicat use same session.</span></span><br></pre></td></tr></table></figure>
+<p><strong>Case When</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CASE</span> <span class="keyword">WHEN</span> modified_time <span class="keyword">IS</span> <span class="literal">NULL</span> <span class="keyword">THEN</span> <span class="number">0</span> <span class="keyword">ELSE</span> <span class="number">1</span> <span class="keyword">END</span> <span class="keyword">As</span> modified <span class="keyword">FROM</span> [<span class="keyword">Table</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>Trim string</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LTRIM(RTRIM(Names)) <span class="comment">-- before MS-SQL 2017, you need use LTIMR() and RTRIM() instead of single TRIM()</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -764,7 +922,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-12-05 15:08:40" itemprop="dateModified" datetime="2020-12-05T15:08:40+08:00">2020-12-05</time>
+                <time title="修改時間：2020-12-14 10:48:40" itemprop="dateModified" datetime="2020-12-14T10:48:40+08:00">2020-12-14</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -811,8 +969,8 @@
 <p><strong>AxMediaPlayer.AxMediaPlayer</strong> 升級成 <strong>AxWMPLib.AxWindowsMediaPlayer</strong>(C:\Windows\System32\wmp.dll) function 對照表</p>
 <p>但要注意的是player.PlayState的部分，兩個library是用不同的namespace，在做判斷的時候要小心，他們的Enum的常數是完全不一樣的，比如說  </p>
 <p>MediaPlayer.MPPlayStateConstants.mpStopped = 0<br>WMPLib.WMPPlayState.wmppsStopped = 1</p>
-<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> player <span class="keyword">As</span> AxMediaPlayer.AxMediaPlayer</span><br><span class="line">player.AutoStart = <span class="literal">False</span></span><br><span class="line">player.FileName = filenpath</span><br><span class="line">player.PlayCount = <span class="number">1</span></span><br><span class="line">player.Play()</span><br><span class="line"></span><br><span class="line">player.<span class="keyword">Stop</span>()</span><br><span class="line">player.CurrentPosition = <span class="number">0</span> </span><br><span class="line"><span class="keyword">If</span> player.PlayState = MediaPlayer.MPPlayStateConstants.mpStopped <span class="keyword">Then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> player <span class="keyword">As</span> AxWMPLib.AxWindowsMediaPlayer</span><br><span class="line">player.settings().autoStart = <span class="literal">False</span></span><br><span class="line">player.URL = filenpath</span><br><span class="line">player.settings.playCount = <span class="number">1</span></span><br><span class="line">player.Ctlcontrols().play()</span><br><span class="line"></span><br><span class="line">player.Ctlcontrols().<span class="keyword">stop</span>()</span><br><span class="line">player.Ctlcontrols.currentPosition = <span class="number">0</span></span><br><span class="line"><span class="keyword">If</span> player.PlayState = WMPLib.WMPPlayState.wmppsStopped  <span class="keyword">Then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> player <span class="keyword">As</span> AxMediaPlayer.AxMediaPlayer</span><br><span class="line">player.AutoStart = <span class="literal">False</span></span><br><span class="line">player.FileName = filenpath</span><br><span class="line">player.PlayCount = <span class="number">1</span></span><br><span class="line">player.Play()</span><br><span class="line"></span><br><span class="line">player.<span class="keyword">Stop</span>()</span><br><span class="line">player.CurrentPosition = <span class="number">0</span> </span><br><span class="line"><span class="keyword">If</span> player.PlayState = MediaPlayer.MPPlayStateConstants.mpStopped <span class="keyword">Then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Private</span> <span class="keyword">Sub</span> player_CurrentItemChange(<span class="keyword">ByVal</span> sender <span class="keyword">As</span> <span class="built_in">Object</span>, <span class="keyword">ByVal</span> e <span class="keyword">As</span> AxMediaPlayer._MediaPlayerEvents_PlayStateChangeEvent) <span class="keyword">Handles</span> player.PlayStateChange</span><br><span class="line"></span><br><span class="line">	<span class="keyword">Select</span> <span class="keyword">Case</span> e.newState</span><br><span class="line">        <span class="keyword">Case</span> <span class="number">0</span> <span class="comment">' Stopped</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">1</span>  <span class="comment">'Paused</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">2</span> <span class="comment">' Playing</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">3</span> <span class="comment">' Waiting</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">4</span> <span class="comment">' ScanForward</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">5</span> <span class="comment">' ScanReverse</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">6</span> <span class="comment">' Closed</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">Select</span></span><br><span class="line">    <span class="comment">'Debug.WriteLine("e.newState = " &amp; e.newState)</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Dim</span> player <span class="keyword">As</span> AxWMPLib.AxWindowsMediaPlayer</span><br><span class="line">player.settings().autoStart = <span class="literal">False</span></span><br><span class="line">player.URL = filenpath</span><br><span class="line">player.settings.playCount = <span class="number">1</span></span><br><span class="line">player.Ctlcontrols().play()</span><br><span class="line"></span><br><span class="line">player.Ctlcontrols().<span class="keyword">stop</span>()</span><br><span class="line">player.Ctlcontrols.currentPosition = <span class="number">0</span></span><br><span class="line"><span class="keyword">If</span> player.PlayState = WMPLib.WMPPlayState.wmppsStopped  <span class="keyword">Then</span></span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">'Event handler</span></span><br><span class="line"><span class="keyword">Private</span> <span class="keyword">Sub</span> player_CurrentItemChange(sender <span class="keyword">As</span> <span class="built_in">Object</span>, e <span class="keyword">As</span> AxWMPLib._WMPOCXEvents_CurrentItemChangeEvent) <span class="keyword">Handles</span> player.CurrentItemChange</span><br><span class="line">    Debug.Print(<span class="string">"CurrentItemChange: "</span> &amp; <span class="keyword">Me</span>.AxWindowsMediaPlayer1.currentMedia.name)</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Private</span> <span class="keyword">Sub</span> AxWindowsMediaPlayer1_PlayStateChange(sender <span class="keyword">As</span> <span class="built_in">Object</span>, e <span class="keyword">As</span> AxWMPLib._WMPOCXEvents_PlayStateChangeEvent) <span class="keyword">Handles</span> AxWindowsMediaPlayer1.PlayStateChange</span><br><span class="line">    <span class="keyword">Select</span> <span class="keyword">Case</span> e.newState</span><br><span class="line">        <span class="keyword">Case</span> <span class="number">1</span> <span class="comment">' Stopped</span></span><br><span class="line">            Debug.Print(<span class="string">"Stopped"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">2</span>    <span class="comment">' Paused</span></span><br><span class="line">            Debug.Print(<span class="string">"Paused"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">3</span> <span class="comment">' Playing</span></span><br><span class="line">            Debug.Print(<span class="string">"Playing"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">4</span> <span class="comment">' ScanForward</span></span><br><span class="line">            Debug.Print(<span class="string">"ScanForward"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">5</span> <span class="comment">' ScanReverse</span></span><br><span class="line">            Debug.Print(<span class="string">"ScanReverse"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">6</span> <span class="comment">' Buffering</span></span><br><span class="line">            Debug.Print(<span class="string">"Buffering"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">7</span> <span class="comment">' Waiting</span></span><br><span class="line">            Debug.Print(<span class="string">"Waiting"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">8</span> <span class="comment">' MediaEnded</span></span><br><span class="line">            Debug.Print(<span class="string">"MediaEnded"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">9</span> <span class="comment">' Transitioning</span></span><br><span class="line">            Debug.Print(<span class="string">"Transitioning"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">10</span> <span class="comment">' Ready</span></span><br><span class="line">            Debug.Print(<span class="string">"Ready"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">11</span> <span class="comment">' Reconnecting</span></span><br><span class="line">            Debug.Print(<span class="string">"Reconnecting"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="number">12</span> <span class="comment">' Last</span></span><br><span class="line">            Debug.Print(<span class="string">"Last"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">Case</span> <span class="keyword">Else</span></span><br><span class="line">            Debug.Print(<span class="string">"Undefined/Unknown: "</span> &amp; e.newState)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">End</span> <span class="keyword">Select</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Sub</span></span><br></pre></td></tr></table></figure>
 <hr>
 <p>QueryInterface for interface [COM library]::[function failed.</p>
 <p>當我在使用Thread call外部dll的時候，出現了上面以上的error。查了一下網路，他似乎是為了防止<strong>一般人</strong>在Thread中使用非thread-safe的dll，所以就彈出了這個error。</p>
@@ -834,199 +992,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/project-php-sql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/30/project-php-sql/" class="post-title-link" itemprop="url">PHP with SQL</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-30 17:00:00" itemprop="dateCreated datePublished" datetime="2020-09-30T17:00:00+08:00">2020-09-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-12-03 19:28:34" itemprop="dateModified" datetime="2020-12-03T19:28:34+08:00">2020-12-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>目前在我環境已經安裝有php 7.3.10</p>
-<p>我上網Google 一開始有人說要到這裡載</p>
-<p><a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=20098" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/confirmation.aspx?id=20098</a></p>
-<p>載下來 設定一下php.ini 加入<br><strong>extension=php_sqlsrv_7_nts_x64.dll</strong><br>一直跳出<strong>找不到指定的模組</strong></p>
-<p>後來才找到 <a href="https://github.com/microsoft/msphpsql/releases/" target="_blank" rel="noopener">https://github.com/microsoft/msphpsql/releases/</a></p>
-<p>要到這裡找到和你php版號一樣的版本 才OK </p>
-<p>例如我要下載的是 <a href="https://github.com/microsoft/msphpsql/releases/download/v5.9.0-preview1/Windows-7.3.zip" target="_blank" rel="noopener">Windows-7.3.zip</a></p>
-<p>然後我一定要使用 <strong>php_sqlsrv_73_ts.dll</strong> 才能使用 <strong>sqlsrv_connect()</strong>這個function</p>
-<p>最後設定一下php.ini 加入<br><strong>extension=php_sqlsrv_73_ts.dll</strong></p>
-<p>P.S 我在網站中有點迷路 反正是這個Link <a href="https://github.com/microsoft/msphpsql/releases/tag/v5.9.0-preview1" target="_blank" rel="noopener">https://github.com/microsoft/msphpsql/releases/tag/v5.9.0-preview1</a></p>
-<p>使用php下sql時，若有使用到Temp table時候，要記得在前面加入</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SET</span> NOCOUNT ON;</span><br></pre></td></tr></table></figure>
-<p>原因是參考這篇文章…. 只大概知道好像是Temp Table會影響 count of records 為0? 所以Select的結果都為空</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/25/project-disassembler/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/25/project-disassembler/" class="post-title-link" itemprop="url">反組譯 Windows 視窗程式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-09-25 17:00:00" itemprop="dateCreated datePublished" datetime="2020-09-25T17:00:00+08:00">2020-09-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-03 15:22:09" itemprop="dateModified" datetime="2020-10-03T15:22:09+08:00">2020-10-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>分享最近一個案子，專案裡面有一個Windows .exe執行檔，是一個Windows視窗程式，程式是可以跑起來，但沒有source code。不過Runtime時，有一個按鈕按下去，裡面內部的function沒有正常運作，UI上吐出Error number和Error message，但Error message 是Google or Stack overflow也找不到問題的那種，搜尋都出現一堆不關聯的結果，因為程式也很老舊，也沒有文件可以翻閱。</p>
-<p>但因為在Operation的機器上，該程式的該按鈕按下去能正常運作，從以往的經驗猜測，應該是我開發環境少了什麼檔案。</p>
-<h3 id="Try"><a href="#Try" class="headerlink" title="Try"></a><strong>Try</strong></h3><p><strong>以下部分是我嘗試的經過，若對過程沒興趣，可以直接跳到下面段落</strong></p>
-<p>於是我想了一下，以前上課都有說，程式一定都可以反組譯的，只是會變成了亂碼，我的第一步驟其實是打開notepad++，先看是否能找到該字串，結果找不到，由此推斷有可能是他的動態連結庫.dll拋出的訊息，並不是執行檔本身所產生。</p>
-<p>上網找了一下，好像<strong>IDA PRO</strong>是蠻有名的反組譯軟體，但因為不是免費的，所以試用一下他們的<strong>IDA Freeware</strong>，但是沒成功。還試了免費軟體<strong>radare2</strong>，他介面也蠻酷的，是console UI，但我都沒找到方法能中斷在按鈕按下去的時候停，最後找到UI看起來很陽春的<strong>Ollydbg</strong>，解決了我的問題。</p>
-<h3 id="Ollydbg"><a href="#Ollydbg" class="headerlink" title="Ollydbg"></a><strong>Ollydbg</strong></h3><p>我在下載  <a href="http://www.ollydbg.de/" target="_blank" rel="noopener">http://www.ollydbg.de/</a> 下載version 1.1(final)的版本</p>
-<p>開啟後將你想deassemble的程式exe，即可看到他反組譯的程式，然後在按下Run，你就可以用組合語言Debug了</p>
-<p><img src="/images/ollydbg.png" alt=""></p>
-<p>基本上我參考下面網站的作法</p>
-<p><a href="https://stackoverflow.com/questions/24138087/how-can-i-set-a-breakpoint-for-a-button-click-using-ollydbg/26540612" target="_blank" rel="noopener">https://stackoverflow.com/questions/24138087/how-can-i-set-a-breakpoint-for-a-button-click-using-ollydbg/26540612</a></p>
-<p>以下是設定按下某個按鈕後，會中斷程式讓你可以Debug。我覺得ollydbg厲害的是，他既然有選單可以選，他會列出畫面上Button的文字，讓你可以註冊某個event，下面的步驟就是註冊<strong>LBUTTONUP</strong>，按下滑鼠左鍵後會中斷程式。</p>
-<ul>
-<li><p>go to <code>view &gt; windows</code></p>
-<p>如果按下windows沒看到東西，可以在windows視窗的空白地方點滑鼠右鍵，會出現Menubar，選<strong>Actualize</strong></p>
-<p><img src="/images/ollydbg_windows.png" alt=""></p>
-</li>
-<li><p>select your button.</p>
-</li>
-<li><p>right click and select <code>Message breakpoint on ClassProc</code></p>
-</li>
-<li><p>in <code>Messages:</code> select <code>202 WM LBUTTONUP</code></p>
-</li>
-<li><p>select <code>Break on all windows with same title</code></p>
-</li>
-<li><p>select <code>Pause program: On message</code></p>
-</li>
-<li><p>select <code>Log WinProc arguments: Never</code></p>
-</li>
-</ul>
-<p>我自己會蠻常按<strong>control + F9</strong> 他的功能是<strong>execute till return</strong>，直接找到Return點，然後在該點看一下stack 裡面是否有類似Error number的值或是Error message的字串，若有的話，在他前後設定中斷點再尋找一下，可能就會找到根源。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
   </nav>
 
 
@@ -1094,7 +1063,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1105,7 +1074,7 @@
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>

@@ -156,6 +156,195 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/project-php-sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/30/project-php-sql/" class="post-title-link" itemprop="url">PHP with SQL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-09-30 17:00:00" itemprop="dateCreated datePublished" datetime="2020-09-30T17:00:00+08:00">2020-09-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-12-03 19:28:34" itemprop="dateModified" datetime="2020-12-03T19:28:34+08:00">2020-12-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>目前在我環境已經安裝有php 7.3.10</p>
+<p>我上網Google 一開始有人說要到這裡載</p>
+<p><a href="https://www.microsoft.com/en-us/download/confirmation.aspx?id=20098" target="_blank" rel="noopener">https://www.microsoft.com/en-us/download/confirmation.aspx?id=20098</a></p>
+<p>載下來 設定一下php.ini 加入<br><strong>extension=php_sqlsrv_7_nts_x64.dll</strong><br>一直跳出<strong>找不到指定的模組</strong></p>
+<p>後來才找到 <a href="https://github.com/microsoft/msphpsql/releases/" target="_blank" rel="noopener">https://github.com/microsoft/msphpsql/releases/</a></p>
+<p>要到這裡找到和你php版號一樣的版本 才OK </p>
+<p>例如我要下載的是 <a href="https://github.com/microsoft/msphpsql/releases/download/v5.9.0-preview1/Windows-7.3.zip" target="_blank" rel="noopener">Windows-7.3.zip</a></p>
+<p>然後我一定要使用 <strong>php_sqlsrv_73_ts.dll</strong> 才能使用 <strong>sqlsrv_connect()</strong>這個function</p>
+<p>最後設定一下php.ini 加入<br><strong>extension=php_sqlsrv_73_ts.dll</strong></p>
+<p>P.S 我在網站中有點迷路 反正是這個Link <a href="https://github.com/microsoft/msphpsql/releases/tag/v5.9.0-preview1" target="_blank" rel="noopener">https://github.com/microsoft/msphpsql/releases/tag/v5.9.0-preview1</a></p>
+<p>使用php下sql時，若有使用到Temp table時候，要記得在前面加入</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">SET</span> NOCOUNT ON;</span><br></pre></td></tr></table></figure>
+<p>原因是參考這篇文章…. 只大概知道好像是Temp Table會影響 count of records 為0? 所以Select的結果都為空</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/25/project-disassembler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/25/project-disassembler/" class="post-title-link" itemprop="url">反組譯 Windows 視窗程式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-09-25 17:00:00" itemprop="dateCreated datePublished" datetime="2020-09-25T17:00:00+08:00">2020-09-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-03 15:22:09" itemprop="dateModified" datetime="2020-10-03T15:22:09+08:00">2020-10-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Project/" itemprop="url" rel="index"><span itemprop="name">Project</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>分享最近一個案子，專案裡面有一個Windows .exe執行檔，是一個Windows視窗程式，程式是可以跑起來，但沒有source code。不過Runtime時，有一個按鈕按下去，裡面內部的function沒有正常運作，UI上吐出Error number和Error message，但Error message 是Google or Stack overflow也找不到問題的那種，搜尋都出現一堆不關聯的結果，因為程式也很老舊，也沒有文件可以翻閱。</p>
+<p>但因為在Operation的機器上，該程式的該按鈕按下去能正常運作，從以往的經驗猜測，應該是我開發環境少了什麼檔案。</p>
+<h3 id="Try"><a href="#Try" class="headerlink" title="Try"></a><strong>Try</strong></h3><p><strong>以下部分是我嘗試的經過，若對過程沒興趣，可以直接跳到下面段落</strong></p>
+<p>於是我想了一下，以前上課都有說，程式一定都可以反組譯的，只是會變成了亂碼，我的第一步驟其實是打開notepad++，先看是否能找到該字串，結果找不到，由此推斷有可能是他的動態連結庫.dll拋出的訊息，並不是執行檔本身所產生。</p>
+<p>上網找了一下，好像<strong>IDA PRO</strong>是蠻有名的反組譯軟體，但因為不是免費的，所以試用一下他們的<strong>IDA Freeware</strong>，但是沒成功。還試了免費軟體<strong>radare2</strong>，他介面也蠻酷的，是console UI，但我都沒找到方法能中斷在按鈕按下去的時候停，最後找到UI看起來很陽春的<strong>Ollydbg</strong>，解決了我的問題。</p>
+<h3 id="Ollydbg"><a href="#Ollydbg" class="headerlink" title="Ollydbg"></a><strong>Ollydbg</strong></h3><p>我在下載  <a href="http://www.ollydbg.de/" target="_blank" rel="noopener">http://www.ollydbg.de/</a> 下載version 1.1(final)的版本</p>
+<p>開啟後將你想deassemble的程式exe，即可看到他反組譯的程式，然後在按下Run，你就可以用組合語言Debug了</p>
+<p><img src="/images/ollydbg.png" alt=""></p>
+<p>基本上我參考下面網站的作法</p>
+<p><a href="https://stackoverflow.com/questions/24138087/how-can-i-set-a-breakpoint-for-a-button-click-using-ollydbg/26540612" target="_blank" rel="noopener">https://stackoverflow.com/questions/24138087/how-can-i-set-a-breakpoint-for-a-button-click-using-ollydbg/26540612</a></p>
+<p>以下是設定按下某個按鈕後，會中斷程式讓你可以Debug。我覺得ollydbg厲害的是，他既然有選單可以選，他會列出畫面上Button的文字，讓你可以註冊某個event，下面的步驟就是註冊<strong>LBUTTONUP</strong>，按下滑鼠左鍵後會中斷程式。</p>
+<ul>
+<li><p>go to <code>view &gt; windows</code></p>
+<p>如果按下windows沒看到東西，可以在windows視窗的空白地方點滑鼠右鍵，會出現Menubar，選<strong>Actualize</strong></p>
+<p><img src="/images/ollydbg_windows.png" alt=""></p>
+</li>
+<li><p>select your button.</p>
+</li>
+<li><p>right click and select <code>Message breakpoint on ClassProc</code></p>
+</li>
+<li><p>in <code>Messages:</code> select <code>202 WM LBUTTONUP</code></p>
+</li>
+<li><p>select <code>Break on all windows with same title</code></p>
+</li>
+<li><p>select <code>Pause program: On message</code></p>
+</li>
+<li><p>select <code>Log WinProc arguments: Never</code></p>
+</li>
+</ul>
+<p>我自己會蠻常按<strong>control + F9</strong> 他的功能是<strong>execute till return</strong>，直接找到Return點，然後在該點看一下stack 裡面是否有類似Error number的值或是Error message的字串，若有的話，在他前後設定中斷點再尋找一下，可能就會找到根源。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/10/inf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -910,85 +1099,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/macbook-pro-2010/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/miso.jpg">
-      <meta itemprop="name" content="Ching-Hsuan Wei">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Miso">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/05/08/macbook-pro-2010/" class="post-title-link" itemprop="url">Macbook Pro 2010 mid</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2017-05-08 00:00:00" itemprop="dateCreated datePublished" datetime="2017-05-08T00:00:00+08:00">2017-05-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-05-09 19:46:50" itemprop="dateModified" datetime="2020-05-09T19:46:50+08:00">2020-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hardware-Setting/" itemprop="url" rel="index"><span itemprop="name">Hardware Setting</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>If you are using <em>Macbook pro 2010 mid</em>, remember to install gfxCardStatus and turn on 僅Integrated晶片.<br>Otherwise your computer will crash often when OS decide to use external graphic card.<br>Reference: <a href="https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0" target="_blank" rel="noopener">https://discussions.apple.com/thread/4766577?start=4695&amp;tstart=0</a></p>
-<p>Notice! After upgrade to 10.12, the gfxCardStatus 2.3 version won’t work.<br>I need to use previous version like v1.7.5, to forcely turn on Internal Graphic Card only mode.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
   </nav>
 
 
@@ -1056,7 +1170,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -1067,7 +1181,7 @@
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
