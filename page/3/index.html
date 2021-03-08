@@ -156,6 +156,267 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/10/codility-Rakuten/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/10/codility-Rakuten/" class="post-title-link" itemprop="url">Rakuten Codility Online Programming Test</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2020-03-10 03:52:00" itemprop="dateCreated datePublished" datetime="2020-03-10T03:52:00+08:00">2020-03-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-07-29 13:14:30" itemprop="dateModified" datetime="2020-07-29T13:14:30+08:00">2020-07-29</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Programming-Test/" itemprop="url" rel="index"><span itemprop="name">Online Programming Test</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>I was a little surprised, There has only one question.</p>
+<p>Q1.<br>There has 3 rules for a legal string</p>
+<ol>
+<li>a string must start with a consonant</li>
+<li>no two consecutive vowels</li>
+<li>no two consecutive consonants</li>
+</ol>
+<p>Just consider only upper-case</p>
+<p>At first time, I just wanted to use bruteforce-way to solve the problem. But I thought I could not pass the large test if I used bruteforce-way.<br>Then I spend like 20-min to figure out the question, And found out that it’s just a permutations problem.</p>
+<p>The count of vowels must equal or less than 1 to consonants</p>
+<p>So for alphabets “AEBBC”, there has 2! * (3! / 2!) = 6 kind of permutations</p>
+<ol>
+<li>“BABEC”</li>
+<li>“BACEB”</li>
+<li>“CABEB”</li>
+<li>“CEBAB”</li>
+<li>“BECAB”</li>
+<li>“BEBAC”</li>
+</ol>
+<p>The code is following:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">factorial</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> sum = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        sum *= i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">solution</span><span class="params">(<span class="built_in">string</span> &amp;S)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// write your code in C++14 (g++ 6.2.0)</span></span><br><span class="line">    <span class="built_in">std</span>::sort(S.begin(), S.end());</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; vowels;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; consonants;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> vowels_count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> consonants_count = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;S.length(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(S[i] == <span class="string">'A'</span> || S[i] == <span class="string">'E'</span> || S[i] == <span class="string">'I'</span> || S[i] == <span class="string">'O'</span> || S[i] == <span class="string">'U'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = vowels.find(S[i]);</span><br><span class="line">    </span><br><span class="line">    		<span class="comment">// key already present in the map</span></span><br><span class="line">    		<span class="keyword">if</span> (it != vowels.end()) &#123;</span><br><span class="line">    			it-&gt;second++;	<span class="comment">// increment map's value for key 'c'</span></span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">// key not found</span></span><br><span class="line">    		<span class="keyword">else</span> &#123;</span><br><span class="line">    			vowels.insert(<span class="built_in">std</span>::make_pair(S[i], <span class="number">1</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    		vowels_count++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it = consonants.find(S[i]);</span><br><span class="line">    </span><br><span class="line">    		<span class="comment">// key already present in the map</span></span><br><span class="line">    		<span class="keyword">if</span> (it != consonants.end()) &#123;</span><br><span class="line">    			it-&gt;second++;	<span class="comment">// increment map's value for key 'c'</span></span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">// key not found</span></span><br><span class="line">    		<span class="keyword">else</span> &#123;</span><br><span class="line">    			consonants.insert(<span class="built_in">std</span>::make_pair(S[i], <span class="number">1</span>));</span><br><span class="line">    		&#125;</span><br><span class="line">    		consonants_count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​    </span><br><span class="line">    <span class="keyword">if</span>(vowels_count == consonants_count || (vowels_count+<span class="number">1</span>) == consonants_count)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> vowel_sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=vowels_count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            vowel_sum *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it=vowels.begin(); it!=vowels.end(); ++it)</span><br><span class="line">        &#123;</span><br><span class="line">            vowel_sum /= factorial(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">long</span> <span class="keyword">long</span> consonants_sum = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=consonants_count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            consonants_sum *= i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">std</span>::<span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt;::iterator it=consonants.begin(); it!=consonants.end(); ++it)</span><br><span class="line">        &#123;</span><br><span class="line">            consonants_sum /= factorial(it-&gt;second);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​        </span><br><span class="line">        <span class="keyword">return</span> vowel_sum * consonants_sum;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/codility-BizReach/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/08/02/codility-BizReach/" class="post-title-link" itemprop="url">BizReach Hackathon in Tokyo 2019 - Codility</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2019-08-02 13:41:00" itemprop="dateCreated datePublished" datetime="2019-08-02T13:41:00+08:00">2019-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-09-06 15:18:41" itemprop="dateModified" datetime="2020-09-06T15:18:41+08:00">2020-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Online-Programming-Test/" itemprop="url" rel="index"><span itemprop="name">Online Programming Test</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Since I am not very sure that all participates will get same questions, so I decide to publish these  later in Aug.</p>
+<p>In June late, I took participation from<br>【BizReach Hackathon in Tokyo 2019】Invitation to qualifying round coding challenge.</p>
+<p>There has 2 questions. You cannot use C and C++. Fortunately, there still has Java option.</p>
+<p>The first one is easy.</p>
+<p>Q1.<br>A multiply by B equal C.<br>Calculate the number of 1’s in C.</p>
+<p>The range of A and B is 1,000,000,000.</p>
+<p>So just to notice to use long long primitive type to multiply to avoid overflow.</p>
+<p>Q2.<br>This one is a little tough.<br>The description of scenario is so long, but the real question is to find a index in array which can guarantee the numbers at right to the target index(included) are larger than left ones.</p>
+<p>For example,<br>[1, 2, -1, 4, 5]</p>
+<p>Then the answer is 3. Since 4 and 5 are larger than 1, 2, and -1.</p>
+<p>p.s. There must exists an index can separate two group.</p>
+<p>I didn’t find O(n) solution in contest.<br>But later, I thought a while and came out the answer, the pseudo code of O(n) solution should be like the following:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//size of array is N</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max_idx = N<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">int</span> max = <span class="built_in">array</span>[N<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Max won't appear in first element</span></span><br><span class="line"><span class="comment">//We need to find leftmost max</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=N<span class="number">-2</span>; i&gt;<span class="number">0</span>; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt;= max)</span><br><span class="line">	&#123;</span><br><span class="line">		max = <span class="built_in">array</span>[i];</span><br><span class="line">		max_idx = i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> rmin = <span class="built_in">array</span>[max_idx];</span><br><span class="line"></span><br><span class="line"><span class="comment">//find the smallest number at right size</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=max_idx+<span class="number">1</span>; i&lt;=N; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt; rmin)</span><br><span class="line">	&#123;</span><br><span class="line">		rmin = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> target_idx = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> lmax = <span class="built_in">array</span>[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;max_idx; i++)</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">array</span>[i<span class="number">-1</span>] &gt; <span class="built_in">array</span>[i])</span><br><span class="line">   &#123;</span><br><span class="line">		target_idx = <span class="number">-1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; <span class="built_in">array</span>[i<span class="number">-1</span>])</span><br><span class="line">   &#123;</span><br><span class="line">		<span class="comment">//target idx must bigger than lmax and rmin, at same time target_idx is not assigned</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax &amp;&amp; <span class="built_in">array</span>[i] &gt; rmin &amp;&amp; target_idx == <span class="number">-1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			target_idx = i;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="comment">//keep track lmax</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">array</span>[i] &gt; lmax)</span><br><span class="line">	&#123;</span><br><span class="line">		lmax = <span class="built_in">array</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> target_idx == <span class="number">-1</span>? max_idx : target_idx;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/Set-Up-Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/miso.jpg">
+      <meta itemprop="name" content="Ching-Hsuan Wei">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Miso">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/09/23/Set-Up-Hexo/" class="post-title-link" itemprop="url">Set Up Hexo</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2018-09-23 19:09:23" itemprop="dateCreated datePublished" datetime="2018-09-23T19:09:23+08:00">2018-09-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-05-09 12:46:45" itemprop="dateModified" datetime="2020-05-09T12:46:45+08:00">2020-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>問題:<br>我設定_config.yml的git配置如下</p>
+<p>deploy:<br>  type: git<br>  repo: <a href="https://github.com/chinghsuanwei/chinghsuanwei.github.io.git" target="_blank" rel="noopener">https://github.com/chinghsuanwei/chinghsuanwei.github.io.git</a><br>  branch: master</p>
+<p>是正確的</p>
+<p>結果是整個hexo原始碼丟到repository上…</p>
+<p>原因:<br>好像是我自己耍87…<br>我先將hexo init 產生出來的根目錄整個先用git傳到[user].github.io<br>可能是這個原因 導致deploy的時候 他不是將 .deploy_git push上去</p>
+<p>解法:<br>我自己是將整個[user].github.io的repository砍掉重建</p>
+<p>問題:<br>Deployer not found: git</p>
+<p>解法: npm install hexo-deployer-git –save</p>
+<p>若還是沒解掉 就可能像我一樣 之前安裝有錯誤(沒下–save?)</p>
+<p>解法: 先移除 再裝一次就解了<br>npm remove hexo-deployer-git<br>npm install hexo-deployer-git –save</p>
+<p>Extra:<br>若使用git有問題 可能是</p>
+<ol>
+<li>你沒裝git</li>
+<li>盡量使用git bash 別用cmd or PowerShell</li>
+</ol>
+<p>如何新增 categories</p>
+<p><a href="https://linlif.github.io/2017/05/27/Hexo使用攻略-添加分类及标签/" target="_blank" rel="noopener">https://linlif.github.io/2017/05/27/Hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/08/macbook-pro-2010/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -298,18 +559,18 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">標籤</span>
       </div>
   </nav>
@@ -336,7 +597,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
